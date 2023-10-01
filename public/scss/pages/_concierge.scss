@@ -1,0 +1,121 @@
+.tab-bx{	
+	.nav-tabs{
+		border-bottom:unset;
+		.nav-item{
+			.nav-link{
+				color:$light;
+				border-radius:$radius;
+				    border: 1px solid transparent;
+				
+				&.active{
+					color:$black;
+					border: 1px solid gray;
+					font-weight:500;
+				}
+			}
+		}
+	}
+}
+.card{
+	&.main-card{
+		.concierge-bx{
+			
+			.concierge-img{
+				text-align:center;
+				margin-bottom:0.688rem;
+				img{
+					width:7.813rem;
+					height:7.813rem;
+					object-fit:cover;
+					border-radius:100%;
+					
+					@include respond('tab-land'){
+						    width: 5.813rem;
+							height:5.813rem;
+					}
+				}
+			}
+			.concierge-content{
+					text-align:center;
+					h2{
+						font-size:1.5rem;
+						@include respond('tab-land'){
+							font-size:1rem;
+						}
+					}
+			}
+			.concierge-icon{
+				ul{
+					li{
+						.concierge-list,
+						.concierge-list-2{
+							display: inline-block;
+							width: 3rem;
+							height: 3rem;
+							text-align: center;
+							border-radius: 50%;
+							line-height:2.9rem;
+							margin:0 0.938rem;
+							
+							@include respond('tab-land'){
+								width:2.625rem;
+								height:2.625rem;
+								line-height:2.625rem;
+							}
+							svg{
+								width:1.3rem;
+								height:1.3rem;
+								@include respond('tab-land'){
+									width:0.938rem;
+									height:0.938rem;
+								}	
+							}
+						}
+						.concierge-list{
+							background-color:#16B45526;
+							&:hover{
+								background:$success;
+								svg{
+									path{
+										fill:#ffff;
+									}
+								}
+							}
+						}
+						.concierge-list-2{
+							background-color:#F4F4F4;
+						}
+					}
+				
+					
+				}
+			}
+		}
+		&:hover{
+				box-shadow: 0px 4px 4px 0px #00000040;
+		}
+		.concierge-title{
+			h4{
+				font-size:0.875rem;
+				font-weight:400;
+				@include respond('tab-land'){
+					font-size:0.8rem;
+				}
+			}
+			span{
+				font-size:0.75rem;
+				
+			}
+		}
+		.concierge-footer{
+			p{
+				line-height:1.625rem;
+			}
+			span{
+				font-size:0.75rem;
+				display:block;
+				margin-bottom:0.5rem;
+			}
+		}
+	}
+}

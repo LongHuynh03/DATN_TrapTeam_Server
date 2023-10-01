@@ -1,0 +1,158 @@
+
+
+.asColorPicker-dropdown {
+    max-width: 26rem;
+}
+
+.asColorPicker-trigger {
+    border  : 0 none;
+    height  : 100%;
+    position: absolute;
+    right: 0;
+    top     : 0;
+    width   : 2.1875rem;
+}
+[direction="rtl"] .asColorPicker-trigger{
+	left: 0;
+	right: auto;
+}
+.asColorPicker-clear {
+    display        : none;
+    position       : absolute;
+    right          : 1rem;
+    text-decoration: none;
+    top            : .5rem;
+}
+
+
+
+.daterangepicker {
+    td.active {
+        background-color: var(--primary);
+
+        &:hover {
+            background-color: var(--primary);
+        }
+    }
+
+    button.applyBtn {
+        background-color: var(--primary);
+        border-color: var(--primary);
+    }
+}
+
+.datepicker {
+
+    &.datepicker-dropdown {
+        background: $l-bg;
+        border-radius: 0.0625rem;
+        border: 0.0625rem solid $gallery;
+		padding:1.25rem 1.875rem;
+		background:#fff;
+		position:absolute;
+		left:auto!important;
+		right:31px;
+		border-radius:$radius;
+
+        td.day, th.next, th.prev {
+            height: 1.875rem;
+            width: 1.875rem !important;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 500;
+			font-size:1rem;
+			color:#000;
+            //border-radius: 3.125rem;
+
+            &:hover {
+                //@extend %gradient-9;
+               // box-shadow: 0rem 0rem 1.875rem 0.3125rem rgba(243,30,122,0.3);
+                //color: $white;
+				//background-color:#A020F0;
+            }
+        }
+
+        th.datepicker-switch, th.next, th.prev {
+            font-weight: 600;
+            color: #fff;
+			text-align:center;
+			background-color:$primary;
+			border-radius:unset;
+			font-size:1.2rem;
+        }
+
+        th.dow {
+            font-weight: 500;
+			font-size:1rem;
+			font-weight:500;
+			padding:0.625rem 0rem;
+        }
+    }
+    table {
+
+        
+
+        tr td.selected, tr td.active.active {
+            /* @extend %gradient-9;
+            box-shadow: 0rem 0rem 1.875rem 0.3125rem rgba(243,30,122,0.3);
+            border: 0; */
+			    border: 0;
+			background:$primary!important;
+			box-shadow: unset;
+			color:$white;
+			border-radius:$radius;
+        }
+
+        tr {
+            td.today {
+                //@extend %gradient-9;
+                //box-shadow: 0rem 0rem 1.875rem 0.3125rem rgba(243,30,122,0.3);
+                color     : #ffffff!important;
+				background:$primary!important;
+				border-radius:$radius!important;
+
+                &:hover {
+                    //@extend %gradient-9;
+                   // box-shadow: 0rem 0rem 1.875rem 0.3125rem rgba(243,30,122,0.3);
+                   // color     : #ffffff;
+					//background:#A020F0!important;
+                }
+            }
+
+            td.today.disabled {
+                @extend %gradient-9;
+                box-shadow: 0rem 0rem 1.875rem 0.3125rem rgba(243,30,122,0.3);
+                color     : #ffffff;
+
+                &:hover {
+                    @extend %gradient-9;
+                    box-shadow: 0rem 0rem 1.875rem 0.3125rem rgba(243,30,122,0.3);
+                    color     : #ffffff;
+                }
+            }
+        }
+    }
+}
+
+
+.picker {
+    &__select--month, &__select--year {
+        height: 2.5em;
+    }
+
+    &__input {
+        background-color: transparent !important;
+
+        @at-root [data-theme-version="dark"] & {
+            background-color: transparent !important;
+            border: 0.0625rem solid $d-border;
+        }
+    }
+}
+
+.asColorPicker-wrap{
+	.form-control{
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+}

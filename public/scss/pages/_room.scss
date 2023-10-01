@@ -1,0 +1,160 @@
+.main-grid{
+		width:20%;
+		margin-bottom:1.875rem;
+		
+			@include custommq ($max:1600px){
+				width:25%;
+			}
+			@include respond('laptop'){
+				width:25%;
+				margin-bottom:1.563rem;
+			}
+			@include respond ('tab-land'){
+				width:33.33%;	
+			}
+			@include respond ('tab-port'){
+				width:50%;
+			}
+			@include respond ('phone'){
+				width:100%;
+			}
+	.grid-info{
+		padding:0.625rem;
+		border: 1px solid #C2C2C2;
+		background: #fff;
+		border-radius:$radius;
+	}	
+	.popular-rooms{
+		.dropdown{
+			&.dropstart{
+				z-index:2;
+				
+				.btn-link{
+					display: inline-block;
+					width: 2.875rem;
+					height:  2.875rem;
+					position: absolute;
+					text-align: center;
+					border-radius: 50%;
+					line-height: 2.875rem;
+					top: 0.938rem;
+					right:0.938rem;
+					background: #00000033;
+				}
+				svg{
+					width:1.5rem;
+					height:1.5rem;
+				}
+			}
+		}
+		img{
+			height:20.625rem;
+			object-fit:cover;
+			@include respond ('phone'){
+				height:10.938rem;
+			}
+		}
+	}
+
+	.review-area{
+		display:flex;
+		align-items:center;
+		justify-content:space-between;
+		 margin: 1.063rem 0rem 1.563rem 0rem;
+		 padding:0px 0.5rem;
+		 @include respond ('phone'){
+			 margin: 1.063rem 0rem 1.2rem 0rem;
+		 }
+		.star-rate{
+			display:flex;
+			align-items:center;
+			h4{
+				font-size:1rem;
+				font-weight:700;
+				@include respond ('tab-land'){
+					font-size:1rem;
+				}
+				
+			}
+			ul{
+				display:flex;
+				align-items:center;
+				padding-left:0.438rem;
+				li{
+					padding-right:0.438rem;
+					i{
+						color: #F66F4D;
+						font-size:1rem;;
+						@include respond ('tab-port'){
+							font-size:0.9rem;
+						}
+
+					}
+				}
+			}
+		}
+		p{
+			font-size:0.875rem;
+			@include respond('tab-port'){
+				font-size:0.871rem;
+			}
+		}
+	}
+		.feature-list{
+			padding:0px 0.5rem;
+			li{
+				margin-bottom: 0.625rem;
+				font-size: 0.938rem;
+				color: #2D3134;
+				font-weight: 400;
+				border-bottom: 1px solid #EAEAEA;
+				padding-bottom: 0.625rem;
+				@include respond ('tab-land'){
+					font-size:0.9rem;
+				}
+			}
+			li:last-child{
+				border-bottom:none;
+			}
+			span{
+				float:right;
+				color:#717579;
+			}
+		}
+}		
+.grid-tabs{	
+	.nav-item{
+		.nav-link{
+			width:3.375rem;
+			height:3.375rem;
+			padding:0;
+			background:#F4F4F4;
+			border-radius:$radius;
+			margin-left:1.5rem;
+			border:0;
+			@include respond ('laptop'){
+				width:2.813rem;
+				height:2.813rem;
+				margin-left:0.938rem;
+			}
+			svg{
+				path{
+					fill:$light;
+				}
+				@include respond ('laptop'){
+					width:1.25rem;
+					height:1.25rem;
+				}
+			}
+			&.active{
+				background: #efdedc;
+				svg{
+					path{
+						fill:$primary;
+					}
+				}
+			}
+		}
+	}		
+}
+

@@ -1,0 +1,27 @@
+.table-list{
+	&.style-1{
+		.odd{
+			background-color:#FDFDFD!important;
+		}
+		.even{
+			background-color:#FFFFFF!important;
+		}
+		td{
+			    //border-top: 1px solid #F4F4F4;
+
+		}
+	}
+	.bg-none{
+		&.sorting{
+		
+			background-image:unset;
+		}
+	}
+	.badge-xl{
+		border-radius:0.5rem;
+	}
+	
+
+	
+		
+}

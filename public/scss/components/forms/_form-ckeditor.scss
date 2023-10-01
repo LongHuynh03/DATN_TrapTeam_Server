@@ -1,0 +1,26 @@
+.custom-ekeditor{
+	ul{
+		padding-left:1.25rem;
+		li{
+			list-style:unset;
+		}
+	}
+	ol{
+		li{
+			list-style:decimal;
+		}
+	}
+	.ck{
+		height:200px;
+	}
+	.ck.ck-button{
+		padding: 6px 8px;
+		background-color: var(--rgba-primary-1);
+		color: $primary;
+		font-weight: 900;
+	}
+	.ck.ck-editor__main > .ck-editor__editable:not(.ck-focused){
+		background-color:#fafafa;
+	}
+	
+}

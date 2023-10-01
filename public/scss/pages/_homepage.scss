@@ -1,0 +1,463 @@
+
+
+.income-data{
+	.income-icon{
+		width: 4rem;
+		height: 4rem;
+		line-height: 4rem;
+		text-align: center;
+		border-radius:1rem;
+		&.style-1{
+			background-color:var(--primary);
+		}
+		&.style-2{
+			background-color:#2D3134;
+		}
+		&.style-3{
+			background-color:var(--rgba-primary-1);
+			transition:all 0.5s;
+		}
+		svg{
+			width:1.5rem;
+			height:1.5rem;
+		}
+		@include custommq ($max:1600px){
+			width:4.063rem;
+			height:4.063rem;
+			line-height:4.063rem;
+			
+			svg{
+				width:1.563rem;
+				height:1.563rem;
+				
+			}
+		}
+	}
+	.in-value{
+		h3,span{
+			color:$white;
+		}
+	}	
+	.income-value{
+		font-size: 2.063rem;
+		@include custommq ($max:1600px){
+			font-size:2.188rem;
+		}
+		@include respond ('laptop'){
+			font-size:2rem;
+		}
+		@include respond ('tab-port'){
+			font-size:1.7rem;
+		}
+	} 
+}
+.room {
+	margin: 40px 0;
+	
+}
+.popular-rooms {
+	@include transitionFast;
+	position: relative;
+	z-index: 1;
+	overflow:hidden;
+	border-radius:$radius;
+	img{
+		width: 100%;
+		height:20.938rem;
+		object-fit:cover;
+		@include transitionFast;
+		@include respond ('phone-land'){
+			height:10.938rem;
+		}
+		
+	}	
+	.content{
+		position: absolute;
+		bottom: 0;
+		padding: 1.25rem 1.25rem;
+		z-index:2;
+		.badge{
+			padding: 0.5rem 0.875rem 0.5rem 0.875rem;
+			border-radius: $radius;
+			font-size: 0.75rem;
+			font-weight: 400;
+			color: #fff;
+		}
+		h3{
+			font-size:1.313rem;
+			@include respond('tab-land'){
+				font-size:1.2rem;
+			}
+			a{
+				color:$white;
+			}
+			
+		}
+	}
+	&:after{
+		position:absolute;
+		content:"";
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0) 29.8%, rgba(0, 0, 0, 0.44) 100%);
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index:0;
+	}
+}
+.front-view-slider{
+	padding: 4.5rem 0;
+	@include respond ('phone'){
+		padding:2.5rem 0;
+	}
+	.swiper-slide.swiper-slide-active{
+		.popular-rooms{
+			margin-top:-2.5rem;
+			margin-bottom:-2.5rem;
+			img{
+				 height: calc(20.938rem + 5rem); 
+				 @include respond('phone-land'){
+					height: calc(10.938rem + 5rem); 
+				 }
+			}
+		}
+	}	
+}
+
+.coin-tabs{
+	.nav-tabs{
+		border:0;
+		.nav-item{
+			.nav-link{
+				border:1px solid transparent;
+				color: #717579;
+				padding:0.538rem 1.2rem;
+				font-weight:500;
+				font-size:0.875rem;
+				border-radius:$radius;
+				margin-right:0.438rem;
+				@include respond ("laptop"){
+					padding:0.625rem  1.188rem;
+				}
+				&.active{
+					border: 1px solid #EAEAEA;
+					background:$white;
+					color: #2D3134;
+					font-weight:500;
+					box-shadow: 0px 4px 10px 0px #0000000F;
+				}	
+			}
+		}
+	}
+}
+
+.availability{
+	span{
+		position: relative;	
+		display: inline-block;
+		.pills-lable{
+			border-radius: 4px;
+			width: 12px;
+			height: 12px;
+			background-color:var(--primary);
+		}
+	}
+	
+}
+.guest-list{
+	align-items:center;
+	img{
+		width:3.313rem;
+		height:3.313rem;
+		border-radius:3.125rem;
+		margin-right:1.25rem;
+		object-fit:cover;
+		@include respond('laptop'){
+			margin-right:.5rem;
+			height:2.5rem;
+			width:2.5rem;
+		}
+		@include respond ('tab-land'){
+			width:2.25rem;
+			height:2.25rem;
+		}
+	}
+	span{
+		color:#717579;
+	}
+		@include custommq ($max:1600px){
+			h4{
+				font-size:0.875rem;
+			}
+		}
+}
+label{}
+#datepicker{}
+#datepicker > span:hover{cursor: pointer;}
+.dz-calender{
+	.input-group-addon{
+	}
+		.form-control{
+			font-size:0.875rem;
+			font-weight: 500;
+			color: #000;
+			height: 3.75rem;
+			border:unset;
+			background:transparent;
+			&:focus{
+				border-color:transparent;
+			}
+			@include respond ('laptop'){
+				height:3.120rem;
+			}
+		}
+	
+}	
+.review-tab{
+	padding-right: 0rem;
+	@include respond ('laptop'){
+		padding-right:0;
+	}
+	.nav-link{
+		&.active{
+			background-color: var(--primary);
+			box-shadow: none;
+			span{
+				color: $white;
+			}
+			img{
+				border: 2px solid #000000;
+			}
+			h4{
+				color:$white;
+			}
+		}
+	}
+}
+.gap{
+	height:25.125rem;
+	@include custommq ($max:1600px){
+		height:24.125rem;
+	}
+	@include respond ('phone-land'){
+		height:25.125rem;
+	}
+	@include respond ('phone'){
+		height:unset;
+	}
+}
+.default-select{
+	padding: 0.875rem 2.8125rem 0.875rem 1.125rem;
+    line-height: 1;
+	align-items: center;
+    display: flex;
+    border-radius: $radius;
+    margin-left: 1.5rem;
+	font-weight: 500;
+    color: #000;
+	border:1px solid #C2C2C2!important;
+	@include respond('tab-port'){
+		margin-left:0;
+	}
+	@include respond ('phone-land'){
+		margin-left:0;
+	}
+	@include respond ('phone'){
+		margin-left:0;
+	}
+	.list{
+		border: 1px solid #c2c2c2;
+	}
+}
+.nice-select{
+	&:after{
+		border-bottom: 3px solid #c1c1c1;
+		border-right: 3px solid #c1c1c1;
+	}
+}
+.tab-content{
+	.r-tab{
+		.review-para{
+			color: #2D3134;
+			line-height: 1.625rem;
+		}
+	}
+	h3{
+		font-size:1.313rem;
+		//margin:1.5rem 0;
+		@include respond ('tab-land'){
+			margin:0.938rem 0;
+		}
+		@include respond ('tab-port'){
+			margin:0.8rem 0;
+		}
+		@include respond('phone'){
+			 margin-top: 0;
+			margin-bottom: 0.8rem;
+		}
+	}
+}
+
+.star-review{
+	display: flex;
+	li{
+		padding-right:0.625rem;
+		i{
+			font-size: 1.25rem;
+			color: #F66F4D;
+		}
+	}
+}
+.header-bx{
+	padding-left:1.25rem;
+	.header-profile2{
+		.header-img{
+			display:inline-block;
+			img{
+				width: 5rem;
+				height: 5rem;
+				border-radius: 100%;
+				margin: 1.875rem 0;
+				-webkit-filter: grayscale(100%);
+				filter: grayscale(100%);
+				@include respond ('laptop'){
+					width:5.313rem;
+					height:5.313rem;
+					margin:1.25rem 0;
+				}
+			}
+			.header-circle{ 
+				position: absolute;
+				top:50%;
+				left:50%;
+				transform:translate(-50%, -50%);
+				z-index: -1;
+				width:6rem;
+				height:6rem;
+				@include respond ('laptop'){
+					width:6.25rem;
+					height:6.25rem;
+				}
+			
+			}
+				
+			.header-edit{
+				width: 2.813rem;
+				height: 2.813rem;
+				border-radius:100%;
+				text-align: center;
+				display: inline-block;
+				line-height:2.413rem;;
+				background-color: var(--primary);
+				bottom: 0.75rem;
+				right: -0.688rem;
+				z-index: 1;
+				display:inline-block;
+				border:4px solid #fff;
+				svg{
+					width:1.063rem;
+					height:1.063rem;
+					path{
+						fill:$white;
+					}
+					@include custommq ($max:1600px){
+							width:0.9rem;
+							height:0.9rem;
+					}
+					@include respond ('tab-port'){
+						width:0.7rem;
+						height:0.7rem;
+					}
+					@include respond('phone-land'){
+						width:0.9rem;
+						height:0.9rem;
+					}
+				}
+				@include respond ('tab-port'){
+					width:1.875rem;
+					height:1.875rem;
+					line-height:1.563rem;
+				}
+				@include respond('phone-land'){
+					width: 2.813rem;
+					height: 2.813rem;
+					line-height:2.513rem;
+				}
+			}
+		}
+		.header-content{
+			margin-left:-0.438rem;
+			h2{
+				font-size:1.5rem;
+				@include respond('laptop'){
+					font-size:1.25rem;
+				}
+			}
+			span{
+				font-size:1rem;
+				color: #717579!important;
+				@include respond ('laptop'){
+					font-size:0.938rem;
+				}
+			}
+		}
+		
+	}
+}
+.dataTables_info{
+	margin-left:1.5rem;
+}
+
+.swiper-pagination{
+	&.style-1{
+		position:unset;
+		width:auto;
+		z-index:1;
+		.swiper-pagination-bullet{
+			background-color:var(--primary);
+			border-radius:.25rem;
+			@include transitionMedium;
+			&.swiper-pagination-bullet-active{
+				width:2rem;
+			}
+		}
+	}
+} 
+.booking{
+	background-color:#FAF8ED;
+}
+.trading{
+	background: var(--primary)!important;
+}
+.logo-compact{
+	&.white{
+		display:none;
+	}
+}
+.swal2-popup .swal2-styled{
+	&:focus{
+		box-shadow:unset;
+	}
+}
+.btn-outline-danger{
+	&:hover{
+		color:$white;
+	}
+}
+.form-row{
+	@include respond ('phone'){
+		flex-wrap: wrap;
+	}
+}
+
+
+/* == Typography == */
+
+.list-style{
+	li{
+		list-style-type:unset;
+	}
+}
+.text-justify{
+	text-align:justify;
+}

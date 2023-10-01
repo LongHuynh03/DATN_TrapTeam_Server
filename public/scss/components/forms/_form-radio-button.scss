@@ -1,0 +1,31 @@
+.radio{
+	.form-check-input{
+		margin:0;
+		top:0;
+		&:checked {
+			//background-color: var(--primary);
+			border-color: var(--primary);	
+			&:after{
+				transform: translate(-50%, -50%) scale(0.6);
+			}
+		}
+		&:focus {
+			border-color: var(--primary);
+			box-shadow: var(--rgba-primary-1);
+		}
+		&:after{
+			content: "";
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			background: var(--primary);
+			top: 50%;
+			left: 50%;
+			border-radius: 100%;
+			transform: translate(-50%, -50%) scale(0);
+			-webkit-transition: all 0.2s;
+			-ms-transition: all 0.2s;
+			transition: all 0.2s;
+		}
+	}
+}
