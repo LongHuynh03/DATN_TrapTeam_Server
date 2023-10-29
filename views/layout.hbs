@@ -8,7 +8,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="format-detection" content="telephone=no">
   <!-- FAVICONS ICON -->
   <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
   <link href="vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet">
@@ -21,6 +20,7 @@
   <link href="vendor/swiper/css/swiper-bundle.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <link href="vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="icons/material-design-iconic-font/css/materialdesignicons.min.css">
 
 </head>
 
@@ -47,14 +47,13 @@
   <script src="vendor/dotted-map/js/contrib/color-0.4.1.js"></script>
   <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
   <script src="js/plugins-init/datatables.init.js"></script>
-
-
+  
   <!-- All -->
   <script>
     $(function () {
       $("#datepicker").datepicker({
         autoclose: true,
-        todayHighlight: true
+        todayHighlight: true,
       }).datepicker('update', new Date());
     });
   </script>
@@ -147,7 +146,8 @@
     });
   </script>
 
-  {{!-- <script>
+  {{!--
+  <script>
     function assignedDoctor() {
 
       /*  testimonial one function by = owl.carousel.js */
