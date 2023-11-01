@@ -18,8 +18,12 @@ router.get('/tours', function(req, res, next) {
   res.render('tour/list', { title: 'Express' });
 });
 
-router.get('/tours/edit', function(req, res, next) {
-  res.render('tour/detail', { title: 'Express' });
+router.get('/detailTour', function(req, res, next) {
+  res.render('tour/edit', { title: 'Express' });
+});
+
+router.get('/test', function(req, res, next) {
+  res.render('test', { title: 'Express' });
 });
 
 router.get('/login', function(req, res, next) {
