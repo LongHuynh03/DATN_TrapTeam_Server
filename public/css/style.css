@@ -75,19 +75,19 @@
 @import url(./../vendor/perfect-scrollbar/css/perfect-scrollbar.css);
 @import url(./../vendor/metismenu/css/metisMenu.min.css);
 :root {
-  --primary: #F8857D;
+  --primary: #8BC83F;
   --secondary: #ffd482;
   --primary-hover: #f5584d;
   --primary-dark: #d1180b;
-  --rgba-primary-1: rgba(248, 133, 125, 0.1);
-  --rgba-primary-2: rgba(248, 133, 125, 0.2);
-  --rgba-primary-3: rgba(248, 133, 125, 0.3);
-  --rgba-primary-4: rgba(248, 133, 125, 0.4);
-  --rgba-primary-5: rgba(248, 133, 125, 0.5);
-  --rgba-primary-6: rgba(248, 133, 125, 0.6);
-  --rgba-primary-7: rgba(248, 133, 125, 0.7);
-  --rgba-primary-8: rgba(248, 133, 125, 0.8);
-  --rgba-primary-9: rgba(248, 133, 125, 0.9);
+  --rgba-primary-1: rgba(139, 200, 63, 0.1);
+  --rgba-primary-2: rgba(139, 200, 63, 0.2);
+  --rgba-primary-3: rgba(139, 200, 63, 0.3);
+  --rgba-primary-4: rgba(139, 200, 63, 0.4);
+  --rgba-primary-5: rgba(139, 200, 63, 0.5);
+  --rgba-primary-6: rgba(139, 200, 63, 0.6);
+  --rgba-primary-7: rgba(139, 200, 63, 0.7);
+  --rgba-primary-8: rgba(139, 200, 63, 0.8);
+  --rgba-primary-9: rgba(139, 200, 63, 0.9);
   --font-family-base: Roboto, sans-serif;
   --font-family-title: Roboto, sans-serif;
   --title: #000; }
@@ -260,7 +260,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #F8857D;
+  --bs-primary: #8BC83F;
   --bs-secondary: #ffd482;
   --bs-success: #78D69D;
   --bs-info: #b48dd3;
@@ -421,7 +421,7 @@ sup {
   top: -.5em; }
 
 a {
-  color: #F8857D;
+  color: #8BC83F;
   text-decoration: underline; }
   a:hover {
     color: #c66a64; }
@@ -1984,15 +1984,15 @@ textarea.form-control-lg {
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(248, 133, 125, 0.25); }
   .form-check-input:checked {
-    background-color: #F8857D;
-    border-color: #F8857D; }
+    background-color: #8BC83F;
+    border-color: #8BC83F; }
     .form-check-input:checked[type="checkbox"] {
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e"); }
     .form-check-input:checked[type="radio"] {
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e"); }
   .form-check-input[type="checkbox"]:indeterminate {
-    background-color: #F8857D;
-    border-color: #F8857D;
+    background-color: #8BC83F;
+    border-color: #8BC83F;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e"); }
   .form-check-input:disabled {
     pointer-events: none;
@@ -2050,7 +2050,7 @@ textarea.form-control-lg {
     width: 1rem;
     height: 1rem;
     margin-top: -0.25rem;
-    background-color: #F8857D;
+    background-color: #8BC83F;
     border: 0;
     border-radius: 1rem;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -2071,7 +2071,7 @@ textarea.form-control-lg {
   .form-range::-moz-range-thumb {
     width: 1rem;
     height: 1rem;
-    background-color: #F8857D;
+    background-color: #8BC83F;
     border: 0;
     border-radius: 1rem;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -2396,8 +2396,8 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #000;
-  background-color: #F8857D;
-  border-color: #F8857D; }
+  background-color: #8BC83F;
+  border-color: #8BC83F; }
   .btn-primary:hover {
     color: #000;
     background-color: #f99791;
@@ -2419,8 +2419,8 @@ textarea.form-control-lg {
       box-shadow: 0 0 0 0.25rem rgba(211, 113, 106, 0.5); }
   .btn-primary:disabled, .btn-primary.disabled {
     color: #000;
-    background-color: #F8857D;
-    border-color: #F8857D; }
+    background-color: #8BC83F;
+    border-color: #8BC83F; }
 
 .btn-secondary {
   color: #000;
@@ -2619,24 +2619,24 @@ textarea.form-control-lg {
     border-color: #6e6e6e; }
 
 .btn-outline-primary {
-  color: #F8857D;
-  border-color: #F8857D; }
+  color: #8BC83F;
+  border-color: #8BC83F; }
   .btn-outline-primary:hover {
     color: #000;
-    background-color: #F8857D;
-    border-color: #F8857D; }
+    background-color: #8BC83F;
+    border-color: #8BC83F; }
   .btn-check:focus + .btn-outline-primary, .btn-outline-primary:focus {
     box-shadow: 0 0 0 0.25rem rgba(248, 133, 125, 0.5); }
   .btn-check:checked + .btn-outline-primary,
   .btn-check:active + .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show {
     color: #000;
-    background-color: #F8857D;
-    border-color: #F8857D; }
+    background-color: #8BC83F;
+    border-color: #8BC83F; }
     .btn-check:checked + .btn-outline-primary:focus,
     .btn-check:active + .btn-outline-primary:focus, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .btn-outline-primary.dropdown-toggle.show:focus {
       box-shadow: 0 0 0 0.25rem rgba(248, 133, 125, 0.5); }
   .btn-outline-primary:disabled, .btn-outline-primary.disabled {
-    color: #F8857D;
+    color: #8BC83F;
     background-color: transparent; }
 
 .btn-outline-secondary {
@@ -2788,7 +2788,7 @@ textarea.form-control-lg {
 
 .btn-link {
   font-weight: 400;
-  color: #F8857D;
+  color: #8BC83F;
   text-decoration: underline; }
   .btn-link:hover {
     color: #c66a64; }
@@ -3043,7 +3043,7 @@ textarea.form-control-lg {
   .dropdown-item.active, .dropdown-item:active {
     color: #fff;
     text-decoration: none;
-    background-color: #F8857D; }
+    background-color: #8BC83F; }
   .dropdown-item.disabled, .dropdown-item:disabled {
     color: #adb5bd;
     pointer-events: none;
@@ -3079,7 +3079,7 @@ textarea.form-control-lg {
       background-color: rgba(255, 255, 255, 0.15); }
     .dropdown-menu-dark .dropdown-item.active, .dropdown-menu-dark .dropdown-item:active {
       color: #fff;
-      background-color: #F8857D; }
+      background-color: #8BC83F; }
     .dropdown-menu-dark .dropdown-item.disabled, .dropdown-menu-dark .dropdown-item:disabled {
       color: #adb5bd; }
   .dropdown-menu-dark .dropdown-divider {
@@ -3181,7 +3181,7 @@ textarea.form-control-lg {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: #F8857D;
+  color: #8BC83F;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out; }
   @media (prefers-reduced-motion: reduce) {
@@ -3227,7 +3227,7 @@ textarea.form-control-lg {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #F8857D; }
+  background-color: #8BC83F; }
 
 .nav-fill > .nav-link,
 .nav-fill .nav-item {
@@ -3877,7 +3877,7 @@ textarea.form-control-lg {
 .page-link {
   position: relative;
   display: block;
-  color: #F8857D;
+  color: #8BC83F;
   text-decoration: none;
   background-color: #fff;
   border: 1px solid #dee2e6;
@@ -3903,8 +3903,8 @@ textarea.form-control-lg {
 .page-item.active .page-link {
   z-index: 3;
   color: #fff;
-  background-color: #F8857D;
-  border-color: #F8857D; }
+  background-color: #8BC83F;
+  border-color: #8BC83F; }
 
 .page-item.disabled .page-link {
   color: #6c757d;
@@ -4066,7 +4066,7 @@ textarea.form-control-lg {
   color: #fff;
   text-align: center;
   white-space: nowrap;
-  background-color: #F8857D;
+  background-color: #8BC83F;
   transition: width 0.6s ease; }
   @media (prefers-reduced-motion: reduce) {
     .progress-bar {
@@ -4130,8 +4130,8 @@ textarea.form-control-lg {
   .list-group-item.active {
     z-index: 2;
     color: #fff;
-    background-color: #F8857D;
-    border-color: #F8857D; }
+    background-color: #8BC83F;
+    border-color: #8BC83F; }
   .list-group-item + .list-group-item {
     border-top-width: 0; }
     .list-group-item + .list-group-item.active {
@@ -5177,7 +5177,7 @@ textarea.form-control-lg {
   content: ""; }
 
 .link-primary {
-  color: #F8857D; }
+  color: #8BC83F; }
   .link-primary:hover, .link-primary:focus {
     color: #f99d97; }
 
@@ -5524,7 +5524,7 @@ textarea.form-control-lg {
   border-left: 0 !important; }
 
 .border-primary {
-  border-color: #F8857D !important; }
+  border-color: #8BC83F !important; }
 
 .border-secondary {
   border-color: #ffd482 !important; }
@@ -9615,7 +9615,7 @@ svg.pulse-svg {
   padding: 0.9375rem 0;
   min-width: 12.5rem; }
   .header-profile .dropdown-menu a:hover, .header-profile .dropdown-menu a:focus, .header-profile .dropdown-menu a.active {
-    color: #F8857D; }
+    color: #8BC83F; }
 
 .header-profile img {
   width: 3.5rem;
@@ -9634,7 +9634,7 @@ svg.pulse-svg {
     display: none; } }
 
 .header-profile .profile_title {
-  background: #F8857D;
+  background: #8BC83F;
   color: #fff;
   padding: 0.625rem 1.25rem; }
   .header-profile .profile_title h5, .header-profile .profile_title .h5 {
@@ -11695,7 +11695,7 @@ svg.pulse-svg {
       margin-right: 10px; }
     [direction="rtl"] .widget-timeline-icon li {
       border-left: 0;
-      border-right: 6px solid #F8857D; }
+      border-right: 6px solid #8BC83F; }
       [direction="rtl"] .widget-timeline-icon li a {
         padding: 0 30px 30px 0; }
       [direction="rtl"] .widget-timeline-icon li .icon {
@@ -12511,19 +12511,19 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   width: 50vw; }
 
 :root {
-  --primary: #F8857D;
+  --primary: #8BC83F;
   --secondary: #ffd482;
   --primary-hover: #f5584d;
   --primary-dark: #d1180b;
-  --rgba-primary-1: rgba(248, 133, 125, 0.1);
-  --rgba-primary-2: rgba(248, 133, 125, 0.2);
-  --rgba-primary-3: rgba(248, 133, 125, 0.3);
-  --rgba-primary-4: rgba(248, 133, 125, 0.4);
-  --rgba-primary-5: rgba(248, 133, 125, 0.5);
-  --rgba-primary-6: rgba(248, 133, 125, 0.6);
-  --rgba-primary-7: rgba(248, 133, 125, 0.7);
-  --rgba-primary-8: rgba(248, 133, 125, 0.8);
-  --rgba-primary-9: rgba(248, 133, 125, 0.9);
+  --rgba-primary-1: rgba(139, 200, 63, 0.1);
+  --rgba-primary-2: rgba(139, 200, 63, 0.2);
+  --rgba-primary-3: rgba(139, 200, 63, 0.3);
+  --rgba-primary-4: rgba(139, 200, 63, 0.4);
+  --rgba-primary-5: rgba(139, 200, 63, 0.5);
+  --rgba-primary-6: rgba(139, 200, 63, 0.6);
+  --rgba-primary-7: rgba(139, 200, 63, 0.7);
+  --rgba-primary-8: rgba(139, 200, 63, 0.8);
+  --rgba-primary-9: rgba(139, 200, 63, 0.9);
   --font-family-base: Roboto, sans-serif;
   --font-family-title: Roboto, sans-serif;
   --title: #000; }
@@ -12751,19 +12751,19 @@ The smaller device rules always should write below the bigger device rules
 Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Component
 */
 :root {
-  --primary: #F8857D;
+  --primary: #8BC83F;
   --secondary: #ffd482;
   --primary-hover: #f5584d;
   --primary-dark: #d1180b;
-  --rgba-primary-1: rgba(248, 133, 125, 0.1);
-  --rgba-primary-2: rgba(248, 133, 125, 0.2);
-  --rgba-primary-3: rgba(248, 133, 125, 0.3);
-  --rgba-primary-4: rgba(248, 133, 125, 0.4);
-  --rgba-primary-5: rgba(248, 133, 125, 0.5);
-  --rgba-primary-6: rgba(248, 133, 125, 0.6);
-  --rgba-primary-7: rgba(248, 133, 125, 0.7);
-  --rgba-primary-8: rgba(248, 133, 125, 0.8);
-  --rgba-primary-9: rgba(248, 133, 125, 0.9);
+  --rgba-primary-1: rgba(139, 200, 63, 0.1);
+  --rgba-primary-2: rgba(139, 200, 63, 0.2);
+  --rgba-primary-3: rgba(139, 200, 63, 0.3);
+  --rgba-primary-4: rgba(139, 200, 63, 0.4);
+  --rgba-primary-5: rgba(139, 200, 63, 0.5);
+  --rgba-primary-6: rgba(139, 200, 63, 0.6);
+  --rgba-primary-7: rgba(139, 200, 63, 0.7);
+  --rgba-primary-8: rgba(139, 200, 63, 0.8);
+  --rgba-primary-9: rgba(139, 200, 63, 0.9);
   --font-family-base: Roboto, sans-serif;
   --font-family-title: Roboto, sans-serif;
   --title: #000; }
@@ -12998,19 +12998,19 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     transform: rotate(-226deg) translateY(-50%); } }
 
 :root {
-  --primary: #F8857D;
+  --primary: #8BC83F;
   --secondary: #ffd482;
   --primary-hover: #f5584d;
   --primary-dark: #d1180b;
-  --rgba-primary-1: rgba(248, 133, 125, 0.1);
-  --rgba-primary-2: rgba(248, 133, 125, 0.2);
-  --rgba-primary-3: rgba(248, 133, 125, 0.3);
-  --rgba-primary-4: rgba(248, 133, 125, 0.4);
-  --rgba-primary-5: rgba(248, 133, 125, 0.5);
-  --rgba-primary-6: rgba(248, 133, 125, 0.6);
-  --rgba-primary-7: rgba(248, 133, 125, 0.7);
-  --rgba-primary-8: rgba(248, 133, 125, 0.8);
-  --rgba-primary-9: rgba(248, 133, 125, 0.9);
+  --rgba-primary-1: rgba(139, 200, 63, 0.1);
+  --rgba-primary-2: rgba(139, 200, 63, 0.2);
+  --rgba-primary-3: rgba(139, 200, 63, 0.3);
+  --rgba-primary-4: rgba(139, 200, 63, 0.4);
+  --rgba-primary-5: rgba(139, 200, 63, 0.5);
+  --rgba-primary-6: rgba(139, 200, 63, 0.6);
+  --rgba-primary-7: rgba(139, 200, 63, 0.7);
+  --rgba-primary-8: rgba(139, 200, 63, 0.8);
+  --rgba-primary-9: rgba(139, 200, 63, 0.9);
   --font-family-base: Roboto, sans-serif;
   --font-family-title: Roboto, sans-serif;
   --title: #000; }
@@ -14025,7 +14025,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   .sidebar-right #header_color_3 + label,
   .sidebar-right #sidebar_color_3 + label,
   .sidebar-right #primary_color_3 + label {
-    background-color: #F8857D; }
+    background-color: #8BC83F; }
   .sidebar-right #nav_header_color_4 + label,
   .sidebar-right #header_color_4 + label,
   .sidebar-right #sidebar_color_4 + label,
@@ -14591,7 +14591,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-nav-headerbg="color_3"][data-theme-version="dark"],
 [data-nav-headerbg="color_3"] {
-  --nav-headbg: #F8857D; }
+  --nav-headbg: #8BC83F; }
   [data-nav-headerbg="color_3"][data-theme-version="dark"] .nav-header,
   [data-nav-headerbg="color_3"] .nav-header {
     border-right: 1px solid #EEEEEE57; }
@@ -15085,13 +15085,13 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-sibebarbg="color_3"][data-theme-version="dark"],
 [data-sibebarbg="color_3"] {
-  --sidebar-bg: #F8857D;
+  --sidebar-bg: #8BC83F;
   /* .hamburger .line{
 				background:$white;
 			} */ }
   [data-sibebarbg="color_3"][data-theme-version="dark"] .menu-toggle .deznav .metismenu li > ul,
   [data-sibebarbg="color_3"] .menu-toggle .deznav .metismenu li > ul {
-    background: #F8857D !important; }
+    background: #8BC83F !important; }
   [data-sibebarbg="color_3"][data-theme-version="dark"] .deznav .metismenu ul a:before,
   [data-sibebarbg="color_3"] .deznav .metismenu ul a:before {
     background: rgba(255, 255, 255, 0.5); }
@@ -17177,7 +17177,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-headerbg="color_3"][data-theme-version="dark"],
 [data-headerbg="color_3"] {
-  --headerbg: #F8857D; }
+  --headerbg: #8BC83F; }
   [data-headerbg="color_3"][data-theme-version="dark"] .search-area2 .input-group-text,
   [data-headerbg="color_3"][data-theme-version="dark"] .search-area2 .form-control, [data-headerbg="color_3"][data-theme-version="dark"] .search-area2 .form-control::placeholder,
   [data-headerbg="color_3"] .search-area2 .input-group-text,
@@ -18130,19 +18130,19 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   --rgba-primary-9: rgba(102, 16, 242, 0.9); }
 
 [data-primary="color_3"] {
-  --primary: #F8857D;
+  --primary: #8BC83F;
   --secondary: #ffd482;
   --primary-hover: #f5584d;
   --primary-dark: #d1180b;
-  --rgba-primary-1: rgba(248, 133, 125, 0.1);
-  --rgba-primary-2: rgba(248, 133, 125, 0.2);
-  --rgba-primary-3: rgba(248, 133, 125, 0.3);
-  --rgba-primary-4: rgba(248, 133, 125, 0.4);
-  --rgba-primary-5: rgba(248, 133, 125, 0.5);
-  --rgba-primary-6: rgba(248, 133, 125, 0.6);
-  --rgba-primary-7: rgba(248, 133, 125, 0.7);
-  --rgba-primary-8: rgba(248, 133, 125, 0.8);
-  --rgba-primary-9: rgba(248, 133, 125, 0.9); }
+  --rgba-primary-1: rgba(139, 200, 63, 0.1);
+  --rgba-primary-2: rgba(139, 200, 63, 0.2);
+  --rgba-primary-3: rgba(139, 200, 63, 0.3);
+  --rgba-primary-4: rgba(139, 200, 63, 0.4);
+  --rgba-primary-5: rgba(139, 200, 63, 0.5);
+  --rgba-primary-6: rgba(139, 200, 63, 0.6);
+  --rgba-primary-7: rgba(139, 200, 63, 0.7);
+  --rgba-primary-8: rgba(139, 200, 63, 0.8);
+  --rgba-primary-9: rgba(139, 200, 63, 0.9); }
 
 [data-primary="color_4"] {
   --primary: #4d06a5;
@@ -18340,19 +18340,19 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   font-family: 'HelveticaNeue'; }
 
 :root {
-  --primary: #F8857D;
+  --primary: #8BC83F;
   --secondary: #ffd482;
   --primary-hover: #f5584d;
   --primary-dark: #d1180b;
-  --rgba-primary-1: rgba(248, 133, 125, 0.1);
-  --rgba-primary-2: rgba(248, 133, 125, 0.2);
-  --rgba-primary-3: rgba(248, 133, 125, 0.3);
-  --rgba-primary-4: rgba(248, 133, 125, 0.4);
-  --rgba-primary-5: rgba(248, 133, 125, 0.5);
-  --rgba-primary-6: rgba(248, 133, 125, 0.6);
-  --rgba-primary-7: rgba(248, 133, 125, 0.7);
-  --rgba-primary-8: rgba(248, 133, 125, 0.8);
-  --rgba-primary-9: rgba(248, 133, 125, 0.9);
+  --rgba-primary-1: rgba(139, 200, 63, 0.1);
+  --rgba-primary-2: rgba(139, 200, 63, 0.2);
+  --rgba-primary-3: rgba(139, 200, 63, 0.3);
+  --rgba-primary-4: rgba(139, 200, 63, 0.4);
+  --rgba-primary-5: rgba(139, 200, 63, 0.5);
+  --rgba-primary-6: rgba(139, 200, 63, 0.6);
+  --rgba-primary-7: rgba(139, 200, 63, 0.7);
+  --rgba-primary-8: rgba(139, 200, 63, 0.8);
+  --rgba-primary-9: rgba(139, 200, 63, 0.9);
   --font-family-base: Roboto, sans-serif;
   --font-family-title: Roboto, sans-serif;
   --title: #000; }
@@ -18420,7 +18420,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   color: #fff; }
   [data-theme-version="transparent"] .header-left input:focus {
     box-shadow: none;
-    border-color: #F8857D; }
+    border-color: #8BC83F; }
   [data-theme-version="transparent"] .header-left input::placeholder {
     color: #fff; }
 
@@ -18477,19 +18477,19 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     border-color: transparent transparent rgba(0, 0, 0, 0.15) transparent; }
 
 :root {
-  --primary: #F8857D;
+  --primary: #8BC83F;
   --secondary: #ffd482;
   --primary-hover: #f5584d;
   --primary-dark: #d1180b;
-  --rgba-primary-1: rgba(248, 133, 125, 0.1);
-  --rgba-primary-2: rgba(248, 133, 125, 0.2);
-  --rgba-primary-3: rgba(248, 133, 125, 0.3);
-  --rgba-primary-4: rgba(248, 133, 125, 0.4);
-  --rgba-primary-5: rgba(248, 133, 125, 0.5);
-  --rgba-primary-6: rgba(248, 133, 125, 0.6);
-  --rgba-primary-7: rgba(248, 133, 125, 0.7);
-  --rgba-primary-8: rgba(248, 133, 125, 0.8);
-  --rgba-primary-9: rgba(248, 133, 125, 0.9);
+  --rgba-primary-1: rgba(139, 200, 63, 0.1);
+  --rgba-primary-2: rgba(139, 200, 63, 0.2);
+  --rgba-primary-3: rgba(139, 200, 63, 0.3);
+  --rgba-primary-4: rgba(139, 200, 63, 0.4);
+  --rgba-primary-5: rgba(139, 200, 63, 0.5);
+  --rgba-primary-6: rgba(139, 200, 63, 0.6);
+  --rgba-primary-7: rgba(139, 200, 63, 0.7);
+  --rgba-primary-8: rgba(139, 200, 63, 0.8);
+  --rgba-primary-9: rgba(139, 200, 63, 0.9);
   --font-family-base: Roboto, sans-serif;
   --font-family-title: Roboto, sans-serif;
   --title: #000; }
@@ -19073,7 +19073,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   transform: translate(-50%, -50%) scale(1); }
 
 [data-theme-version="dark"] .ck-rounded-corners .ck.ck-editor__top .ck-sticky-panel .ck-toolbar, [data-theme-version="dark"] .ck.ck-editor__top .ck-sticky-panel .ck-toolbar.ck-rounded-corners {
-  border: 1px solid #F8857D; }
+  border: 1px solid #8BC83F; }
 
 [data-theme-version="dark"] .text-white .list-group-item {
   color: #fff !important; }
@@ -20773,19 +20773,19 @@ textarea.form-control {
   height: auto !important; }
 
 :root {
-  --primary: #F8857D;
+  --primary: #8BC83F;
   --secondary: #ffd482;
   --primary-hover: #f5584d;
   --primary-dark: #d1180b;
-  --rgba-primary-1: rgba(248, 133, 125, 0.1);
-  --rgba-primary-2: rgba(248, 133, 125, 0.2);
-  --rgba-primary-3: rgba(248, 133, 125, 0.3);
-  --rgba-primary-4: rgba(248, 133, 125, 0.4);
-  --rgba-primary-5: rgba(248, 133, 125, 0.5);
-  --rgba-primary-6: rgba(248, 133, 125, 0.6);
-  --rgba-primary-7: rgba(248, 133, 125, 0.7);
-  --rgba-primary-8: rgba(248, 133, 125, 0.8);
-  --rgba-primary-9: rgba(248, 133, 125, 0.9);
+  --rgba-primary-1: rgba(139, 200, 63, 0.1);
+  --rgba-primary-2: rgba(139, 200, 63, 0.2);
+  --rgba-primary-3: rgba(139, 200, 63, 0.3);
+  --rgba-primary-4: rgba(139, 200, 63, 0.4);
+  --rgba-primary-5: rgba(139, 200, 63, 0.5);
+  --rgba-primary-6: rgba(139, 200, 63, 0.6);
+  --rgba-primary-7: rgba(139, 200, 63, 0.7);
+  --rgba-primary-8: rgba(139, 200, 63, 0.8);
+  --rgba-primary-9: rgba(139, 200, 63, 0.9);
   --font-family-base: Roboto, sans-serif;
   --font-family-title: Roboto, sans-serif;
   --title: #000; }
@@ -21202,7 +21202,7 @@ textarea.form-control {
     font-weight: 600;
     color: #fff;
     text-align: center;
-    background-color: #F8857D;
+    background-color: #8BC83F;
     border-radius: unset;
     font-size: 1.2rem; }
   .datepicker.datepicker-dropdown th.dow {
@@ -21216,14 +21216,14 @@ textarea.form-control {
             box-shadow: 0rem 0rem 1.875rem 0.3125rem rgba(243,30,122,0.3);
             border: 0; */
   border: 0;
-  background: #F8857D !important;
+  background: #8BC83F !important;
   box-shadow: unset;
   color: #fff;
   border-radius: 0.5rem; }
 
 .datepicker table tr td.today {
   color: #ffffff !important;
-  background: #F8857D !important;
+  background: #8BC83F !important;
   border-radius: 0.5rem !important; }
 
 .datepicker table tr td.today.disabled {
@@ -21337,19 +21337,19 @@ textarea.form-control {
   color: #717579; }
 
 :root {
-  --primary: #F8857D;
+  --primary: #8BC83F;
   --secondary: #ffd482;
   --primary-hover: #f5584d;
   --primary-dark: #d1180b;
-  --rgba-primary-1: rgba(248, 133, 125, 0.1);
-  --rgba-primary-2: rgba(248, 133, 125, 0.2);
-  --rgba-primary-3: rgba(248, 133, 125, 0.3);
-  --rgba-primary-4: rgba(248, 133, 125, 0.4);
-  --rgba-primary-5: rgba(248, 133, 125, 0.5);
-  --rgba-primary-6: rgba(248, 133, 125, 0.6);
-  --rgba-primary-7: rgba(248, 133, 125, 0.7);
-  --rgba-primary-8: rgba(248, 133, 125, 0.8);
-  --rgba-primary-9: rgba(248, 133, 125, 0.9);
+  --rgba-primary-1: rgba(139, 200, 63, 0.1);
+  --rgba-primary-2: rgba(139, 200, 63, 0.2);
+  --rgba-primary-3: rgba(139, 200, 63, 0.3);
+  --rgba-primary-4: rgba(139, 200, 63, 0.4);
+  --rgba-primary-5: rgba(139, 200, 63, 0.5);
+  --rgba-primary-6: rgba(139, 200, 63, 0.6);
+  --rgba-primary-7: rgba(139, 200, 63, 0.7);
+  --rgba-primary-8: rgba(139, 200, 63, 0.8);
+  --rgba-primary-9: rgba(139, 200, 63, 0.9);
   --font-family-base: Roboto, sans-serif;
   --font-family-title: Roboto, sans-serif;
   --title: #000; }
@@ -21506,7 +21506,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .custom-ekeditor .ck.ck-button {
   padding: 6px 8px;
   background-color: var(--rgba-primary-1);
-  color: #F8857D;
+  color: #8BC83F;
   font-weight: 900; }
 
 .custom-ekeditor .ck.ck-editor__main > .ck-editor__editable:not(.ck-focused) {
@@ -21599,19 +21599,19 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   border-bottom-right-radius: 0; }
 
 :root {
-  --primary: #F8857D;
+  --primary: #8BC83F;
   --secondary: #ffd482;
   --primary-hover: #f5584d;
   --primary-dark: #d1180b;
-  --rgba-primary-1: rgba(248, 133, 125, 0.1);
-  --rgba-primary-2: rgba(248, 133, 125, 0.2);
-  --rgba-primary-3: rgba(248, 133, 125, 0.3);
-  --rgba-primary-4: rgba(248, 133, 125, 0.4);
-  --rgba-primary-5: rgba(248, 133, 125, 0.5);
-  --rgba-primary-6: rgba(248, 133, 125, 0.6);
-  --rgba-primary-7: rgba(248, 133, 125, 0.7);
-  --rgba-primary-8: rgba(248, 133, 125, 0.8);
-  --rgba-primary-9: rgba(248, 133, 125, 0.9);
+  --rgba-primary-1: rgba(139, 200, 63, 0.1);
+  --rgba-primary-2: rgba(139, 200, 63, 0.2);
+  --rgba-primary-3: rgba(139, 200, 63, 0.3);
+  --rgba-primary-4: rgba(139, 200, 63, 0.4);
+  --rgba-primary-5: rgba(139, 200, 63, 0.5);
+  --rgba-primary-6: rgba(139, 200, 63, 0.6);
+  --rgba-primary-7: rgba(139, 200, 63, 0.7);
+  --rgba-primary-8: rgba(139, 200, 63, 0.8);
+  --rgba-primary-9: rgba(139, 200, 63, 0.9);
   --font-family-base: Roboto, sans-serif;
   --font-family-title: Roboto, sans-serif;
   --title: #000; }
@@ -21623,19 +21623,19 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     color: #fff; }
 
 :root {
-  --primary: #F8857D;
+  --primary: #8BC83F;
   --secondary: #ffd482;
   --primary-hover: #f5584d;
   --primary-dark: #d1180b;
-  --rgba-primary-1: rgba(248, 133, 125, 0.1);
-  --rgba-primary-2: rgba(248, 133, 125, 0.2);
-  --rgba-primary-3: rgba(248, 133, 125, 0.3);
-  --rgba-primary-4: rgba(248, 133, 125, 0.4);
-  --rgba-primary-5: rgba(248, 133, 125, 0.5);
-  --rgba-primary-6: rgba(248, 133, 125, 0.6);
-  --rgba-primary-7: rgba(248, 133, 125, 0.7);
-  --rgba-primary-8: rgba(248, 133, 125, 0.8);
-  --rgba-primary-9: rgba(248, 133, 125, 0.9);
+  --rgba-primary-1: rgba(139, 200, 63, 0.1);
+  --rgba-primary-2: rgba(139, 200, 63, 0.2);
+  --rgba-primary-3: rgba(139, 200, 63, 0.3);
+  --rgba-primary-4: rgba(139, 200, 63, 0.4);
+  --rgba-primary-5: rgba(139, 200, 63, 0.5);
+  --rgba-primary-6: rgba(139, 200, 63, 0.6);
+  --rgba-primary-7: rgba(139, 200, 63, 0.7);
+  --rgba-primary-8: rgba(139, 200, 63, 0.8);
+  --rgba-primary-9: rgba(139, 200, 63, 0.9);
   --font-family-base: Roboto, sans-serif;
   --font-family-title: Roboto, sans-serif;
   --title: #000; }
@@ -21663,19 +21663,19 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     margin-bottom: .5rem; }
 
 :root {
-  --primary: #F8857D;
+  --primary: #8BC83F;
   --secondary: #ffd482;
   --primary-hover: #f5584d;
   --primary-dark: #d1180b;
-  --rgba-primary-1: rgba(248, 133, 125, 0.1);
-  --rgba-primary-2: rgba(248, 133, 125, 0.2);
-  --rgba-primary-3: rgba(248, 133, 125, 0.3);
-  --rgba-primary-4: rgba(248, 133, 125, 0.4);
-  --rgba-primary-5: rgba(248, 133, 125, 0.5);
-  --rgba-primary-6: rgba(248, 133, 125, 0.6);
-  --rgba-primary-7: rgba(248, 133, 125, 0.7);
-  --rgba-primary-8: rgba(248, 133, 125, 0.8);
-  --rgba-primary-9: rgba(248, 133, 125, 0.9);
+  --rgba-primary-1: rgba(139, 200, 63, 0.1);
+  --rgba-primary-2: rgba(139, 200, 63, 0.2);
+  --rgba-primary-3: rgba(139, 200, 63, 0.3);
+  --rgba-primary-4: rgba(139, 200, 63, 0.4);
+  --rgba-primary-5: rgba(139, 200, 63, 0.5);
+  --rgba-primary-6: rgba(139, 200, 63, 0.6);
+  --rgba-primary-7: rgba(139, 200, 63, 0.7);
+  --rgba-primary-8: rgba(139, 200, 63, 0.8);
+  --rgba-primary-9: rgba(139, 200, 63, 0.9);
   --font-family-base: Roboto, sans-serif;
   --font-family-title: Roboto, sans-serif;
   --title: #000; }
@@ -21720,19 +21720,19 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   font-size: 2rem; }
 
 :root {
-  --primary: #F8857D;
+  --primary: #8BC83F;
   --secondary: #ffd482;
   --primary-hover: #f5584d;
   --primary-dark: #d1180b;
-  --rgba-primary-1: rgba(248, 133, 125, 0.1);
-  --rgba-primary-2: rgba(248, 133, 125, 0.2);
-  --rgba-primary-3: rgba(248, 133, 125, 0.3);
-  --rgba-primary-4: rgba(248, 133, 125, 0.4);
-  --rgba-primary-5: rgba(248, 133, 125, 0.5);
-  --rgba-primary-6: rgba(248, 133, 125, 0.6);
-  --rgba-primary-7: rgba(248, 133, 125, 0.7);
-  --rgba-primary-8: rgba(248, 133, 125, 0.8);
-  --rgba-primary-9: rgba(248, 133, 125, 0.9);
+  --rgba-primary-1: rgba(139, 200, 63, 0.1);
+  --rgba-primary-2: rgba(139, 200, 63, 0.2);
+  --rgba-primary-3: rgba(139, 200, 63, 0.3);
+  --rgba-primary-4: rgba(139, 200, 63, 0.4);
+  --rgba-primary-5: rgba(139, 200, 63, 0.5);
+  --rgba-primary-6: rgba(139, 200, 63, 0.6);
+  --rgba-primary-7: rgba(139, 200, 63, 0.7);
+  --rgba-primary-8: rgba(139, 200, 63, 0.8);
+  --rgba-primary-9: rgba(139, 200, 63, 0.9);
   --font-family-base: Roboto, sans-serif;
   --font-family-title: Roboto, sans-serif;
   --title: #000; }
@@ -23093,13 +23093,13 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
         color: var(--primary);
         font-weight: 600; }
         .page-titles .breadcrumb li.active a {
-          color: #F8857D; }
+          color: #8BC83F; }
     .page-titles .breadcrumb .breadcrumb-item + .breadcrumb-item:before {
       /* font-family: 'simple-line-icons';
                 font-weight: 400;
 				position:absolute;
                 font-size: 10px; */
-      color: #F8857D; }
+      color: #8BC83F; }
     .page-titles .breadcrumb-datepicker {
       font-size: 0.75rem;
       color: #89879f; }
@@ -24574,13 +24574,13 @@ code {
     font-size: 0.75rem; }
 
 .popover {
-  border: 0.125rem solid #F8857D;
+  border: 0.125rem solid #8BC83F;
   min-width: 13.125rem;
   box-shadow: 0 0 1.875rem 0 rgba(0, 0, 0, 0.1); }
   [data-theme-version="dark"] .popover {
     background-color: #171622; }
   .popover-header {
-    background: #F8857D;
+    background: #8BC83F;
     color: #fff;
     font-weight: 300; }
     .popover-header::before {
@@ -26105,17 +26105,17 @@ td.text-ov {
   .dataTables_wrapper .dataTables_paginate .paginate_button.previous, .dataTables_wrapper .dataTables_paginate .paginate_button.next {
     border-radius: 0.5rem;
     padding: 0.7rem 1rem;
-    border: 1px solid #F8857D;
-    color: #F8857D !important;
+    border: 1px solid #8BC83F;
+    color: #8BC83F !important;
     font-weight: 500;
     font-size: 0.875rem; }
     .dataTables_wrapper .dataTables_paginate .paginate_button.previous.current:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.previous.previous:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.previous.next:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.next.current:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.next.previous:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.next.next:hover {
       color: #fff !important;
       background: var(--primary) !important;
-      border: 1px solid #F8857D; }
+      border: 1px solid #8BC83F; }
     .dataTables_wrapper .dataTables_paginate .paginate_button.previous.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.next.disabled {
       color: var(--primary) !important;
-      border: 1px solid #F8857D; }
+      border: 1px solid #8BC83F; }
   .dataTables_wrapper .dataTables_paginate .paginate_button {
     margin: 0 0.438rem !important; }
   .dataTables_wrapper .dataTables_paginate span .paginate_button {
@@ -26127,7 +26127,7 @@ td.text-ov {
     display: inline-block;
     text-align: center;
     line-height: 2.875rem;
-    color: #F8857D !important;
+    color: #8BC83F !important;
     margin: 0 7px !important;
     /* @include respond ('phone'){
 				height:3.125rem;
@@ -27178,7 +27178,7 @@ table.dataTable.display tbody td {
       .gallery-slider .swiper-img img {
         height: 4.375rem; } }
   .gallery-slider .swiper-slide-thumb-active img {
-    border-color: #F8857D; }
+    border-color: #8BC83F; }
 
 .guest-bx {
   display: flex;
@@ -27575,7 +27575,7 @@ table.dataTable.display tbody td {
   .grid-tabs .nav-item .nav-link.active {
     background: #efdedc; }
     .grid-tabs .nav-item .nav-link.active svg path {
-      fill: #F8857D; }
+      fill: #8BC83F; }
 
 .rtl {
   text-align: right;
@@ -29602,7 +29602,7 @@ table.dataTable.display tbody td {
       margin-right: 10px; }
     [direction="rtl"] .widget-timeline-icon li {
       border-left: 0;
-      border-right: 6px solid #F8857D; }
+      border-right: 6px solid #8BC83F; }
       [direction="rtl"] .widget-timeline-icon li a {
         padding: 0 30px 30px 0; }
       [direction="rtl"] .widget-timeline-icon li .icon {
@@ -29766,19 +29766,19 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   padding-right: 9.375rem; }
 
 :root {
-  --primary: #F8857D;
+  --primary: #8BC83F;
   --secondary: #ffd482;
   --primary-hover: #f5584d;
   --primary-dark: #d1180b;
-  --rgba-primary-1: rgba(248, 133, 125, 0.1);
-  --rgba-primary-2: rgba(248, 133, 125, 0.2);
-  --rgba-primary-3: rgba(248, 133, 125, 0.3);
-  --rgba-primary-4: rgba(248, 133, 125, 0.4);
-  --rgba-primary-5: rgba(248, 133, 125, 0.5);
-  --rgba-primary-6: rgba(248, 133, 125, 0.6);
-  --rgba-primary-7: rgba(248, 133, 125, 0.7);
-  --rgba-primary-8: rgba(248, 133, 125, 0.8);
-  --rgba-primary-9: rgba(248, 133, 125, 0.9);
+  --rgba-primary-1: rgba(139, 200, 63, 0.1);
+  --rgba-primary-2: rgba(139, 200, 63, 0.2);
+  --rgba-primary-3: rgba(139, 200, 63, 0.3);
+  --rgba-primary-4: rgba(139, 200, 63, 0.4);
+  --rgba-primary-5: rgba(139, 200, 63, 0.5);
+  --rgba-primary-6: rgba(139, 200, 63, 0.6);
+  --rgba-primary-7: rgba(139, 200, 63, 0.7);
+  --rgba-primary-8: rgba(139, 200, 63, 0.8);
+  --rgba-primary-9: rgba(139, 200, 63, 0.9);
   --font-family-base: Roboto, sans-serif;
   --font-family-title: Roboto, sans-serif;
   --title: #000; }
@@ -30362,7 +30362,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   transform: translate(-50%, -50%) scale(1); }
 
 [data-theme-version="dark"] .ck-rounded-corners .ck.ck-editor__top .ck-sticky-panel .ck-toolbar, [data-theme-version="dark"] .ck.ck-editor__top .ck-sticky-panel .ck-toolbar.ck-rounded-corners {
-  border: 1px solid #F8857D; }
+  border: 1px solid #8BC83F; }
 
 [data-theme-version="dark"] .text-white .list-group-item {
   color: #fff !important; }

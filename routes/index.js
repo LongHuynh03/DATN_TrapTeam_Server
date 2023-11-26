@@ -30,6 +30,18 @@ router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Express' });
 });
 
+router.get('/banner', function(req, res, next) {
+  res.render('banner', { title: 'Express' });
+});
+
+router.get('/bill', function(req, res, next) {
+  res.render('bill', { title: 'Express' });
+});
+
+router.get('/blogs', function(req, res, next) {
+  res.render('blogs', { title: 'Express' });
+});
+
 router.get('/review', function(req, res, next) {
   res.render('review', { title: 'Express' });
 });
