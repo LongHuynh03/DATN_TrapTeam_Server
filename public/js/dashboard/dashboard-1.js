@@ -155,12 +155,9 @@
 	var reservationChart = function(){
 		var options = {
 		 series: [{
-		 name: 'series1',
-		 data: [400, 400, 650, 500, 900, 750, 850]
-	   }, {
-		 name: 'series2',
-		 data: [350, 350, 420, 370, 500, 400, 550]
-	   }],
+		 name: '',
+		 data: [400, 400, 650, 500, 1000, 750, 850]
+	   },],
 		 chart: {
 		 height: 300,
 		 type: 'area',
@@ -234,10 +231,7 @@
 	 series: [{
 	 name: 'series1',
 	 data: [400, 400, 650, 500, 900, 750, 850]
-   }, {
-	 name: 'series2',
-	 data: [350, 350, 420, 370, 500, 400, 550]
-   }],
+   },],
 	 chart: {
 	 height: 300,
 	 type: 'area',
@@ -311,10 +305,7 @@ var reservationChart2 = function(){
 	 series: [{
 	 name: 'series1',
 	 data: [400, 400, 650, 500, 900, 750, 850]
-   }, {
-	 name: 'series2',
-	 data: [350, 350, 420, 370, 500, 400, 550]
-   }],
+   },],
 	 chart: {
 	 height: 300,
 	 type: 'area',
