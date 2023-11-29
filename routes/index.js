@@ -56,4 +56,12 @@ router.get('/review', function(req, res, next) {
   res.render('review', { title: 'Express' });
 });
 
+router.get('/location', function(req, res, next) {
+  res.render('location/list', { title: 'Express' });
+});
+
+router.get('/addLocation', function(req, res, next) {
+  res.render('location/add', { title: 'Express' });
+});
+
 module.exports = router;
