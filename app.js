@@ -8,6 +8,9 @@ const mongoose = require("mongoose");
 //import các model, thứ tự rất quan trọng
 require("./components/province/ProvinceModel");
 require("./components/location/LocationModel");
+require("./components/event/EventModel");
+require("./components/account/AccountModel");
+require("./components/blogs/BlogModel");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -17,6 +20,9 @@ var app = express();
 //API
 const provinceAPIRouter = require("./routes/api/ProvinceAPI");
 const locationAPIRouter = require("./routes/api/LocationAPI");
+const eventAPIRouter = require("./routes/api/EventAPI");
+const accountAPIRouter = require("./routes/api/AccountAPI");
+const blogAPIRouter = require("./routes/api/BlogAPI");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -50,6 +56,15 @@ app.use("/api/province", provinceAPIRouter);
 
 // http://localhost:3000/api/location
 app.use("/api/location", locationAPIRouter);
+
+// http://localhost:3000/api/event
+app.use("/api/event", eventAPIRouter);
+
+// http://localhost:3000/api/account
+app.use("/api/account", accountAPIRouter);
+
+// http://localhost:3000/api/blog
+app.use("/api/blog", blogAPIRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
