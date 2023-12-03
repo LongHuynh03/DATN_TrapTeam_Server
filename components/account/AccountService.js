@@ -1,3 +1,4 @@
+const express = require("express");
 const accountModel = require("./AccountModel");
 
 // Lấy danh sách tài khoản
@@ -9,7 +10,41 @@ const getAllAccounts = async (page, size) => {
     throw error;
   }
 };
+// Lưu thông tin tài khoản vào database khi đăng nhập lần đầu
+const saveAccount = async (
+  email,
+  phone_number,
+  avatar,
+  created_at,
+  name
+) => {
+  try {
+    const newAccount={
+      email,
+      phone_number,
+      avatar,
+      created_at,
+      name
+    };
+    const account = new accountModel(newAccount);
 
+    
+    await account.save();
+    const result = new accountModel(
+      account.user_id,
+      email,
+      phone_number,
+      avatar,
+      created_at,
+      name
+    );
+    return result;
+  } catch (error) {
+    console.log("Save account servive failed ", error);
+    return false;
+  }
+};
 module.exports = {
   getAllAccounts,
+  saveAccount,
 };

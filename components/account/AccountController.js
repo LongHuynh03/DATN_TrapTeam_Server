@@ -8,7 +8,30 @@ const getAllAccounts = async (page, size) => {
     throw error;
   }
 };
+// lưu thông tin tài khoản vào database khi đăng nhập lần đầu
+
+const saveAccount = async (
+  email,
+  phone_number,
+  avatar,
+  created_at,
+  name
+) => {
+  try {
+    return await accountService.saveAccount(
+      email,
+      phone_number,
+      avatar,
+      created_at,
+      name
+    );
+  } catch (error) {
+    console.log("Save account controller failed ", error);
+    return false;
+  }
+};
 
 module.exports = {
   getAllAccounts,
+  saveAccount,
 };
