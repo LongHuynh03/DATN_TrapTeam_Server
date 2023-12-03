@@ -25,31 +25,23 @@ router.get("/getAllAccounts", async (req, res) => {
 router.post("/saveAccount", async (req, res) => {
   try {
     const { email, phone_number, avatar, created_at, name } = req.body;
-    const account ={
-      email,
-      phone_number,
-      avatar,
-      created_at,
-      name
-    };
 
-    const result = await accountController.saveAccount(
+    const savedAccount = await accountController.saveAccount(
       email,
       phone_number,
       avatar,
       created_at,
       name
     );
-    if(result){
 
-    console.log("result",result);
-
+    if (savedAccount) {
       return res.status(200).json({
         result: true,
         message: "Lưu thông tin tài khoản thành công",
-        account: account,
+        account: savedAccount,
       });
     }
+
     return res.status(400).json({
       result: false,
       message: "Lưu thông tin tài khoản thất bại",

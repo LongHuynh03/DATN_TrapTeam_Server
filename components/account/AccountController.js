@@ -10,21 +10,21 @@ const getAllAccounts = async (page, size) => {
 };
 // lưu thông tin tài khoản vào database khi đăng nhập lần đầu
 
-const saveAccount = async (
-  email,
-  phone_number,
-  avatar,
-  created_at,
-  name
-) => {
+const saveAccount = async (email, phone_number, avatar, created_at, name) => {
   try {
-    return await accountService.saveAccount(
+    const savedAccount = await accountService.saveAccount(
       email,
       phone_number,
       avatar,
       created_at,
       name
     );
+
+    if (savedAccount) {
+      return savedAccount;
+    }
+
+    return null;
   } catch (error) {
     console.log("Save account controller failed ", error);
     return false;

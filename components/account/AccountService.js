@@ -11,34 +11,19 @@ const getAllAccounts = async (page, size) => {
   }
 };
 // Lưu thông tin tài khoản vào database khi đăng nhập lần đầu
-const saveAccount = async (
-  email,
-  phone_number,
-  avatar,
-  created_at,
-  name
-) => {
+const saveAccount = async (email, phone_number, avatar, created_at, name) => {
   try {
-    const newAccount={
+    const newAccount = {
       email,
       phone_number,
       avatar,
       created_at,
-      name
+      name,
     };
-    const account = new accountModel(newAccount);
 
-    
+    const account = new accountModel(newAccount);
     await account.save();
-    const result = new accountModel(
-      account.user_id,
-      email,
-      phone_number,
-      avatar,
-      created_at,
-      name
-    );
-    return result;
+    return accountModel.findById(account._id);
   } catch (error) {
     console.log("Save account servive failed ", error);
     return false;
