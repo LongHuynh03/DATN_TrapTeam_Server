@@ -12,6 +12,9 @@ require("./components/event/EventModel");
 require("./components/account/AccountModel");
 require("./components/blogs/BlogModel");
 require("./components/tour/TourModel");
+require("./components/favorite/FavoriteModel");
+require("./components/review/ReviewModel");
+require("./components/bookingtour/BookingTourModel");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -25,6 +28,9 @@ const eventAPIRouter = require("./routes/api/EventAPI");
 const accountAPIRouter = require("./routes/api/AccountAPI");
 const blogAPIRouter = require("./routes/api/BlogAPI");
 const tourAPIRouter = require("./routes/api/TourAPI");
+const favoriteAPIRouter = require("./routes/api/FavoriteAPI");
+const reviewAPIRouter = require("./routes/api/ReviewAPI");
+const bookingAPIRouter = require("./routes/api/BookingTourAPI");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -70,6 +76,15 @@ app.use("/api/blog", blogAPIRouter);
 
 // http://localhost:3000/api/tour
 app.use("/api/tour", tourAPIRouter);
+
+// http://localhost:3000/api/favorite
+app.use("/api/favorite", favoriteAPIRouter);
+
+// http://localhost:3000/api/review
+app.use("/api/review", reviewAPIRouter);
+
+// http://localhost:3000/api/booking
+app.use("/api/bookingtour", bookingAPIRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
