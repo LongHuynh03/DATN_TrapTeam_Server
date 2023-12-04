@@ -26,12 +26,26 @@ const saveAccount = async (email, phone_number, avatar, created_at, name) => {
 
     return null;
   } catch (error) {
-    console.log("Save account controller failed ", error);
+    console.log("Save account controller failed: ", error);
     return false;
   }
 };
 
+// Lấy thông tin tài khoản theo email
+const getAccountByEmail = async (email) => {
+  try {
+    const account = await accountService.getAccountByEmail(email);
+    if (account) {
+      return account;
+    }
+    return null;
+  } catch (error) {
+    console.log("Lấy thông tin tài khoản theo email controller: ", error);
+    return false;
+  }
+};
 module.exports = {
   getAllAccounts,
   saveAccount,
+  getAccountByEmail,
 };

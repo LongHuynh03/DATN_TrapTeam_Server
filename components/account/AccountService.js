@@ -25,11 +25,27 @@ const saveAccount = async (email, phone_number, avatar, created_at, name) => {
     await account.save();
     return accountModel.findById(account._id);
   } catch (error) {
-    console.log("Save account servive failed ", error);
+    console.log("Save account servive failed: ", error);
     return false;
   }
 };
+
+// lấy thông tin tài khoản theo email
+const getAccountByEmail = async (email) => {
+  try {
+    return await accountModel.findOne(
+      {
+        email: { $regex: email },
+        // $regex là tìm kiếm theo chuỗi
+      });
+  } catch (error) {
+    console.log("Lấy thông tin tài khoản theo email service: ", error);
+    return null;
+  }
+};
+
 module.exports = {
   getAllAccounts,
   saveAccount,
+  getAccountByEmail,
 };

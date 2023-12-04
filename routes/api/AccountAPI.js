@@ -58,5 +58,30 @@ router.post("/saveAccount", async (req, res) => {
 // Lấy tài khoản theo id
 
 // Lấy tài khoản theo email
+// http://localhost:3000/api/account/getAccountByEmail?email=
+router.get("/getAccountByEmail", async (req, res) => {
+  try {
+    const { email } = req.query;
+    const account = await accountController.getAccountByEmail(email);
+
+    if (account) {
+      return res.status(200).json({
+        result: true,
+        account: account,
+      });
+    }
+
+    return res.status(400).json({
+      result: false,
+      message: "Không tìm thấy tài khoản",
+      account: null,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      result: false,
+      message: error.message,
+    });
+  }
+});
 
 module.exports = router;
