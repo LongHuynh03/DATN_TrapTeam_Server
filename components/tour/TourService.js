@@ -1,4 +1,5 @@
 const tourModel = require("./TourModel");
+const provincesModel = require("../province/ProvinceModel");
 
 // Lấy danh sách tour
 
@@ -49,9 +50,45 @@ const getTourByName = async (name) => {
   }
 };
 
+// tìm kiếm tour theo filter
+const getTourByFilter = async (
+  locationProvinces,
+  locationCountry,
+  minPrice,
+  maxPrice,
+  is_popular,
+  dayFind
+) => {
+  try {
+    const tours = await tourModel.aggregate([
+      {
+        $lookup: {
+          from: "provinces",
+          localField: "province_id",
+          foreignField: "_id",
+          as: "province",
+        },
+      },
+      {
+        $match: {
+          "province.name": { $regex: locationProvinces, $options: "i" },
+          is_popular: is_popular === "true" ? true : false,
+          price: { $gte: Number(minPrice), $lte: Number(maxPrice) },
+          departure_date: dayFind,
+        },
+      },
+    ]);
+    return tours;
+  } catch (error) {
+    console.log("Tìm kiếm tour theo filter service: ", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllTours,
   getTourHighlight,
   getTourByLocation,
-  getTourByName
+  getTourByName,
+  getTourByFilter,
 };

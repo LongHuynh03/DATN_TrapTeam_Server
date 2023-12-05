@@ -36,10 +36,31 @@ const getTourByName = async (name) => {
   try {
     return await tourService.getTourByName(name);
   } catch (error) {
-    console.log(
-      "Tìm kiếm tour theo tên controller: ",
-      error
+    console.log("Tìm kiếm tour theo tên controller: ", error);
+    throw error;
+  }
+};
+
+// tìm kiếm tour theo filter
+const getTourByFilter = async (
+  locationProvinces,
+  locationCountry,
+  minPrice,
+  maxPrice,
+  is_popular,
+  dayFind
+) => {
+  try {
+    return await tourService.getTourByFilter(
+      locationProvinces,
+      locationCountry,
+      minPrice,
+      maxPrice,
+      is_popular,
+      dayFind
     );
+  } catch (error) {
+    console.log("Tìm kiếm tour theo filter controller: ", error);
     throw error;
   }
 };
@@ -48,5 +69,6 @@ module.exports = {
   getAllTours,
   getTourHighlight,
   getTourByLocation,
-  getTourByName
+  getTourByName,
+  getTourByFilter,
 };

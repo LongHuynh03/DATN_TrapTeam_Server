@@ -79,4 +79,52 @@ router.get("/getTourByName", async (req, res) => {
   }
 });
 
+// Tìm kiếm tour theo filter
+// http://localhost:3000/api/tour/getTourByFilter?locationProvinces=&locationCountry=&minPrice=&maxPrice=&is_popular=
+
+router.get("/getTourByFilter", async (req, res) => {
+  try {
+    const {
+      locationProvinces,
+      locationCountry,
+      minPrice,
+      maxPrice,
+      is_popular,
+
+      dayFind,
+    } = req.query;
+    console.log("locationProvinces: ", locationProvinces);
+    console.log("locationCountry: ", locationCountry);
+    console.log("minPrice: ", minPrice);
+    console.log("maxPrice: ", maxPrice);
+    console.log("is_popular: ", typeof is_popular);
+    console.log("dayFind: ", dayFind);
+
+    const dateParts = dayFind.split('/');
+    const day = parseInt(dateParts[0], 10);
+    const month = parseInt(dateParts[1], 10) - 1;
+    const year = parseInt(dateParts[2], 10);
+    const date = new Date(year, month, day);
+
+    const tours = await tourController.getTourByFilter(
+      locationProvinces,
+      locationCountry,
+      minPrice,
+      maxPrice,
+      is_popular,
+      date
+    );
+    return res.status(200).json({
+      result: true,
+      tours: tours,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      result: false,
+      tours: null,
+      message: error.message,
+    });
+  }
+});
+
 module.exports = router;
