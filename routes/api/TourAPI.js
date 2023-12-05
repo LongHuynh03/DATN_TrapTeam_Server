@@ -95,12 +95,6 @@ router.get("/getTourByFilter", async (req, res) => {
 
       dayFind,
     } = req.query;
-    console.log("locationProvinces: ", locationProvinces);
-    console.log("locationCountry: ", locationCountry);
-    console.log("minPrice: ", minPrice);
-    console.log("maxPrice: ", maxPrice);
-    console.log("is_popular: ", typeof is_popular);
-    console.log("dayFind: ", dayFind);
 
     const dateParts = dayFind.split("/");
     const day = parseInt(dateParts[0], 10);
