@@ -45,4 +45,29 @@ router.post("/addNewFavorite", async (req, res) => {
   }
 });
 
+// Xóa favorite khỏi danh sách yêu thích theo user_id và tour_id
+// http://localhost:3000/api/favorite/deleteFavorite
+
+router.delete("/deleteFavorite", async (req, res) => {
+  try {
+    const { user_id, tour_id } = req.body;
+    const favorite = await favoriteController.deleteFavorite(user_id, tour_id);
+    if (favorite) {
+      return res.status(200).json({
+        result: true,
+        message: "Xóa favorite thành công",
+      });
+    }
+    return res.status(400).json({
+      result: false,
+      message: "Xóa favorite thất bại",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      result: false,
+      message: error.message,
+    });
+  }
+});
+
 module.exports = router;

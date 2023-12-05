@@ -20,7 +20,18 @@ const addNewFavorite = async (user_id, tour_id) => {
   }
 };
 
+// Xóa favorite khỏi danh sách yêu thích theo user_id và tour_id
+const deleteFavorite = async (user_id, tour_id) => {
+  try {
+    return await favoriteService.deleteFavorite(user_id, tour_id);
+  } catch (error) {
+    console.log("Delete favorite controller ", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllFavorites,
   addNewFavorite,
+  deleteFavorite,
 };
