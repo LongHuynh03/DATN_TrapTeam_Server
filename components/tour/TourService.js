@@ -38,8 +38,20 @@ const getTourByLocation = async (location_id) => {
   }
 };
 
+// tìm kiếm tour theo tên
+
+const getTourByName = async (name) => {
+  try {
+    return await tourModel.find({ name: { $regex: name, $options: "i" } });
+  } catch (error) {
+    console.log("Tìm kiếm tour theo tên service: ", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllTours,
   getTourHighlight,
   getTourByLocation,
+  getTourByName
 };

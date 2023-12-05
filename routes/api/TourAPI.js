@@ -59,4 +59,24 @@ router.get("/getTourByLocation", async (req, res) => {
   }
 });
 
+// Tìm kiếm tour theo tên
+// http://localhost:3000/api/tour/getTourByName?name=
+router.get("/getTourByName", async (req, res) => {
+  try {
+    const { name } = req.query;
+    console.log("name: ", name);
+    const tours = await tourController.getTourByName(name);
+    return res.status(200).json({
+      result: true,
+      tours: tours,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      result: false,
+      tours: null,
+      message: error.message,
+    });
+  }
+});
+
 module.exports = router;

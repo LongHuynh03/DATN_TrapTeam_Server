@@ -31,8 +31,22 @@ const getTourByLocation = async (location_id) => {
   }
 };
 
+// tìm kiếm tour theo tên
+const getTourByName = async (name) => {
+  try {
+    return await tourService.getTourByName(name);
+  } catch (error) {
+    console.log(
+      "Tìm kiếm tour theo tên controller: ",
+      error
+    );
+    throw error;
+  }
+};
+
 module.exports = {
   getAllTours,
   getTourHighlight,
   getTourByLocation,
+  getTourByName
 };
