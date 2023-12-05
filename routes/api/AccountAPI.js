@@ -85,4 +85,38 @@ router.get("/getAccountByEmail", async (req, res) => {
   }
 });
 
+// api chỉnh sửa thông tin cá nhân
+// http://localhost:3000/api/account/updateAccount
+
+router.post("/updateAccount", async (req, res) => {
+  try {
+    const { id, name, phone_number, avatar } = req.body;
+    const account = await accountController.updateAccount(
+      id,
+      name,
+      phone_number,
+      avatar
+    );
+
+    if (account) {
+      return res.status(200).json({
+        result: true,
+        message: "Cập nhật thông tin tài khoản thành công",
+        account: account,
+      });
+    }
+
+    return res.status(400).json({
+      result: false,
+      message: "Cập nhật thông tin tài khoản thất bại",
+      account: null,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      result: false,
+      message: error.message,
+    });
+  }
+});
+
 module.exports = router;

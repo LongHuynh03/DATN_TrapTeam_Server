@@ -44,8 +44,29 @@ const getAccountByEmail = async (email) => {
     return false;
   }
 };
+
+// api chỉnh sửa thông tin cá nhân
+const updateAccount = async (id, name, phone_number, avatar) => {
+  try {
+    const account = await accountService.updateAccount(
+      id,
+      name,
+      phone_number,
+      avatar
+    );
+    if (account) {
+      return account;
+    }
+    return null;
+  } catch (error) {
+    console.log("Cập nhật thông tin tài khoản controller error: ", error);
+    return false;
+  }
+};
+
 module.exports = {
   getAllAccounts,
   saveAccount,
   getAccountByEmail,
+  updateAccount,
 };
