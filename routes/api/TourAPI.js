@@ -123,4 +123,25 @@ router.get("/getTourByFilter", async (req, res) => {
   }
 });
 
+// Lấy danh sách tour theo id tỉnh
+// http://localhost:3000/api/tour/getTourByProvinceId?province_id=
+
+router.get("/getTourByProvinceId", async (req, res) => {
+  try {
+    const { province_id } = req.query;
+    console.log("province_id: ", province_id);
+    const tours = await tourController.getTourByProvinceId(province_id);
+    return res.status(200).json({
+      result: true,
+      tours: tours,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      result: false,
+      tours: null,
+      message: error.message,
+    });
+  }
+});
+
 module.exports = router;

@@ -65,10 +65,21 @@ const getTourByFilter = async (
   }
 };
 
+// Lấy danh sách tour theo id tỉnh
+const getTourByProvinceId = async (province_id) => {
+  try {
+    return await tourService.getTourByProvinceId(province_id);
+  } catch (error) {
+    console.log("Lấy danh sách tour theo id tỉnh controller: ", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllTours,
   getTourHighlight,
   getTourByLocation,
   getTourByName,
   getTourByFilter,
+  getTourByProvinceId,
 };
