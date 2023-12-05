@@ -144,4 +144,24 @@ router.get("/getTourByProvinceId", async (req, res) => {
   }
 });
 
+// Lấy tour theo id và lấy danh sách địa điểm của tour đó
+// http://localhost:3000/api/tour/getTourByIdAndLocations?tour_id=
+
+router.get("/getTourByIdAndLocations", async (req, res) => {
+  try {
+    const { tour_id } = req.query;
+    const tour = await tourController.getTourByIdAndLocations(tour_id);
+    return res.status(200).json({
+      result: true,
+      tour: tour,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      result: false,
+      tour: null,
+      message: error.message,
+    });
+  }
+});
+
 module.exports = router;

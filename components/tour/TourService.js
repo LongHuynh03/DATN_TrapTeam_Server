@@ -96,6 +96,19 @@ const getTourByProvinceId = async (province_id) => {
   }
 };
 
+// Lấy tour theo id và danh sách địa điểm của tour
+const getTourByIdAndLocations = async (tour_id) => {
+  try {
+    return await tourModel.findById(tour_id).populate("locations", "");
+  } catch (error) {
+    console.log(
+      "Lấy tour theo id và danh sách địa điểm của tour service: ",
+      error
+    );
+    throw error;
+  }
+};
+
 module.exports = {
   getAllTours,
   getTourHighlight,
@@ -103,4 +116,5 @@ module.exports = {
   getTourByName,
   getTourByFilter,
   getTourByProvinceId,
+  getTourByIdAndLocations,
 };
