@@ -74,7 +74,7 @@ router.get("/getAccountByEmail", async (req, res) => {
 
     return res.status(400).json({
       result: false,
-      message: "Không tìm thấy tài khoản",
+      message: "Không tìm thấy thông tin tài khoản",
       account: null,
     });
   } catch (error) {

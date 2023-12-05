@@ -33,11 +33,7 @@ const saveAccount = async (email, phone_number, avatar, created_at, name) => {
 // lấy thông tin tài khoản theo email
 const getAccountByEmail = async (email) => {
   try {
-    return await accountModel.findOne(
-      {
-        email: { $regex: email },
-        // $regex là tìm kiếm theo chuỗi
-      });
+    return await accountModel.findOne({ email: email });
   } catch (error) {
     console.log("Lấy thông tin tài khoản theo email service: ", error);
     return null;
