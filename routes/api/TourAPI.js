@@ -82,6 +82,8 @@ router.get("/getTourByName", async (req, res) => {
 // Tìm kiếm tour theo filter
 // http://localhost:3000/api/tour/getTourByFilter?locationProvinces=&locationCountry=&minPrice=&maxPrice=&is_popular=
 
+// http://localhost:3000/api/tour/getTourByFilter?locationProvinces=hồ chí minh&is_popular=false&minPrice=0&maxPrice=1000000&dayFind=06/02/2024
+
 router.get("/getTourByFilter", async (req, res) => {
   try {
     const {
@@ -100,7 +102,7 @@ router.get("/getTourByFilter", async (req, res) => {
     console.log("is_popular: ", typeof is_popular);
     console.log("dayFind: ", dayFind);
 
-    const dateParts = dayFind.split('/');
+    const dateParts = dayFind.split("/");
     const day = parseInt(dateParts[0], 10);
     const month = parseInt(dateParts[1], 10) - 1;
     const year = parseInt(dateParts[2], 10);
