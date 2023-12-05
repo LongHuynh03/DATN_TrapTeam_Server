@@ -67,6 +67,7 @@ router.get("/getAccountByEmail", async (req, res) => {
     if (account) {
       return res.status(200).json({
         result: true,
+        message: "Lấy thông tin tài khoản thành công",
         account: account,
       });
     }

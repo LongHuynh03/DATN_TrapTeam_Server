@@ -18,7 +18,7 @@ const getAllTours = async (page, size) => {
 const getTourHighlight = async (page, size) => {
   try {
     return await tourModel
-      .find({ is_popular: true }, "_id name price images")
+      .find({ is_popular: true })
       // "_id name price images" là các trường cần lấy ra
       .populate("province_id", "name");
   } catch (error) {
@@ -28,5 +28,5 @@ const getTourHighlight = async (page, size) => {
 };
 module.exports = {
   getAllTours,
-  getTourHighlight
+  getTourHighlight,
 };
