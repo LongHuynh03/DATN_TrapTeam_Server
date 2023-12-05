@@ -38,4 +38,37 @@ router.get("/getAllBlogsByUserId", async (req, res) => {
   }
 });
 
+// Thêm bài viết
+// http://localhost:3000/api/blog/createBlog
+
+router.post("/createBlog", async (req, res) => {
+  try {
+    const { user_id, content, image } = req.body;
+    const create_at = new Date();
+    const status = true;
+    const result = await blogController.createBlog(
+      user_id,
+      content,
+      image,
+      create_at,
+      status
+    );
+    if (result) {
+      return res.status(200).json({
+        result: true,
+        message: "Thêm bài viết thành công",
+      });
+    }
+    return res.status(200).json({
+      result: false,
+      message: "Thêm bài viết thất bại",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      result: false,
+      message: error.message,
+    });
+  }
+});
+
 module.exports = router;

@@ -16,8 +16,24 @@ const getAllBlogsByUserId = async (user_id) => {
     console.log("Lấy danh sách bài viết theo user_id controller: ", error);
     throw error;
   }
-}
+};
+// Thêm bài viết
+const createBlog = async (user_id, content, image, create_at, status) => {
+  try {
+    return await blogService.createBlog(
+      user_id,
+      content,
+      image,
+      create_at,
+      status
+    );
+  } catch (error) {
+    console.log("Create blog controller: ", error);
+    throw error;
+  }
+};
 module.exports = {
   getAllBlogs,
-  getAllBlogsByUserId
+  getAllBlogsByUserId,
+  createBlog,
 };

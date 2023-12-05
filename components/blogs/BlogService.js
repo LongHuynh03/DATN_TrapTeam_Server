@@ -19,13 +19,32 @@ const getAllBlogsByUserId = async (user_id) => {
       return await blogModel.find({ user_id });
     }
     return [];
-
   } catch (error) {
     console.log("Lấy danh sách bài viết theo user_id service: ", error);
     throw error;
   }
-}
+};
+
+// Thêm bài viết
+const createBlog = async (user_id, content, image, create_at, status) => {
+  try {
+    const newBlog = {
+      user_id,
+      content,
+      image,
+      create_at,
+      status,
+    };
+    const blog = new blogModel(newBlog);
+    await blog.save();
+    return true;
+  } catch (error) {
+    console.log("Create blog service: ", error);
+    throw error;
+  }
+};
 module.exports = {
   getAllBlogs,
-  getAllBlogsByUserId
+  getAllBlogsByUserId,
+  createBlog,
 };
