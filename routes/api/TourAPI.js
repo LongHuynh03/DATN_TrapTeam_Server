@@ -37,6 +37,26 @@ router.get("/getTourHighlight", async (req, res) => {
       message: error.message,
     });
   }
-}
-);
+});
+
+// lấy danh sách tour có chứa địa điểm phổ biến
+// http://localhost:3000/api/tour/getTourByLocation?location_id=
+router.get("/getTourByLocation", async (req, res) => {
+  try {
+    const { location_id } = req.query;
+    console.log("location_id: ", location_id);
+    const tours = await tourController.getTourByLocation(location_id);
+    return res.status(200).json({
+      result: true,
+      tours: tours,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      result: false,
+      tours: null,
+      message: error.message,
+    });
+  }
+});
+
 module.exports = router;
