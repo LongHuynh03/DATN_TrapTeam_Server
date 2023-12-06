@@ -21,7 +21,40 @@ const getAllBookingToursByUser = async (user_id) => {
   }
 };
 
+// Đặt tour
+const addNewBookingTour = async (
+  user_id,
+  tour_id,
+  discount,
+  created_at,
+  adult_count,
+  child_count,
+  price,
+  note,
+  role,
+  location_custom
+) => {
+  try {
+    return await bookingtourService.addNewBookingTour(
+      user_id,
+      tour_id,
+      discount,
+      created_at,
+      adult_count,
+      child_count,
+      price,
+      note,
+      role,
+      location_custom
+    );
+  } catch (error) {
+    console.log("Add new booking tour controller ", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllBookingTours,
   getAllBookingToursByUser,
+  addNewBookingTour,
 };

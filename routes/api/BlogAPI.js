@@ -59,7 +59,7 @@ router.post("/createBlog", async (req, res) => {
         message: "Thêm bài viết thành công",
       });
     }
-    return res.status(200).json({
+    return res.status(400).json({
       result: false,
       message: "Thêm bài viết thất bại",
     });
