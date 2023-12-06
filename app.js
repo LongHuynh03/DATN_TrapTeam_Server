@@ -31,6 +31,7 @@ const tourAPIRouter = require("./routes/api/TourAPI");
 const favoriteAPIRouter = require("./routes/api/FavoriteAPI");
 const reviewAPIRouter = require("./routes/api/ReviewAPI");
 const bookingAPIRouter = require("./routes/api/BookingTourAPI");
+const imageAPIRouter = require("./routes/api/ImageAPI");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -85,6 +86,9 @@ app.use("/api/review", reviewAPIRouter);
 
 // http://localhost:3000/api/booking
 app.use("/api/bookingtour", bookingAPIRouter);
+
+// http://localhost:3000/api/image
+app.use("/api/image", imageAPIRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

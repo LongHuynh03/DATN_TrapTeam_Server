@@ -58,7 +58,6 @@ router.post("/addNewBookingTour", async (req, res) => {
     } = req.body;
     const created_at = new Date();
     let role = false; // false: tour mặc định, true: tour tùy chọn
-    console.log("location_custom", location_custom.length);
     if (location_custom.length > 0) {
       role = true;
     }
