@@ -30,8 +30,20 @@ const deleteFavorite = async (user_id, tour_id) => {
   }
 };
 
+// Lấy danh sách tour yêu thích theo user_id đăng nhập
+const getAllFavoritesByUserId = async (user_id) => {
+  try {
+    return await favoriteService.getAllFavoritesByUserId(user_id);
+  } catch (error) {
+    console.log("Lấy danh sách tour yêu thích theo user_id đăng nhập controller: ", error);
+    throw error;
+  }
+}
+
+
 module.exports = {
   getAllFavorites,
   addNewFavorite,
   deleteFavorite,
+  getAllFavoritesByUserId,
 };
