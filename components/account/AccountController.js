@@ -63,10 +63,24 @@ const updateAccount = async (id, name, phone_number, avatar) => {
     return false;
   }
 };
+// lấy thông tin tài khoản theo id
+const getAccountById = async (id) => {
+  try {
+    const account = await accountService.getAccountById(id);
+    if (account) {
+      return account;
+    }
+    return null;
+  } catch (error) {
+    console.log("Lấy thông tin tài khoản theo id controller: ", error);
+    return false;
+  }
+};
 
 module.exports = {
   getAllAccounts,
   saveAccount,
   getAccountByEmail,
   updateAccount,
+  getAccountById,
 };

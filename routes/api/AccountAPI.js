@@ -57,7 +57,31 @@ router.post("/saveAccount", async (req, res) => {
 });
 
 // Lấy tài khoản theo id
-
+// http://localhost:3000/api/account/getAccountById?id=
+router.get("/getAccountById", async (req, res) => {
+  try {
+    const { id } = req.query;
+    const account = await accountController.getAccountById(id);
+    if (account) {
+      return res.status(200).json({
+        result: true,
+        message: "Lấy thông tin tài khoản thành công",
+        account: account,
+      });
+    }
+    return res.status(400).json({
+      result: false,
+      message: "Không tìm thấy thông tin tài khoản",
+      account: null,
+    });
+  }
+  catch (error) {
+    return res.status(500).json({
+      result: false,
+      message: error.message,
+    });
+  }
+});
 // Lấy tài khoản theo email
 // http://localhost:3000/api/account/getAccountByEmail?email=
 router.get("/getAccountByEmail", async (req, res) => {
