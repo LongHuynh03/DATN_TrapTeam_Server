@@ -1,8 +1,16 @@
 var express = require('express');
 var router = express.Router();
+const userController = require('../../components/account/AccountController');
 
-router.get('/', function(req, res, next) {
-    res.render('guest/list');
+//Lấy danh sách user
+router.get('/', async function(req, res, next) {
+    try {
+      const users = await userController.getAllAccounts();
+      res.render('guest/list');
+    } catch (error) {
+      console.log("Get all user cpanel error: " + error)
+      throw error;
+    }
   });
 
 module.exports = router;

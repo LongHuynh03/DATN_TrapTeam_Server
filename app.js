@@ -35,6 +35,7 @@ const indexCpanel = require("./routes/index");
 const blogCpanel = require("./routes/cpanel/BlogCpanel");
 const eventCpanel = require("./routes/cpanel/EventCpanel");
 const locationCpanel = require("./routes/cpanel/LocationCpanel");
+const tourCpanel = require("./routes/cpanel/TourCpanel");
 const userCpanel = require("./routes/cpanel/UserCpanel");
 
 // view engine setup
@@ -64,6 +65,7 @@ app.use("/", indexCpanel);
 app.use("/blogs", blogCpanel);
 app.use("/events", eventCpanel);
 app.use("/locations", locationCpanel);
+app.use("/tour", tourCpanel);
 app.use("/users", userCpanel);
 
 //API

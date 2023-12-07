@@ -15,7 +15,7 @@ router.get('/', async function (req, res, next) {
 });
 
 // Lấy danh sách location thêm vào event
-router.get('/add', async function (req, res, next) {
+router.get('/create', async function (req, res, next) {
     try {
         const locations = await locationController.getAllLocations();
         res.render('event/add', { locations });
