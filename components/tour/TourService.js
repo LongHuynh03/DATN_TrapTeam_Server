@@ -7,7 +7,7 @@ const getAllTours = async (page, size) => {
   try {
     return await tourModel
       .find()
-      .populate("province_id", "name")
+      .populate("province_id", "")
       .populate("locations", "");
   } catch (error) {
     console.log("Get all tours servive: ", error);
@@ -21,7 +21,7 @@ const getTourHighlight = async (page, size) => {
     return await tourModel
       .find({ is_popular: true })
       // "_id name price images" là các trường cần lấy ra
-      .populate("province_id", "name");
+      .populate("province_id", "");
   } catch (error) {
     console.log("Lấy danh sách tour nổi bật service: ", error);
     throw error;
