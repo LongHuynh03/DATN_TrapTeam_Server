@@ -107,7 +107,7 @@ const getTourByIdAndLocations = async (tour_id) => {
     );
     throw error;
   }
-};
+}; 
 
 module.exports = {
   getAllTours,

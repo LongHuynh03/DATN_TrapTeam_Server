@@ -9,6 +9,16 @@ const getAllEvents = async (page, size) => {
   }
 };
 
+const createEvent = async (title, province_id, image) => {
+  try {
+    return await eventService.createEvent(title, province_id, image);
+  } catch (error) {
+    console.log("Create event controller ", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllEvents,
+  createEvent,
 };

@@ -43,8 +43,26 @@ const createBlog = async (user_id, content, image, create_at, status) => {
     throw error;
   }
 };
+
+//Thay đổi trạng thái bài viết
+const changeStatus = async ( blog_id, status) => {
+  try {
+    const blog = await blogModel.findById(blog_id);
+    if (blog) {
+      blog.status = status ? status : blog.status;
+      await blog.save();
+      return blogModel.findById(blog._id);
+    }
+    return false;
+  } catch (error) {
+    console.log("Change status blog service: ", error);
+    throw error;
+  }
+}
+
 module.exports = {
   getAllBlogs,
   getAllBlogsByUserId,
   createBlog,
+  changeStatus,
 };

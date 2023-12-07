@@ -16,9 +16,6 @@ require("./components/favorite/FavoriteModel");
 require("./components/review/ReviewModel");
 require("./components/bookingtour/BookingTourModel");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-
 var app = express();
 
 //API
@@ -32,6 +29,13 @@ const favoriteAPIRouter = require("./routes/api/FavoriteAPI");
 const reviewAPIRouter = require("./routes/api/ReviewAPI");
 const bookingAPIRouter = require("./routes/api/BookingTourAPI");
 const imageAPIRouter = require("./routes/api/ImageAPI");
+
+//Cpanel
+const indexCpanel = require("./routes/index");
+const blogCpanel = require("./routes/cpanel/BlogCpanel");
+const eventCpanel = require("./routes/cpanel/EventCpanel");
+const locationCpanel = require("./routes/cpanel/LocationCpanel");
+const userCpanel = require("./routes/cpanel/UserCpanel");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -56,8 +60,11 @@ mongoose
   .then(() => console.log(">>>>>>>>>> DB Connected!!!!!!"))
   .catch((err) => console.log(">>>>>>>>> DB Error: ", err));
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/", indexCpanel);
+app.use("/blogs", blogCpanel);
+app.use("/events", eventCpanel);
+app.use("/locations", locationCpanel);
+app.use("/users", userCpanel);
 
 //API
 // http://localhost:3000/api/province
