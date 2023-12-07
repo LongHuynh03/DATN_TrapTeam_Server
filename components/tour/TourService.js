@@ -99,7 +99,10 @@ const getTourByProvinceId = async (province_id) => {
 // Lấy tour theo id và danh sách địa điểm của tour
 const getTourByIdAndLocations = async (tour_id) => {
   try {
-    return await tourModel.findById(tour_id).populate("locations", "");
+    return await tourModel
+      .findById(tour_id)
+      .populate("locations", "")
+      .populate("province_id", "");
   } catch (error) {
     console.log(
       "Lấy tour theo id và danh sách địa điểm của tour service: ",
