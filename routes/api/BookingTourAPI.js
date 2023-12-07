@@ -79,14 +79,14 @@ router.post("/addNewBookingTour", async (req, res) => {
       return res.status(200).json({
         result: true,
         message: "Đặt tour thành công",
-        account: bookingTour,
+        bookingTour: bookingTour,
       });
     }
 
     return res.status(400).json({
       result: false,
       message: "Đặt tour thất bại",
-      account: {},
+      bookingTour: {},
     });
   } catch (error) {
     return res.status(500).json({
