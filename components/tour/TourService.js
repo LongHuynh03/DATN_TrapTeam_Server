@@ -101,7 +101,13 @@ const getTourByIdAndLocations = async (tour_id) => {
   try {
     return await tourModel
       .findById(tour_id)
-      .populate("locations", "")
+      .populate({
+        path: "locations",
+        populate: {
+          path: "province_id",
+          select: "name image", // Thay thế otherField1, otherField2 bằng các trường khác bạn muốn lấy
+        },
+      })
       .populate("province_id", "");
   } catch (error) {
     console.log(
