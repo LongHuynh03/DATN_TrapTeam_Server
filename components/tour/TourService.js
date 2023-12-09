@@ -45,7 +45,9 @@ const getTourByLocation = async (location_id) => {
 
 const getTourByName = async (name) => {
   try {
-    return await tourModel.find({ name: { $regex: name, $options: "i" } });
+    return await tourModel
+      .find({ name: { $regex: name, $options: "i" } })
+      .populate("province_id", "");
   } catch (error) {
     console.log("Tìm kiếm tour theo tên service: ", error);
     throw error;
