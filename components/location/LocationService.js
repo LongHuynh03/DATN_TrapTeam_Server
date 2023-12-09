@@ -12,6 +12,19 @@ const getAllLocations = async (page, size) => {
   }
 };
 
+// Lấy địa điểm theo id
+const getLocationById = async (location_id) => {
+  try {
+    return await locationModel
+      .findById(location_id)
+      .populate("province_id", "");
+  } catch (error) {
+    console.log("Get location by id servive ", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllLocations,
+  getLocationById,
 };

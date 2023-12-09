@@ -32,7 +32,9 @@ const getTourHighlight = async (page, size) => {
 
 const getTourByLocation = async (location_id) => {
   try {
-    return await tourModel.find({ locations: { $in: [location_id] } });
+    return await tourModel
+      .find({ locations: { $in: [location_id] } })
+      .populate("province_id", "");
   } catch (error) {
     console.log("Lấy danh sách tour chứa địa điểm phổ biến service: ", error);
     throw error;

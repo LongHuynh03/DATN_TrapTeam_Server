@@ -20,4 +20,22 @@ router.get("/getAllLocations", async (req, res) => {
   }
 });
 
+//Lấy địa điểm theo id
+// http://localhost:3000/api/location/getLocationById?location_id=
+router.get("/getLocationById", async (req, res) => {
+  try {
+    const location_id = req.query.location_id;
+    const location = await locationController.getLocationById(location_id);
+    return res.status(200).json({
+      result: true,
+      location: location,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      result: false,
+      location: {},
+    });
+  }
+});
+
 module.exports = router;

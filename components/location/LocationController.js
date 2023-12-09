@@ -1,5 +1,5 @@
 const locationService = require("./LocationService");
-
+//Lấy tất cả địa điểm
 const getAllLocations = async (page, size) => {
   try {
     return await locationService.getAllLocations(page, size);
@@ -9,6 +9,17 @@ const getAllLocations = async (page, size) => {
   }
 };
 
+//Lấy địa điểm theo id
+const getLocationById = async (location_id) => {
+  try {
+    return await locationService.getLocationById(location_id);
+  } catch (error) {
+    console.log("Get location by id controller ", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllLocations,
+  getLocationById,
 };
