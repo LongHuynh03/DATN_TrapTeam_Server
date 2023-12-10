@@ -7,19 +7,19 @@
 
 <div id="main-wrapper">
     <!--Nav header end-->
-	<div class="nav-header">
-		<a href="/" class="brand-logo">
-			<div class="column">
-				<img class="logo-abbr" width="auto" height="50%" src="images/logo.png" />
-			</div>
-		</a>
-		<div class="nav-control">
-			<div class="hamburger">
-				<span class="line"></span><span class="line"></span><span class="line"></span>
-			</div>
-		</div>
-	</div>
-	<!--Nav header end-->
+    <div class="nav-header">
+        <a href="/" class="brand-logo">
+            <div class="column">
+                <img class="logo-abbr" width="auto" height="50%" src="images/logo.png" />
+            </div>
+        </a>
+        <div class="nav-control">
+            <div class="hamburger">
+                <span class="line"></span><span class="line"></span><span class="line"></span>
+            </div>
+        </div>
+    </div>
+    <!--Nav header end-->
 
     <!--Header start-->
     <div class="header">
@@ -56,7 +56,7 @@
     </div>
     <!--Header end ti-comment-alt-->
 
-<!--Sidebar start-->
+    <!--Sidebar start-->
     <div class="deznav">
         <div class="deznav-scroll">
             <ul class="metismenu" id="menu">
@@ -65,12 +65,12 @@
                         <span class="nav-text">Thống kê</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/listUser" aria-expanded="false">
+                <li><a class="has-arrow " href="/users" aria-expanded="false">
                         <i class="flaticon-006-brightness"></i>
                         <span class="nav-text">Tài khoản</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/location" aria-expanded="false">
+                <li><a class="has-arrow " href="/locations" aria-expanded="false">
                         <i class="flaticon-017-clipboard"></i>
                         <span class="nav-text">Điểm du lịch</span>
                     </a>
@@ -80,7 +80,7 @@
                         <span class="nav-text">Chuyến du lịch</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/event" aria-expanded="false">
+                <li><a class="has-arrow " href="/events" aria-expanded="false">
                         <i class="flaticon-086-star"></i>
                         <span class="nav-text">Sự kiện</span>
                     </a>
@@ -114,10 +114,8 @@
                                         id="guestTable-all6">
                                         <thead>
                                             <tr>
-                                                <th>Stt</th>
                                                 <th>Thông tin</th>
                                                 <th>Địa điểm</th>
-                                                <th>Ngày tạo</th>
                                                 <th>
                                                     <div class="align-items-center justify-content-center">
                                                         <a href="/addEvent" class="btn btn-success btn-sm">
@@ -128,26 +126,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {{#each events}}
                                             <tr>
-                                                <td>1</td>
                                                 <td>
                                                     <div class="guest-bx">
-                                                        <img class="me-4" src="images/tour-img/Img-1.png" alt="">
+                                                        <img class="me-4" src="{{this.image}}" alt="">
                                                         <div>
                                                             <h4 class="mb-0 mt-1 fs-18 font-w500 text-nowrap">
-                                                                    Tour Tết 2024: Đà Nẵng - Hội An
+                                                                {{this.title}}
                                                             </h4>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div>
-                                                        <span class="fs-15 font-w500 text-nowrap">Đà Nẵng</span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="fs-15 font-w500 text-nowrap">29-10-2023</h5>
+                                                        <span
+                                                            class="fs-15 font-w500 text-nowrap">{{this.province_id.name}}</span>
                                                     </div>
                                                 </td>
                                                 <td>
@@ -168,6 +162,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
+                                            {{/each}}
                                         </tbody>
                                     </table>
                                 </div>

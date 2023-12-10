@@ -65,7 +65,7 @@ app.use("/", indexCpanel);
 app.use("/blogs", blogCpanel);
 app.use("/events", eventCpanel);
 app.use("/locations", locationCpanel);
-app.use("/tour", tourCpanel);
+app.use("/tours", tourCpanel);
 app.use("/users", userCpanel);
 
 //API

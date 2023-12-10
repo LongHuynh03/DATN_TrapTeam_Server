@@ -29,7 +29,6 @@ const getTourHighlight = async (page, size) => {
 };
 
 // lấy danh sách tour có chứa địa điểm phổ biến
-
 const getTourByLocation = async (location_id) => {
   try {
     return await tourModel.find({ locations: { $in: [location_id] } });
@@ -40,7 +39,6 @@ const getTourByLocation = async (location_id) => {
 };
 
 // tìm kiếm tour theo tên
-
 const getTourByName = async (name) => {
   try {
     return await tourModel.find({ name: { $regex: name, $options: "i" } });
@@ -86,7 +84,6 @@ const getTourByFilter = async (
 };
 
 // Lấy danh sách tour theo id của tỉnh
-
 const getTourByProvinceId = async (province_id) => {
   try {
     return await tourModel.find({ province_id: province_id });
@@ -107,7 +104,64 @@ const getTourByIdAndLocations = async (tour_id) => {
     );
     throw error;
   }
-}; 
+};
+
+//Thêm tour (chưa xong)
+const createTour = async (
+  name,
+  price,
+  member,
+  departure_province,
+  end_province,
+  locations,
+  departure_date,
+  end_date,
+  description,
+  schedules,
+  image,
+  is_popular,
+  status,
+) => {
+  try {
+    const newTour = {
+      name,
+      price,
+      member,
+      departure_province,
+      end_province,
+      locations,
+      departure_date,
+      end_date,
+      description,
+      schedules,
+      image,
+      is_popular,
+      status,
+    }
+    const tour = new tourModel(newTour);
+    await tour.save();
+    return true;
+  } catch (error) {
+    console.log("Create tour service error: ", error);
+    throw error;
+  }
+}
+
+//Cập nhật tour nổi bật
+const popularTour = async (tour_id, is_popular) => {
+  try {
+    const tour = await tourModel.findById(tour_id);
+    if (tour) {
+      tour.is_popular = is_popular ? is_popular : tour.is_popular;
+      await tour.save();
+      return true;
+    }
+    return false;
+  } catch (error) {
+    console.log("Popular tour servive error: ", error);
+    throw error;
+  }
+}
 
 module.exports = {
   getAllTours,
@@ -117,4 +171,5 @@ module.exports = {
   getTourByFilter,
   getTourByProvinceId,
   getTourByIdAndLocations,
+  popularTour,
 };

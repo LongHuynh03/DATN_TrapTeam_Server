@@ -47,12 +47,12 @@
                         <span class="nav-text">Thống kê</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/listUser" aria-expanded="false">
+                <li><a class="has-arrow " href="/users" aria-expanded="false">
                         <i class="flaticon-006-brightness"></i>
                         <span class="nav-text">Tài khoản</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/location" aria-expanded="false">
+                <li><a class="has-arrow " href="/locations" aria-expanded="false">
                         <i class="flaticon-017-clipboard"></i>
                         <span class="nav-text">Điểm du lịch</span>
                     </a>
@@ -62,7 +62,7 @@
                         <span class="nav-text">Chuyến du lịch</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/event" aria-expanded="false">
+                <li><a class="has-arrow " href="/events" aria-expanded="false">
                         <i class="flaticon-086-star"></i>
                         <span class="nav-text">Sự kiện</span>
                     </a>
@@ -101,11 +101,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{#each products}}
+                                        {{#each users}}
                                         <tr>
                                             <td>
                                                 <div class="media-bx d-flex py-3 align-items-center">
-                                                    <img class="me-3 rounded-circle" src="{{this.image}}" alt="images">
+                                                    <img class="me-3 rounded-circle" src="{{this.avatar}}" alt="images">
                                                     <div>
                                                         <h4 class="mb-0 mt-1 fs-15 font-w500 text-nowrap text-nowrap">
                                                             {{this.name}}
@@ -125,7 +125,7 @@
                                             </td>
                                             <td>
                                                 <div>
-                                                    <h5 class="fs-15 font-w500 text-nowrap">{{this.create_at}}</h5>
+                                                    <h5 class="fs-15 font-w500 text-nowrap">{{this.created_at}}</h5>
                                                 </div>
                                             </td>
                                         </tr>

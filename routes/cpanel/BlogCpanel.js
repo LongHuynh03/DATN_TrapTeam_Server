@@ -4,7 +4,6 @@ const blogController = require('../../components/blogs/BlogController');
 
 //Lấy danh sách bài viết
 router.get('/', async function (req, res, next) {
-
     try {
         const blogs = await blogController.getAllBlogs();
         res.render('blogs', { blogs });

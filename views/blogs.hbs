@@ -46,12 +46,12 @@
                         <span class="nav-text">Thống kê</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/listUser" aria-expanded="false">
+                <li><a class="has-arrow " href="/users" aria-expanded="false">
                         <i class="flaticon-006-brightness"></i>
                         <span class="nav-text">Tài khoản</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/location" aria-expanded="false">
+                <li><a class="has-arrow " href="/locations" aria-expanded="false">
                         <i class="flaticon-017-clipboard"></i>
                         <span class="nav-text">Điểm du lịch</span>
                     </a>
@@ -61,7 +61,7 @@
                         <span class="nav-text">Chuyến du lịch</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/event" aria-expanded="false">
+                <li><a class="has-arrow " href="/events" aria-expanded="false">
                         <i class="flaticon-086-star"></i>
                         <span class="nav-text">Sự kiện</span>
                     </a>
@@ -110,177 +110,58 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="all-status" role="tabpanel"
                         aria-labelledby="all-status-tab">
+                        {{#each blogs}}
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-xl-3 col-lg-3">
+                                    <div class="col-xl-4 col-lg-4">
                                         <div class="review-bx d-flex align-items-center">
                                             <div class="review-img">
-                                                <img src="images/review-img/pic-1.jpg" alt="images">
+                                                <img src="{{this.user_id.avatar}}" alt="images">
                                             </div>
                                             <div class="review-content">
-                                                <h2 class="font-w500">Zain Torff</h2>
+                                                <h2 class="font-w500">{{this.user_id.name}}</h2>
                                             </div>
                                         </div>
-                                        <p class="review-date font-w400">24-10-2023 2:56 AM</p>
+                                        <p class="review-date font-w400">{{this.created_at}}</p>
                                     </div>
-                                    <div class="col-xl-9 col-lg-9">
-                                        <div class="description-bx d-inline-block d-sm-flex align-items-center">
+                                    <div class="col-xl-8 col-lg-8">
+                                        <div class="description-bx d-inline-block d-sm-flex align-items-center d-flex justify-content-between">
                                             <div class="description-content">
-                                                {{!-- Tiêu đề --}}
-                                                <h3 class="font-w500">Nơi này thật tuyệt vời</h3>
                                                 {{!-- Nội dung --}}
-                                                <p class=" sub-title font-w400 lh-2">
-                                                    Đây là nơi tuyệt vời nhất mà tôi từng được đi. Tôi yêu nơi này.
-                                                    Sau này tôi nhất định sẽ tới đây một lần nữa.
-                                                </p>
-                                                <div
-                                                    class="d-inline-block d-xl-flex align-items-center justify-content-between">
-                                                    <div class="button-bx mt-2 mt-xl-0">
-                                                        <button class="btn btn-success">
-                                                            Hiện
-                                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M10 0C4.50742 0 0 4.50742 0 10C0 15.4926 4.50742 20 10 20C15.4926 20 20 15.4926 20 10C20 4.50742 15.4926 0 10 0ZM8.7898 14.5484L4.4107 10.1694L6.06781 8.51227L8.86648 11.3109L14.485 6.20344L16.062 7.93723L8.7898 14.5484Z"
-                                                                    fill="white" />
-                                                            </svg>
-                                                        </button>
-                                                        <button class="btn btn-primary ms-sm-3 ms-0">
-                                                            Ẩn
-                                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M10 0C4.50742 0 0 4.50742 0 10C0 15.4926 4.50742 20 10 20C15.4926 20 20 15.4926 20 10C20 4.50742 15.4926 0 10 0ZM14.9719 13.3148L13.3148 14.9719L10 11.6571L6.68523 14.9719L5.02812 13.3148L8.34289 10L5.02812 6.68523L6.68523 5.02812L10 8.34289L13.3148 5.02812L14.9719 6.68523L11.6571 10L14.9719 13.3148Z"
-                                                                    fill="white" />
-                                                            </svg>
-                                                        </button>
-                                                    </div>
-                                                </div>
+                                                <h4 class="font-w300">{{this.content}}</h3>
                                             </div>
                                             <div class="col-sm-3 h-auto mb-3">
-                                                <img width="100%" height="auto" src="images/event-card-img/pic-1.jpg"
-                                                    alt="">
+                                                <img width="100%" height="auto" src="{{this.image}}" alt="">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-xl-3 col-lg-3">
-                                        <div class="review-bx d-flex align-items-center">
-                                            <div class="review-img">
-                                                <img src="images/review-img/pic-1.jpg" alt="images">
-                                            </div>
-                                            <div class="review-content">
-                                                <h2 class="font-w500">Zain Torff</h2>
-                                            </div>
-                                        </div>
-                                        <p class="review-date font-w400">24-10-2023 2:56 AM</p>
-                                    </div>
-                                    <div class="col-xl-9 col-lg-9">
-                                        <div class="description-bx d-inline-block d-sm-flex align-items-center">
-                                            <div class="description-content">
-                                                {{!-- Tiêu đề --}}
-                                                <h3 class="font-w500">Nơi này thật tuyệt vời</h3>
-                                                {{!-- Nội dung --}}
-                                                <p class=" sub-title font-w400 lh-2">
-                                                    Đây là nơi tuyệt vời nhất mà tôi từng được đi. Tôi yêu nơi này.
-                                                    Sau này tôi nhất định sẽ tới đây một lần nữa.
-                                                </p>
-                                                <div
-                                                    class="d-inline-block d-xl-flex align-items-center justify-content-between">
-                                                    <div class="button-bx mt-2 mt-xl-0">
-                                                        <button class="btn btn-success">
-                                                            Hiện
-                                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M10 0C4.50742 0 0 4.50742 0 10C0 15.4926 4.50742 20 10 20C15.4926 20 20 15.4926 20 10C20 4.50742 15.4926 0 10 0ZM8.7898 14.5484L4.4107 10.1694L6.06781 8.51227L8.86648 11.3109L14.485 6.20344L16.062 7.93723L8.7898 14.5484Z"
-                                                                    fill="white" />
-                                                            </svg>
-                                                        </button>
-                                                        <button class="btn btn-primary ms-sm-3 ms-0">
-                                                            Ẩn
-                                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M10 0C4.50742 0 0 4.50742 0 10C0 15.4926 4.50742 20 10 20C15.4926 20 20 15.4926 20 10C20 4.50742 15.4926 0 10 0ZM14.9719 13.3148L13.3148 14.9719L10 11.6571L6.68523 14.9719L5.02812 13.3148L8.34289 10L5.02812 6.68523L6.68523 5.02812L10 8.34289L13.3148 5.02812L14.9719 6.68523L11.6571 10L14.9719 13.3148Z"
-                                                                    fill="white" />
-                                                            </svg>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3 h-auto mb-3">
-                                                <img width="100%" height="auto" src="images/event-card-img/pic-1.jpg"
-                                                    alt="">
-                                            </div>
-                                        </div>
+                                <div class="d-inline-block d-xl-flex align-items-center justify-content-between">
+                                    <div class="button-bx mt-2 mt-xl-0">
+                                        <button class="btn btn-success">
+                                            Hiện
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M10 0C4.50742 0 0 4.50742 0 10C0 15.4926 4.50742 20 10 20C15.4926 20 20 15.4926 20 10C20 4.50742 15.4926 0 10 0ZM8.7898 14.5484L4.4107 10.1694L6.06781 8.51227L8.86648 11.3109L14.485 6.20344L16.062 7.93723L8.7898 14.5484Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </button>
+                                        <button class="btn btn-primary ms-sm-3 ms-0">
+                                            Ẩn
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M10 0C4.50742 0 0 4.50742 0 10C0 15.4926 4.50742 20 10 20C15.4926 20 20 15.4926 20 10C20 4.50742 15.4926 0 10 0ZM14.9719 13.3148L13.3148 14.9719L10 11.6571L6.68523 14.9719L5.02812 13.3148L8.34289 10L5.02812 6.68523L6.68523 5.02812L10 8.34289L13.3148 5.02812L14.9719 6.68523L11.6571 10L14.9719 13.3148Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-xl-3 col-lg-3">
-                                        <div class="review-bx d-flex align-items-center">
-                                            <div class="review-img">
-                                                <img src="images/review-img/pic-1.jpg" alt="images">
-                                            </div>
-                                            <div class="review-content">
-                                                <h2 class="font-w500">Zain Torff</h2>
-                                            </div>
-                                        </div>
-                                        <p class="review-date font-w400">24-10-2023 2:56 AM</p>
-                                    </div>
-                                    <div class="col-xl-9 col-lg-9">
-                                        <div class="description-bx d-inline-block d-sm-flex align-items-center">
-                                            <div class="description-content">
-                                                {{!-- Tiêu đề --}}
-                                                <h3 class="font-w500">Nơi này thật tuyệt vời</h3>
-                                                {{!-- Nội dung --}}
-                                                <p class=" sub-title font-w400 lh-2">
-                                                    Đây là nơi tuyệt vời nhất mà tôi từng được đi. Tôi yêu nơi này.
-                                                    Sau này tôi nhất định sẽ tới đây một lần nữa.
-                                                </p>
-                                                <div
-                                                    class="d-inline-block d-xl-flex align-items-center justify-content-between">
-                                                    <div class="button-bx mt-2 mt-xl-0">
-                                                        <button class="btn btn-success">
-                                                            Hiện
-                                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M10 0C4.50742 0 0 4.50742 0 10C0 15.4926 4.50742 20 10 20C15.4926 20 20 15.4926 20 10C20 4.50742 15.4926 0 10 0ZM8.7898 14.5484L4.4107 10.1694L6.06781 8.51227L8.86648 11.3109L14.485 6.20344L16.062 7.93723L8.7898 14.5484Z"
-                                                                    fill="white" />
-                                                            </svg>
-                                                        </button>
-                                                        <button class="btn btn-primary ms-sm-3 ms-0">
-                                                            Ẩn
-                                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M10 0C4.50742 0 0 4.50742 0 10C0 15.4926 4.50742 20 10 20C15.4926 20 20 15.4926 20 10C20 4.50742 15.4926 0 10 0ZM14.9719 13.3148L13.3148 14.9719L10 11.6571L6.68523 14.9719L5.02812 13.3148L8.34289 10L5.02812 6.68523L6.68523 5.02812L10 8.34289L13.3148 5.02812L14.9719 6.68523L11.6571 10L14.9719 13.3148Z"
-                                                                    fill="white" />
-                                                            </svg>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3 h-auto mb-3">
-                                                <img width="100%" height="auto" src="images/event-card-img/pic-1.jpg"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {{/each}}
                     </div>
                     <div class="tab-pane fade" id="published" role="tabpanel" aria-labelledby="published-tab">
                         <div class="card">
@@ -342,7 +223,7 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="archived" role="tabpanel" aria-labelledby="archived-tab">
-                        
+
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">

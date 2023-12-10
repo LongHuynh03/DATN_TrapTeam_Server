@@ -31,7 +31,7 @@ router.post('/create', async function (req, res, next) {
         let {body, file} = req;
         let {title, province_id, image} = body;
         await eventController.createEvent(title, province_id, image);
-        res.render('event/add');
+        res.render('event/list');
     } catch (error) {
         console.log("Post add event cpanel: ", error);
         throw error;
