@@ -57,7 +57,6 @@ const getTourByName = async (name) => {
 // tìm kiếm tour theo filter
 const getTourByFilter = async (
   locationProvinces,
-  locationCountry,
   minPrice,
   maxPrice,
   is_popular,
@@ -79,6 +78,30 @@ const getTourByFilter = async (
           is_popular: is_popular === "true" ? true : false,
           price: { $gte: Number(minPrice), $lte: Number(maxPrice) },
           departure_date: dayFind,
+        },
+      },
+      {
+        $project: {
+          _id: 1,
+          province_id: {
+            $mergeObjects: [
+              { _id: "$province_id" },
+              { $arrayElemAt: ["$province", 0] },
+            ],
+          },
+          name: 1,
+  description: 1,
+  available_seats: 1,
+  image: 1,
+  price: 1,
+  departure_date: 1,
+  departure_location: 1,
+  end_date: 1,
+  status: 1,
+  created_at: 1,
+  is_popular: 1,
+  schedules: 1,
+  locations: 1,
         },
       },
     ]);

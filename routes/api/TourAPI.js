@@ -88,11 +88,9 @@ router.get("/getTourByFilter", async (req, res) => {
   try {
     const {
       locationProvinces,
-      locationCountry,
       minPrice,
       maxPrice,
       is_popular,
-
       dayFind,
     } = req.query;
 
@@ -104,7 +102,6 @@ router.get("/getTourByFilter", async (req, res) => {
 
     const tours = await tourController.getTourByFilter(
       locationProvinces,
-      locationCountry,
       minPrice,
       maxPrice,
       is_popular,
