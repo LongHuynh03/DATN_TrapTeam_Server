@@ -38,4 +38,25 @@ router.get("/getLocationById", async (req, res) => {
   }
 });
 
+// Lấy địa điểm theo province_id
+// http://localhost:3000/api/location/getLocationByProvinceId?province_id=
+
+router.get("/getLocationByProvinceId", async (req, res) => {
+  try {
+    const province_id = req.query.province_id;
+    const locations = await locationController.getLocationByProvinceId(
+      province_id
+    );
+    return res.status(200).json({
+      result: true,
+      locations: locations,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      result: false,
+      locations: [],
+    });
+  }
+});
+
 module.exports = router;
