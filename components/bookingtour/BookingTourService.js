@@ -61,10 +61,10 @@ const addNewBookingTour = async (
   }
 };
 
-// Lấy danh sách tour đã đặt theo tour_id và role: true: mặc định
+// Lấy danh sách tour đã đặt theo tour_id và role: false: mặc định
 const getAllBookingToursByTourId = async (tour_id) => {
   try {
-    return await bookingtourModel.find({ tour_id: tour_id, role: true });
+    return await bookingtourModel.find({ tour_id: tour_id, role: false });
   } catch (error) {
     console.log("Get all booking tours servive ", error);
     throw error;
