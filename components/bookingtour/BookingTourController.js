@@ -53,8 +53,21 @@ const addNewBookingTour = async (
   }
 };
 
+// lấy danh sach tour theo tour_id và role
+const getAllBookingToursByTourId = async (tour_id) => {
+  try {
+    return await bookingtourService.getAllBookingToursByTourId(
+      tour_id,
+    );
+  } catch (error) {
+    console.log("Get all booking tours controller ", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllBookingTours,
   getAllBookingToursByUser,
   addNewBookingTour,
+  getAllBookingToursByTourId
 };

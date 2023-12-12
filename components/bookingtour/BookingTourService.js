@@ -6,7 +6,8 @@ const getAllBookingTours = async (page, size) => {
     return await bookingtourModel
       .find()
       .populate("tour_id", "")
-      .populate("user_id", "");
+      .populate("user_id", "")
+      .populate("location_custom", "");
   } catch (error) {
     console.log("Get all booking tours servive ", error);
     throw error;
@@ -60,8 +61,19 @@ const addNewBookingTour = async (
   }
 };
 
+// Lấy danh sách tour đã đặt theo tour_id và role: true: mặc định
+const getAllBookingToursByTourId = async (tour_id) => {
+  try {
+    return await bookingtourModel.find({ tour_id: tour_id, role: true });
+  } catch (error) {
+    console.log("Get all booking tours servive ", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllBookingTours,
   getAllBookingToursByUser,
   addNewBookingTour,
+  getAllBookingToursByTourId,
 };
