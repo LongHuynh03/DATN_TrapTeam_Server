@@ -19,7 +19,8 @@ const getAllBookingToursByUser = async (user_id) => {
   try {
     return await bookingtourModel
       .find({ user_id: user_id })
-      .populate("tour_id", "");
+      .populate({ path: "tour_id", populate: { path: "province_id" } })
+      .sort({ created_at: -1 });
   } catch (error) {
     console.log("Get all booking tours servive ", error);
     throw error;
