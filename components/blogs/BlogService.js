@@ -3,7 +3,7 @@ const blogModel = require("./BlogModel");
 // Lấy danh sách bài viết
 const getAllBlogs = async (page, size) => {
   try {
-    return await blogModel.find();
+    return await blogModel.find().populate("user_id","");
   } catch (error) {
     console.log("Get all blogs servive: ", error);
     throw error;
