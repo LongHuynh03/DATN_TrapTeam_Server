@@ -3,7 +3,7 @@ const blogModel = require("./BlogModel");
 // Lấy danh sách bài viết
 const getAllBlogs = async (page, size) => {
   try {
-    return await blogModel.find();
+    return await blogModel.find().populate("user_id", "");
   } catch (error) {
     console.log("Get all blogs servive: ", error);
     throw error;
@@ -16,7 +16,7 @@ const getAllBlogsByUserId = async (user_id) => {
       // exists là kiểm tra xem có bài viết nào do user đăng hay chưa
       // trả về true nghĩa là user đã có bài viết và sẽ trả về mảng chứa các bài viết do user đó đăng
       // trả về false nghĩa là user chưa bài viết nên sẽ trả về mảng rỗng
-      return await blogModel.find({ user_id });
+      return await blogModel.find({ user_id }).populate("user_id", "");
     }
     return [];
   } catch (error) {
@@ -37,7 +37,7 @@ const createBlog = async (user_id, content, image, create_at, status) => {
     };
     const blog = new blogModel(newBlog);
     await blog.save();
-    return true;
+    return blogModel.findById(blog._id).populate("user_id", "");
   } catch (error) {
     console.log("Create blog service: ", error);
     throw error;
