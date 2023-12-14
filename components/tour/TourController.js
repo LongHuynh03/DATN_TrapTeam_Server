@@ -83,6 +83,24 @@ const getTourByIdAndLocations = async (tour_id) => {
   }
 };
 
+const popularTour = async (tour_id, is_popular) => {
+  try {
+    return await tourService.popularTour(tour_id, is_popular);
+  } catch (error) {
+    console.log("Popular tour controller error: ", error);
+    throw error;
+  }
+};
+
+const changeStatus = async (tour_id, status) => {
+  try {
+    return await tourService.changeStatus(tour_id, status);
+  } catch (error) {
+    console.log("Change status tour controller error: ", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllTours,
   getTourHighlight,
@@ -91,4 +109,6 @@ module.exports = {
   getTourByFilter,
   getTourByProvinceId,
   getTourByIdAndLocations,
+  popularTour,
+  changeStatus
 };

@@ -10,6 +10,24 @@ const getAllEvents = async (page, size) => {
   }
 };
 
+//Thêm sự kiện
+const createEvent = async (title, province_id, image) => {
+  try {
+    const newEvent = {
+      title,
+      province_id,
+      image
+    };
+    const event = new eventModel(newEvent);
+    await event.save();
+    return true;
+  } catch (error) {
+    console.log("Create events servive ", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllEvents,
+  createEvent,
 };

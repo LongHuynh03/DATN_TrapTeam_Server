@@ -58,48 +58,48 @@
 	<!--Header end ti-comment-alt-->
 
 	<!--Sidebar start-->
-    <div class="deznav">
-        <div class="deznav-scroll">
-            <ul class="metismenu" id="menu">
-                <li><a class="has-arrow " href="/" aria-expanded="false">
-                        <i class="flaticon-025-dashboard"></i>
-                        <span class="nav-text">Thống kê</span>
-                    </a>
-                </li>
-                <li><a class="has-arrow " href="/listUser" aria-expanded="false">
-                        <i class="flaticon-006-brightness"></i>
-                        <span class="nav-text">Tài khoản</span>
-                    </a>
-                </li>
-                <li><a class="has-arrow " href="/location" aria-expanded="false">
-                        <i class="flaticon-017-clipboard"></i>
-                        <span class="nav-text">Điểm du lịch</span>
-                    </a>
-                </li>
-                <li><a class="has-arrow " href="/tours" aria-expanded="false">
-                        <i class="flaticon-017-clipboard"></i>
-                        <span class="nav-text">Chuyến du lịch</span>
-                    </a>
-                </li>
-                <li><a class="has-arrow " href="/event" aria-expanded="false">
-                        <i class="flaticon-086-star"></i>
-                        <span class="nav-text">Sự kiện</span>
-                    </a>
-                </li>
-                <li><a class="has-arrow " href="/blogs" aria-expanded="false">
-                        <i class="flaticon-022-copy"></i>
-                        <span class="nav-text">Bài viết</span>
-                    </a>
-                </li>
-                <li><a class="has-arrow " href="/login" aria-expanded="false">
-                        <i class="flaticon-061-outside"></i>
-                        <span class="nav-text">Đăng xuất</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!--Sidebar end-->
+	<div class="deznav">
+		<div class="deznav-scroll">
+			<ul class="metismenu" id="menu">
+				<li><a class="has-arrow " href="/" aria-expanded="false">
+						<i class="flaticon-025-dashboard"></i>
+						<span class="nav-text">Thống kê</span>
+					</a>
+				</li>
+				<li><a class="has-arrow " href="/users" aria-expanded="false">
+						<i class="flaticon-006-brightness"></i>
+						<span class="nav-text">Tài khoản</span>
+					</a>
+				</li>
+				<li><a class="has-arrow " href="/cpanel/locations/" aria-expanded="false">
+						<i class="flaticon-017-clipboard"></i>
+						<span class="nav-text">Điểm du lịch</span>
+					</a>
+				</li>
+				<li><a class="has-arrow " href="/tours" aria-expanded="false">
+						<i class="flaticon-017-clipboard"></i>
+						<span class="nav-text">Chuyến du lịch</span>
+					</a>
+				</li>
+				<li><a class="has-arrow " href="/events" aria-expanded="false">
+						<i class="flaticon-086-star"></i>
+						<span class="nav-text">Sự kiện</span>
+					</a>
+				</li>
+				<li><a class="has-arrow " href="/blogs" aria-expanded="false">
+						<i class="flaticon-022-copy"></i>
+						<span class="nav-text">Bài viết</span>
+					</a>
+				</li>
+				<li><a class="has-arrow " href="/login" aria-expanded="false">
+						<i class="flaticon-061-outside"></i>
+						<span class="nav-text">Đăng xuất</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--Sidebar end-->
 
 	<!--Content body start-->
 	<div class="content-body">
@@ -160,8 +160,7 @@
 												<span class="income-icon style-3">
 													<svg xmlns="http://www.w3.org/2000/svg" height="1.5em"
 														viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-														<path
-															fill="var(--primary)"
+														<path fill="var(--primary)"
 															d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376V479.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z" />
 													</svg>
 												</span>
@@ -178,22 +177,8 @@
 						<div class="col-xl-6">
 							<div class="card">
 								<div class="card-header border-0 pb-0 flex-wrap">
-									<h3 class="mb-1">Doanh thu</h3>
+									<h3 class="mb-1">Doanh thu tuần này</h3>
 									<div class="card-action coin-tabs mt-3 mt-sm-0">
-										<ul class="nav nav-tabs" role="tablist">
-											<li class="nav-item">
-												<a class="nav-link" data-bs-toggle="tab" href="#month" role="tab"
-													aria-selected="false">Tháng</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link active" data-bs-toggle="tab" href="#weekly"
-													role="tab" aria-selected="true">Tuần</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link" data-bs-toggle="tab" href="#day" role="tab"
-													aria-selected="false">Ngày</a>
-											</li>
-										</ul>
 									</div>
 								</div>
 								<div class="card-body pb-2">
@@ -212,12 +197,6 @@
 									<div class="tab-content">
 										<div class="tab-pane fade show active" id="month">
 											<div id="reservationChart" class="reservationChart"></div>
-										</div>
-										<div class="tab-pane fade" id="weekly">
-											<div id="reservationChart1" class="reservationChart"></div>
-										</div>
-										<div class="tab-pane fade" id="day">
-											<div id="reservationChart2" class="reservationChart"></div>
 										</div>
 									</div>
 								</div>
