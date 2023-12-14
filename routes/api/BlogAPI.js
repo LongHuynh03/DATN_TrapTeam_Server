@@ -44,13 +44,13 @@ router.get("/getAllBlogsByUserId", async (req, res) => {
 router.post("/createBlog", async (req, res) => {
   try {
     const { user_id, content, image } = req.body;
-    const create_at = new Date();
+    const created_at = new Date();
     const status = true;
     const result = await blogController.createBlog(
       user_id,
       content,
       image,
-      create_at,
+      created_at,
       status
     );
     if (result) {

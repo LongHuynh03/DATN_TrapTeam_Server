@@ -18,13 +18,13 @@ const getAllBlogsByUserId = async (user_id) => {
   }
 };
 // Thêm bài viết
-const createBlog = async (user_id, content, image, create_at, status) => {
+const createBlog = async (user_id, content, image, created_at, status) => {
   try {
     return await blogService.createBlog(
       user_id,
       content,
       image,
-      create_at,
+      created_at,
       status
     );
   } catch (error) {
