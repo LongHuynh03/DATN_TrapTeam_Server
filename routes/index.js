@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -56,9 +55,11 @@ router.get('/', function(req, res, next) {
 //   res.render('review', { title: 'Express' });
 // });
 
-// router.get('/location', function(req, res, next) {
-//   res.render('location/list', { title: 'Express' });
-// });
+router.get('/location/123123/add', function(req, res, next) {
+  res.render('location/list', { title: 'Express' });
+});
+
+
 
 // router.get('/addLocation', function(req, res, next) {
 //   res.render('location/add', { title: 'Express' });

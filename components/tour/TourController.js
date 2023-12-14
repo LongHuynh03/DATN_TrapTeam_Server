@@ -94,6 +94,15 @@ const popularTour = async (tour_id, is_popular) => {
   }
 };
 
+const changeStatus = async (tour_id, status) => {
+  try {
+    return await tourService.changeStatus(tour_id, status);
+  } catch (error) {
+    console.log("Change status tour controller error: ", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllTours,
   getTourHighlight,
@@ -103,4 +112,5 @@ module.exports = {
   getTourByProvinceId,
   getTourByIdAndLocations,
   popularTour,
+  changeStatus
 };

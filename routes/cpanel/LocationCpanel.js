@@ -16,10 +16,10 @@ router.get('/', async function (req, res, next) {
 });
 
 // Lấy danh sách tỉnh đổ vào địa điểm, thêm địa điểm (GET)
-router.get('/create', async function (req, res, next) {
+router.get('/add', async function (req, res, next) {
   try {
     const provinces = await provinceController.getAllProvinces();
-    res.render("location/add", { provinces });
+    res.render("location/list", { provinces });
   } catch (error) {
     console.log("Get add location cpanel error: " + error);
     throw error;
@@ -27,12 +27,12 @@ router.get('/create', async function (req, res, next) {
 });
 
 //Thêm địa điểm (POST )
-router.post('/create', async function (req, res, next) {
+router.post('/add', async function (req, res, next) {
   try {
     let { body, file } = req;
     let { name, province_id, description, image, is_popular } = body;
     await locationController.createLocation(name, province_id, description, image, is_popular);
-    res.render('event/list');
+    res.render('location/list');
   } catch (error) {
     console.log("Post location cpanel error: " + error);
     throw error;

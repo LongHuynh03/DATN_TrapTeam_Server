@@ -34,7 +34,7 @@ const imageAPIRouter = require("./routes/api/ImageAPI");
 const indexCpanel = require("./routes/index");
 const blogCpanel = require("./routes/cpanel/BlogCpanel");
 const eventCpanel = require("./routes/cpanel/EventCpanel");
-const locationCpanel = require("./routes/cpanel/LocationCpanel");
+const locationCpanel = require('./routes/cpanel/LocationCpanel');
 const tourCpanel = require("./routes/cpanel/TourCpanel");
 const userCpanel = require("./routes/cpanel/UserCpanel");
 
@@ -43,7 +43,6 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 
 app.use(logger("dev"));
-``;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -64,7 +63,7 @@ mongoose
 app.use("/", indexCpanel);
 app.use("/blogs", blogCpanel);
 app.use("/events", eventCpanel);
-app.use("/locations", locationCpanel);
+app.use('/cpanel/locations', locationCpanel);
 app.use("/tours", tourCpanel);
 app.use("/users", userCpanel);
 

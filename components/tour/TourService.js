@@ -163,6 +163,22 @@ const popularTour = async (tour_id, is_popular) => {
   }
 }
 
+//Thay đổi trạng thái tour
+const changeStatus = async ( tour_id, status) => {
+  try {
+    const tour = await tourModel.findById(tour_id);
+    if (tour) {
+      tour.status = status ? status : tour.status;
+      await tour.save();
+      return tourModel.findById(blog._id);
+    }
+    return false;
+  } catch (error) {
+    console.log("Change status tour service: ", error);
+    throw error;
+  }
+}
+
 module.exports = {
   getAllTours,
   getTourHighlight,
@@ -172,4 +188,5 @@ module.exports = {
   getTourByProvinceId,
   getTourByIdAndLocations,
   popularTour,
+  changeStatus
 };

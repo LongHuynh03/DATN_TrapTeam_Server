@@ -243,7 +243,7 @@ function deleteAllCookie(reload = true)
 			
 		}else if(getCookie('version') == ''){	
 				themeChange(0);
-			
+				
 		}
 		
 		/* Set Theme On Page From Cookie */
