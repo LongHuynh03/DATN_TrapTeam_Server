@@ -118,7 +118,7 @@
                                                 <th>Địa điểm</th>
                                                 <th>
                                                     <div class="align-items-center justify-content-center">
-                                                        <a href="/addEvent" class="btn btn-success btn-sm">
+                                                        <a href="/cpanel/events/add-event" class="btn btn-success btn-sm">
                                                             Thêm
                                                         </a>
                                                     </div>
@@ -175,55 +175,48 @@
     </div>
 </div>
 
+
 <script>
-
-    const fectAPI = async (url, option) => {
-        const fech = await fetch(url, option);
-        return fech.json();
+  const fetchAPI = async (url, option) => {
+    const res = await fetch(url, option);
+    return res.json();
+  }
+  const deleteProduct = async (id) => {
+    const url = `/cpanel/events/${id}/deleted`;
+    const option = {
+      method: 'get',
+      headers: { 'Content-Type': 'application/json' }
     }
-    const deleteProduct = async (id) => {
-        const url = `/event/${id}/deleted`;
-        const options = {
-            method: "get",
-            headers: { 'Content-Type': 'application/json' }
-        };
-        try {
-            const result = await fectAPI(url, options);
-            console.log(result);
-            if (result) {
-                swal({
-                    title: "Success",
-                    text: "Delete Success !!!",
-                    icon: "success",
-                    buttons: true,
-                }).then((willDelete) => {
-                    if (willDelete) {
-                        window.location.reload();
-                    }
-                });
-            } else {
-                alert("Delete Failed!");
-            }
+    try {
+      const result = await fetchAPI(url, option);
+      console.log('Delete Result:', result);
+      if (result) {
+        swal("Delete successfully!", { icon: "success" });
+        setTimeout(function () {
+          window.location.reload();
+        }, 2000);
+
+      } else {
+        swal("Delete failed!", { icon: "error" });
+      }
+
+    } catch (e) {
+      console.log('Delete ERROR:', e);
+    }
+  }
+
+  const confirmDelete = (id) => {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          deleteProduct(id);
         }
-        catch (e) {
-            console.log("Delete failed: " + e);
-        }
-    }
-
-    const confirmDelete = (id) => {
-        console.log("Delete: " + id);
-        swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this imaginary file!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    deleteProduct(id);
-                }
-            });
-    }
-
+      });
+  }
 </script>

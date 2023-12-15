@@ -57,13 +57,11 @@ router.post("/addNewBookingTour", async (req, res) => {
       role,
       location_custom,
     } = req.body;
-    const created_at = new Date();
 
     const bookingTour = await bookingTourController.addNewBookingTour(
       user_id,
       tour_id,
       discount,
-      created_at,
       adult_count,
       child_count,
       price,

@@ -15,13 +15,12 @@ const getAllReviews = async (page, size) => {
 };
 
 // Thêm đánh giá cho tour
-const addReview = async (user_id, tour_id, content, created_at) => {
+const addReview = async (user_id, tour_id, content) => {
   try {
     const newReview = {
       user_id,
       tour_id,
       content,
-      created_at,
     };
     const review = new reviewModel(newReview);
     await review.save();

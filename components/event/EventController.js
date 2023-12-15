@@ -27,8 +27,18 @@ const deleteEvent = async (event_id) => {
   }
 };
 
+const updateDeleted = async () => {
+  try {
+    return await eventService.updateDeleted();
+  } catch (error) {
+    console.log("Update deleted event controller ", error);
+    throw error;
+  }
+}
+
 module.exports = {
   getAllEvents,
   createEvent,
   deleteEvent,
+  updateDeleted
 };

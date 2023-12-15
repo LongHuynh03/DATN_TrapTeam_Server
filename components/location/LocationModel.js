@@ -9,6 +9,7 @@ const locationSchema = new Schema({
   image: String,
   description: String,
   is_popular: Boolean,
+  deleted:  { type: Boolean, default: false },
 });
 
 module.exports =

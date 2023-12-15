@@ -8,7 +8,7 @@ const accountSchema = new Schema({
   name: String,
   email: String,
   avatar: String,
-  created_at: Date,
+  created_at: { type: Date, default: Date.now() },
 });
 
 module.exports =

@@ -96,7 +96,7 @@
     <div class="content-body">
         <!-- row -->
         <div class="container-fluid">
-            <form action="/addEvent" method="post">
+            <form action="/cpanel/events/add-event" method="post">
                 <div class="row">
                     <div class="col-sm-6 mb-3">
                         <div class="card h-auto mb-2">
@@ -122,10 +122,21 @@
                     </div>
                     <div class="col-sm-6 mb-3">
                         <div class="h-auto mb-3">
-                            <input type="file" name="image" id="file">
+                              <input
+                type="file"
+                name="image"
+                id="file"
+                onchange="displayImg()"
+              />
+              <input type="hidden" name="imgUrl" id="imgUrl">
                         </div>
                         <div class="h-auto mb-3">
-                            <img width="100%" src="images/event-card-img/pic-1.jpg" alt="">
+                             <img
+                width="300"
+                height="300"
+                style="margin-left:30px,object-fit: cover; object-position: center;"
+                id="img"
+              />
                         </div>
                     </div>
                 </div>
@@ -134,3 +145,42 @@
         </div>
     </div>
 </div>
+
+
+
+<script>
+  // hiển thị hình ảnh khi chọn
+  const displayImg = async () => {
+    var file = document.getElementById('file').files[0];
+    var reader = new FileReader();
+
+    reader.onload = async function (e) {
+      var image = document.getElementById("img");
+      image.src = e.target.result;
+
+      // Upload the file to Firebase Storage
+      try {
+        const formData = new FormData();
+        formData.append('image', file);
+
+        const response = await fetch('http://localhost:3000/api/image/upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          // Do something with the imageURL from Firebase Storage
+          console.log('Image URL:', data.imageURL);
+          document.getElementById('imgUrl').value = data.imageURL;
+        } else {
+          console.error('Image upload failed:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error uploading image:', error);
+      }
+    };
+
+    reader.readAsDataURL(file);
+  }
+</script>

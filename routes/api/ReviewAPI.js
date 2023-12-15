@@ -25,13 +25,11 @@ router.get("/getAllReviews", async (req, res) => {
 router.post("/addReview", async (req, res) => {
   try {
     const { user_id, tour_id, content } = req.body;
-    const created_at = new Date(); // Lấy ngày hiện tại
 
     const addReview = await reviewController.addReview(
       user_id,
       tour_id,
       content,
-      created_at
     );
     if (addReview) {
       return res.status(200).json({

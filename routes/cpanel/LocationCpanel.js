@@ -109,4 +109,15 @@ router.post("/:id/popular/:is_popular", async function (req, res, next) {
   }
 });
 
+// update deleted
+router.get("/updateDeleted", async function (req, res, next) {
+  try {
+    await locationController.updateDeleted();
+    return res.json({ status: true });
+  } catch (error) {
+    console.log("Update deleted cpanel error: " + error);
+    return res.json({ status: false });
+  }
+});
+
 module.exports = router;

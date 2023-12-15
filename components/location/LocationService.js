@@ -4,7 +4,7 @@ const locationModel = require("./LocationModel");
 const getAllLocations = async (page, size) => {
   try {
     return await locationModel
-      .find({ is_popular: true })
+      .find({ is_popular: true, deleted: false })
       .populate("province_id", "").
       sort({ _id: -1 });
   } catch (error) {
@@ -13,10 +13,24 @@ const getAllLocations = async (page, size) => {
   }
 };
 
+const updateDeleted = async () => {
+ const locations_id = await locationModel.find({}, {_id: 1});
+ console.log(locations_id);
+  try {
+    return await locationModel.updateMany(
+      { _id: { $in: locations_id } },
+      { $set: { deleted: false } }
+    );
+  } catch (error) {
+    console.log("Update deleted locations servive ", error);
+    throw error;
+  }
+}
+
 const getAllLocations_web = async (page, size) => {
   try {
     return await locationModel
-      .find()
+      .find({ deleted: false })
       .populate("province_id", "").
       sort({ _id: -1 });
   } catch (error) {
@@ -42,7 +56,7 @@ const getLocationById = async (location_id) => {
 const getLocationByProvinceId = async (province_id) => {
   try {
     return await locationModel
-      .find({ province_id: province_id })
+      .find({ province_id: province_id , deleted: false})
       .populate("province_id", "");
   } catch (error) {
     console.log("Get location by province id servive ", error);
@@ -87,7 +101,7 @@ const popularLocation = async (location_id, is_popular) => {
 
 const deleteLocation = async (location_id) => {
   try {
-    await locationModel.findByIdAndDelete(location_id);
+    await locationModel.findByIdAndUpdate(location_id, { deleted: true });
     return true;
   } catch (error) {
     console.log("Delete locations servive ", error);
@@ -102,5 +116,6 @@ module.exports = {
   createLocation,
   getAllLocations_web,
   popularLocation, 
-  deleteLocation
+  deleteLocation,
+  updateDeleted
 };

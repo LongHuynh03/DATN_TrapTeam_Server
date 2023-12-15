@@ -3,7 +3,7 @@ const blogModel = require("./BlogModel");
 // Lấy danh sách bài viết
 const getAllBlogs = async (page, size) => {
   try {
-    return await blogModel.find().populate("user_id", "");
+    return await blogModel.find().populate("user_id", "").sort({ _id: -1 });
   } catch (error) {
     console.log("Get all blogs servive: ", error);
     throw error;
@@ -26,13 +26,12 @@ const getAllBlogsByUserId = async (user_id) => {
 };
 
 // Thêm bài viết
-const createBlog = async (user_id, content, image, create_at, status) => {
+const createBlog = async (user_id, content, image, status) => {
   try {
     const newBlog = {
       user_id,
       content,
       image,
-      create_at,
       status,
     };
     const blog = new blogModel(newBlog);
@@ -60,9 +59,20 @@ const changeStatus = async ( blog_id, status) => {
   }
 }
 
+const deleteBlog = async (blog_id) => {
+  try {
+    await blogModel.findByIdAndDelete(blog_id);
+    return true;
+  } catch (error) {
+    console.log("Delete blog service: ", error);
+    throw error;
+  }
+}
+
 module.exports = {
   getAllBlogs,
   getAllBlogsByUserId,
   createBlog,
   changeStatus,
+  deleteBlog
 };

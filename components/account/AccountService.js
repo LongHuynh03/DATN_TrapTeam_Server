@@ -11,13 +11,12 @@ const getAllAccounts = async (page, size) => {
   }
 };
 // Lưu thông tin tài khoản vào database khi đăng nhập lần đầu
-const saveAccount = async (email, phone_number, avatar, created_at, name) => {
+const saveAccount = async (email, phone_number, avatar, name) => {
   try {
     const newAccount = {
       email,
       phone_number,
       avatar,
-      created_at,
       name,
     };
 

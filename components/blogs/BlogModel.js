@@ -7,8 +7,8 @@ const blogSchema = new Schema({
   user_id: { type: ObjectId, ref: "user" },
   content: String,
   image: String,
-  created_at: Date,
+  created_at: { type: Date, default: Date.now()},
   status: Boolean,
-});
+}, );
 
 module.exports = mongoose.models.blog || mongoose.model("blog", blogSchema);

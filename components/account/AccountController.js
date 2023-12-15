@@ -10,13 +10,12 @@ const getAllAccounts = async (page, size) => {
 };
 // lưu thông tin tài khoản vào database khi đăng nhập lần đầu
 
-const saveAccount = async (email, phone_number, avatar, created_at, name) => {
+const saveAccount = async (email, phone_number, avatar, name) => {
   try {
     const savedAccount = await accountService.saveAccount(
       email,
       phone_number,
       avatar,
-      created_at,
       name
     );
 

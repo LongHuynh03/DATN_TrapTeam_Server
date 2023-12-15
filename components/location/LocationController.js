@@ -65,6 +65,15 @@ const deleteLocation = async (location_id) => {
   }
 };
 
+const updateDeleted = async () => {
+  try {
+    return await locationService.updateDeleted();
+  } catch (error) {
+    console.log("Update deleted controller ", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllLocations,
   getLocationById,
@@ -72,5 +81,6 @@ module.exports = {
   createLocation,
   getAllLocations_web,
   popularLocation,
-  deleteLocation
+  deleteLocation, 
+  updateDeleted
 };
