@@ -1,18 +1,18 @@
 <div id="main-wrapper">
     <!--Nav header end-->
-	<div class="nav-header">
-		<a href="/" class="brand-logo">
-			<div class="column">
-				<img class="logo-abbr" width="auto" height="50%" src="images/logo.png" />
-			</div>
-		</a>
-		<div class="nav-control">
-			<div class="hamburger">
-				<span class="line"></span><span class="line"></span><span class="line"></span>
-			</div>
-		</div>
-	</div>
-	<!--Nav header end-->
+    <div class="nav-header">
+        <a href="/" class="brand-logo">
+            <div class="column">
+                <img class="logo-abbr" width="auto" height="50%" src="images/logo.png" />
+            </div>
+        </a>
+        <div class="nav-control">
+            <div class="hamburger">
+                <span class="line"></span><span class="line"></span><span class="line"></span>
+            </div>
+        </div>
+    </div>
+    <!--Nav header end-->
 
     <!--Header start-->
     <div class="header">
@@ -100,267 +100,396 @@
                 <div class="">
                     <div class="card h-auto">
                         <div class="card-header border-0 pb-0">
-                            <h4 class="fs-24 font-w500">Tour Tết 2024: Đà Nẵng - Hội An</h4>
+                            <h4 class="fs-24 font-w500">{{tour.name}}</h4>
+                            {{#if tour.status}}
                             <div class="d-flex align-items-center justify-content-center mb-4">
                                 <a href="javascript:void(0);" class="btn btn-primary btn-sm">Đang diễn ra</a>
                             </div>
+                            {{else}}
+                            <div class="d-flex align-items-center justify-content-center mb-4">
+                                <a href="javascript:void(0);" class="btn btn-danger btn-sm">Đã xong</a>
+                            </div>
+                            {{/if}}
+
                         </div>
                         <div class="card-body pt-0">
-                            
-                            <div>
-                                <p class="fs-12">Điểm đến</p>
-                                <div class="d-flex">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 576 512">
-                                        <style>
-                                            svg {
-                                                fill: #F66F4D
-                                            }
-                                        </style>
-                                        <path
-                                            d="M565.6 36.2C572.1 40.7 576 48.1 576 56V392c0 10-6.2 18.9-15.5 22.4l-168 64c-5.2 2-10.9 2.1-16.1 .3L192.5 417.5l-160 61c-7.4 2.8-15.7 1.8-22.2-2.7S0 463.9 0 456V120c0-10 6.1-18.9 15.5-22.4l168-64c5.2-2 10.9-2.1 16.1-.3L383.5 94.5l160-61c7.4-2.8 15.7-1.8 22.2 2.7zM48 136.5V421.2l120-45.7V90.8L48 136.5zM360 422.7V137.3l-144-48V374.7l144 48zm48-1.5l120-45.7V90.8L408 136.5V421.2z" />
-                                    </svg>
-                                    <h5 class="fs-15 mb-4 ms-3">Đà Nẵng</h5>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <div class="me-5">
-                                    <p class="fs-12">Số lượng</p>
-                                    <div class="d-flex">
-                                        <svg width="18" height="20" viewBox="0 0 18 20" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M12.0837 9.76416C12.9036 9.12303 13.5029 8.24201 13.7982 7.24397C14.0935 6.24592 14.07 5.18061 13.7309 4.19658C13.3918 3.21255 12.7541 2.35886 11.9067 1.75455C11.0593 1.15024 10.0445 0.825439 9.00366 0.825439C7.96285 0.825439 6.94798 1.15024 6.10058 1.75455C5.25318 2.35886 4.61548 3.21255 4.27642 4.19658C3.93735 5.18061 3.91382 6.24592 4.2091 7.24397C4.50439 8.24201 5.10377 9.12303 5.92366 9.76416C4.37463 10.3805 3.04588 11.447 2.10888 12.8259C1.17188 14.2048 0.669646 15.8329 0.666992 17.5V18.3333C0.666992 18.5543 0.75479 18.7663 0.91107 18.9226C1.06735 19.0789 1.27931 19.1667 1.50033 19.1667H16.5003C16.7213 19.1667 16.9333 19.0789 17.0896 18.9226C17.2459 18.7663 17.3337 18.5543 17.3337 18.3333V17.5C17.3315 15.8336 16.8303 14.2061 15.8945 12.8273C14.9588 11.4485 13.6314 10.3816 12.0837 9.76416ZM5.66699 5.83333C5.66699 5.17406 5.86249 4.5296 6.22876 3.98143C6.59503 3.43327 7.11563 3.00603 7.72471 2.75374C8.3338 2.50145 9.00402 2.43543 9.65063 2.56405C10.2972 2.69267 10.8912 3.01014 11.3573 3.47631C11.8235 3.94249 12.141 4.53643 12.2696 5.18303C12.3982 5.82964 12.3322 6.49986 12.0799 7.10894C11.8276 7.71803 11.4004 8.23863 10.8522 8.6049C10.3041 8.97117 9.6596 9.16667 9.00033 9.16667C8.11627 9.16667 7.26842 8.81548 6.6433 8.19035C6.01818 7.56523 5.66699 6.71739 5.66699 5.83333ZM2.33366 17.5C2.33366 15.7319 3.03604 14.0362 4.28628 12.786C5.53652 11.5357 7.23222 10.8333 9.00033 10.8333C10.7684 10.8333 12.4641 11.5357 13.7144 12.786C14.9646 14.0362 15.667 15.7319 15.667 17.5H2.33366Z"
-                                                fill="#F66F4D" />
-                                        </svg>
-                                        <h5 class="fs-15 mb-4 ms-3">30 người</h5>
+                            <div class="row col-sm-12">
+                                <div class="col-sm-6">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="me-5">
+                                            <p class="fs-12">Điểm khởi hành</p>
+                                            <div class="d-flex">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="1.5em"
+                                                    viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                                                    <path
+                                                        d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+                                                </svg>
+                                                <h5 class="fs-15 mb-4 ms-3">{{tour.departure_location.name}}</h5>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <p class="fs-12">Điểm đến</p>
+                                            <div class="d-flex">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="1.5em"
+                                                    viewBox="0 0 576 512">
+                                                    <style>
+                                                        svg {
+                                                            fill: #F66F4D
+                                                        }
+                                                    </style>
+                                                    <path
+                                                        d="M565.6 36.2C572.1 40.7 576 48.1 576 56V392c0 10-6.2 18.9-15.5 22.4l-168 64c-5.2 2-10.9 2.1-16.1 .3L192.5 417.5l-160 61c-7.4 2.8-15.7 1.8-22.2-2.7S0 463.9 0 456V120c0-10 6.1-18.9 15.5-22.4l168-64c5.2-2 10.9-2.1 16.1-.3L383.5 94.5l160-61c7.4-2.8 15.7-1.8 22.2 2.7zM48 136.5V421.2l120-45.7V90.8L48 136.5zM360 422.7V137.3l-144-48V374.7l144 48zm48-1.5l120-45.7V90.8L408 136.5V421.2z" />
+                                                </svg>
+                                                <h5 class="fs-15 mb-4 ms-3">{{tour.province_id.name}}</h5>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-5">
+                                            <p class="fs-12">Số lượng</p>
+                                            <div class="d-flex">
+                                                <svg width="18" height="20" viewBox="0 0 18 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M12.0837 9.76416C12.9036 9.12303 13.5029 8.24201 13.7982 7.24397C14.0935 6.24592 14.07 5.18061 13.7309 4.19658C13.3918 3.21255 12.7541 2.35886 11.9067 1.75455C11.0593 1.15024 10.0445 0.825439 9.00366 0.825439C7.96285 0.825439 6.94798 1.15024 6.10058 1.75455C5.25318 2.35886 4.61548 3.21255 4.27642 4.19658C3.93735 5.18061 3.91382 6.24592 4.2091 7.24397C4.50439 8.24201 5.10377 9.12303 5.92366 9.76416C4.37463 10.3805 3.04588 11.447 2.10888 12.8259C1.17188 14.2048 0.669646 15.8329 0.666992 17.5V18.3333C0.666992 18.5543 0.75479 18.7663 0.91107 18.9226C1.06735 19.0789 1.27931 19.1667 1.50033 19.1667H16.5003C16.7213 19.1667 16.9333 19.0789 17.0896 18.9226C17.2459 18.7663 17.3337 18.5543 17.3337 18.3333V17.5C17.3315 15.8336 16.8303 14.2061 15.8945 12.8273C14.9588 11.4485 13.6314 10.3816 12.0837 9.76416ZM5.66699 5.83333C5.66699 5.17406 5.86249 4.5296 6.22876 3.98143C6.59503 3.43327 7.11563 3.00603 7.72471 2.75374C8.3338 2.50145 9.00402 2.43543 9.65063 2.56405C10.2972 2.69267 10.8912 3.01014 11.3573 3.47631C11.8235 3.94249 12.141 4.53643 12.2696 5.18303C12.3982 5.82964 12.3322 6.49986 12.0799 7.10894C11.8276 7.71803 11.4004 8.23863 10.8522 8.6049C10.3041 8.97117 9.6596 9.16667 9.00033 9.16667C8.11627 9.16667 7.26842 8.81548 6.6433 8.19035C6.01818 7.56523 5.66699 6.71739 5.66699 5.83333ZM2.33366 17.5C2.33366 15.7319 3.03604 14.0362 4.28628 12.786C5.53652 11.5357 7.23222 10.8333 9.00033 10.8333C10.7684 10.8333 12.4641 11.5357 13.7144 12.786C14.9646 14.0362 15.667 15.7319 15.667 17.5H2.33366Z"
+                                                        fill="#F66F4D" />
+                                                </svg>
+                                                <h5 class="fs-15 mb-4 ms-3">50 người</h5>
+                                            </div>
+                                        </div>
+                                        <div class="ms-3">
+                                            <p class="fs-12">Còn trống</p>
+                                            <div class="d-flex">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="1.5em"
+                                                    viewBox="0 0 640 512">
+                                                    <path fill="#F66F4D"
+                                                        d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM625 177L497 305c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L591 143c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
+                                                </svg>
+                                                <h5 class="fs-15 mb-4 ms-3">{{tour.available_seats}} người</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{!-- <div class="d-flex align-items-center">
+                                        <div class="me-5">
+                                            <p class="fs-12">Giá người lớn</p>
+                                            <div class="d-flex">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="1.5em"
+                                                    viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                    <path fill="#F66F4D"
+                                                        d="M224 256A128 128 0 1 1 224 0a128 128 0 1 1 0 256zM209.1 359.2l-18.6-31c-6.4-10.7 1.3-24.2 13.7-24.2H224h19.7c12.4 0 20.1 13.6 13.7 24.2l-18.6 31 33.4 123.9 36-146.9c2-8.1 9.8-13.4 17.9-11.3c70.1 17.6 121.9 81 121.9 156.4c0 17-13.8 30.7-30.7 30.7H285.5c-2.1 0-4-.4-5.8-1.1l.3 1.1H168l.3-1.1c-1.8 .7-3.8 1.1-5.8 1.1H30.7C13.8 512 0 498.2 0 481.3c0-75.5 51.9-138.9 121.9-156.4c8.1-2 15.9 3.3 17.9 11.3l36 146.9 33.4-123.9z" />
+                                                </svg>
+                                                <h5 class="fs-15 mb-4 ms-3">500.000</h5>
+                                            </div>
+                                        </div>
+                                        <div class="ms-3">
+                                            <p class="fs-12">Giá trẻ em</p>
+                                            <div class="d-flex">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="1.5em"
+                                                    viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                    <path fill="#F66F4D"
+                                                        d="M160 0a64 64 0 1 1 0 128A64 64 0 1 1 160 0zM88 480V400H70.2c-10.9 0-18.6-10.7-15.2-21.1l31.1-93.4L57.5 323.3c-10.7 14.1-30.8 16.8-44.8 6.2s-16.8-30.7-6.2-44.8L65.4 207c22.4-29.6 57.5-47 94.6-47s72.2 17.4 94.6 47l58.9 77.7c10.7 14.1 7.9 34.2-6.2 44.8s-34.2 7.9-44.8-6.2l-28.6-37.8L265 378.9c3.5 10.4-4.3 21.1-15.2 21.1H232v80c0 17.7-14.3 32-32 32s-32-14.3-32-32V400H152v80c0 17.7-14.3 32-32 32s-32-14.3-32-32zM480 0a64 64 0 1 1 0 128A64 64 0 1 1 480 0zm-8 384v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V300.5L395.1 321c-9.4 15-29.2 19.4-44.1 10s-19.4-29.2-10-44.1l51.7-82.1c17.6-27.9 48.3-44.9 81.2-44.9h12.3c33 0 63.7 16.9 81.2 44.9L619.1 287c9.4 15 4.9 34.7-10 44.1s-34.7 4.9-44.1-10L552 300.5V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V384H472z" />
+                                                </svg>
+                                                <h5 class="fs-15 mb-4 ms-3">200.000</h5>
+                                            </div>
+                                        </div>
+                                    </div> --}}
+                                    <div>
+                                        <p class="fs-12">Ngày khởi tạo</p>
+                                        <div class="d-flex">
+                                            <svg width="16" height="18" viewBox="0 0 16 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10.6667 1.8V0.9C10.6667 0.4032 11.0649 0 11.5556 0C12.0462 0 12.4444 0.4032 12.4444 0.9V1.8C14.408 1.8 16 3.4119 16 5.4V14.4C16 16.3881 14.408 18 12.4444 18C9.90222 18 6.09689 18 3.55556 18C1.592 18 0 16.3881 0 14.4V5.4C0 3.4119 1.592 1.8 3.55556 1.8V0.9C3.55556 0.4032 3.95378 0 4.44444 0C4.93511 0 5.33333 0.4032 5.33333 0.9V1.8H10.6667ZM14.2222 9H1.77778V14.4C1.77778 15.3936 2.57333 16.2 3.55556 16.2H12.4444C13.4258 16.2 14.2222 15.3936 14.2222 14.4V9ZM12.4444 3.6V4.5C12.4444 4.9968 12.0462 5.4 11.5556 5.4C11.0649 5.4 10.6667 4.9968 10.6667 4.5V3.6H5.33333V4.5C5.33333 4.9968 4.93511 5.4 4.44444 5.4C3.95378 5.4 3.55556 4.9968 3.55556 4.5V3.6C2.57333 3.6 1.77778 4.4055 1.77778 5.4V7.2H14.2222V5.4C14.2222 4.4055 13.4258 3.6 12.4444 3.6Z"
+                                                    fill="#F66F4D" />
+                                            </svg>
+                                            <h5 class="fs-15 mb-4 ms-3">{{tour.created_at}}</h5>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="fs-12">Ngày khởi hành</p>
+                                        <div class="d-flex">
+                                            <svg width="16" height="18" viewBox="0 0 16 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10.6667 1.8V0.9C10.6667 0.4032 11.0649 0 11.5556 0C12.0462 0 12.4444 0.4032 12.4444 0.9V1.8C14.408 1.8 16 3.4119 16 5.4V14.4C16 16.3881 14.408 18 12.4444 18C9.90222 18 6.09689 18 3.55556 18C1.592 18 0 16.3881 0 14.4V5.4C0 3.4119 1.592 1.8 3.55556 1.8V0.9C3.55556 0.4032 3.95378 0 4.44444 0C4.93511 0 5.33333 0.4032 5.33333 0.9V1.8H10.6667ZM14.2222 9H1.77778V14.4C1.77778 15.3936 2.57333 16.2 3.55556 16.2H12.4444C13.4258 16.2 14.2222 15.3936 14.2222 14.4V9ZM12.4444 3.6V4.5C12.4444 4.9968 12.0462 5.4 11.5556 5.4C11.0649 5.4 10.6667 4.9968 10.6667 4.5V3.6H5.33333V4.5C5.33333 4.9968 4.93511 5.4 4.44444 5.4C3.95378 5.4 3.55556 4.9968 3.55556 4.5V3.6C2.57333 3.6 1.77778 4.4055 1.77778 5.4V7.2H14.2222V5.4C14.2222 4.4055 13.4258 3.6 12.4444 3.6Z"
+                                                    fill="#F66F4D" />
+                                            </svg>
+                                            <h5 class="fs-15 mb-4 ms-3">{{tour.departure_date}}</h5>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="ms-3">
-                                    <p class="fs-12">Đã đặt</p>
-                                    <div class="d-flex">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 640 512">
-                                            <path fill="#F66F4D"
-                                                d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM625 177L497 305c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L591 143c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
-                                        </svg>
-                                        <h5 class="fs-15 mb-4 ms-3">15/30 người</h5>
+                                <div class="col-sm-6 mb-3 mt-3">
+                                    <div class="col-sm-10 h-auto mb-3">
+                                        <img width="100%" src="{{tour.image}}" alt="">
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center">
-                                <div class="me-5">
-                                    <p class="fs-12">Giá người lớn</p>
-                                    <div class="d-flex">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em"
-                                            viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                            <path fill="#F66F4D"
-                                                d="M224 256A128 128 0 1 1 224 0a128 128 0 1 1 0 256zM209.1 359.2l-18.6-31c-6.4-10.7 1.3-24.2 13.7-24.2H224h19.7c12.4 0 20.1 13.6 13.7 24.2l-18.6 31 33.4 123.9 36-146.9c2-8.1 9.8-13.4 17.9-11.3c70.1 17.6 121.9 81 121.9 156.4c0 17-13.8 30.7-30.7 30.7H285.5c-2.1 0-4-.4-5.8-1.1l.3 1.1H168l.3-1.1c-1.8 .7-3.8 1.1-5.8 1.1H30.7C13.8 512 0 498.2 0 481.3c0-75.5 51.9-138.9 121.9-156.4c8.1-2 15.9 3.3 17.9 11.3l36 146.9 33.4-123.9z" />
-                                        </svg>
-                                        <h5 class="fs-15 mb-4 ms-3">500.000</h5>
-                                    </div>
-                                </div>
-                                <div class="ms-3">
-                                    <p class="fs-12">Giá trẻ em</p>
-                                    <div class="d-flex">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em"
-                                            viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                            <path
-                                                fill = "#F66F4D"
-                                                d="M160 0a64 64 0 1 1 0 128A64 64 0 1 1 160 0zM88 480V400H70.2c-10.9 0-18.6-10.7-15.2-21.1l31.1-93.4L57.5 323.3c-10.7 14.1-30.8 16.8-44.8 6.2s-16.8-30.7-6.2-44.8L65.4 207c22.4-29.6 57.5-47 94.6-47s72.2 17.4 94.6 47l58.9 77.7c10.7 14.1 7.9 34.2-6.2 44.8s-34.2 7.9-44.8-6.2l-28.6-37.8L265 378.9c3.5 10.4-4.3 21.1-15.2 21.1H232v80c0 17.7-14.3 32-32 32s-32-14.3-32-32V400H152v80c0 17.7-14.3 32-32 32s-32-14.3-32-32zM480 0a64 64 0 1 1 0 128A64 64 0 1 1 480 0zm-8 384v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V300.5L395.1 321c-9.4 15-29.2 19.4-44.1 10s-19.4-29.2-10-44.1l51.7-82.1c17.6-27.9 48.3-44.9 81.2-44.9h12.3c33 0 63.7 16.9 81.2 44.9L619.1 287c9.4 15 4.9 34.7-10 44.1s-34.7 4.9-44.1-10L552 300.5V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V384H472z" />
-                                        </svg>
-                                        <h5 class="fs-15 mb-4 ms-3">200.000</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="fs-12">Ngày khởi tạo</p>
-                                <div class="d-flex">
-                                    <svg width="16" height="18" viewBox="0 0 16 18" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M10.6667 1.8V0.9C10.6667 0.4032 11.0649 0 11.5556 0C12.0462 0 12.4444 0.4032 12.4444 0.9V1.8C14.408 1.8 16 3.4119 16 5.4V14.4C16 16.3881 14.408 18 12.4444 18C9.90222 18 6.09689 18 3.55556 18C1.592 18 0 16.3881 0 14.4V5.4C0 3.4119 1.592 1.8 3.55556 1.8V0.9C3.55556 0.4032 3.95378 0 4.44444 0C4.93511 0 5.33333 0.4032 5.33333 0.9V1.8H10.6667ZM14.2222 9H1.77778V14.4C1.77778 15.3936 2.57333 16.2 3.55556 16.2H12.4444C13.4258 16.2 14.2222 15.3936 14.2222 14.4V9ZM12.4444 3.6V4.5C12.4444 4.9968 12.0462 5.4 11.5556 5.4C11.0649 5.4 10.6667 4.9968 10.6667 4.5V3.6H5.33333V4.5C5.33333 4.9968 4.93511 5.4 4.44444 5.4C3.95378 5.4 3.55556 4.9968 3.55556 4.5V3.6C2.57333 3.6 1.77778 4.4055 1.77778 5.4V7.2H14.2222V5.4C14.2222 4.4055 13.4258 3.6 12.4444 3.6Z"
-                                            fill="#F66F4D" />
-                                    </svg>
-                                    <h5 class="fs-15 mb-4 ms-3">25-10-2023 10:20 AM</h5>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="fs-12">Ngày khởi hành</p>
-                                <div class="d-flex">
-                                    <svg width="16" height="18" viewBox="0 0 16 18" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M10.6667 1.8V0.9C10.6667 0.4032 11.0649 0 11.5556 0C12.0462 0 12.4444 0.4032 12.4444 0.9V1.8C14.408 1.8 16 3.4119 16 5.4V14.4C16 16.3881 14.408 18 12.4444 18C9.90222 18 6.09689 18 3.55556 18C1.592 18 0 16.3881 0 14.4V5.4C0 3.4119 1.592 1.8 3.55556 1.8V0.9C3.55556 0.4032 3.95378 0 4.44444 0C4.93511 0 5.33333 0.4032 5.33333 0.9V1.8H10.6667ZM14.2222 9H1.77778V14.4C1.77778 15.3936 2.57333 16.2 3.55556 16.2H12.4444C13.4258 16.2 14.2222 15.3936 14.2222 14.4V9ZM12.4444 3.6V4.5C12.4444 4.9968 12.0462 5.4 11.5556 5.4C11.0649 5.4 10.6667 4.9968 10.6667 4.5V3.6H5.33333V4.5C5.33333 4.9968 4.93511 5.4 4.44444 5.4C3.95378 5.4 3.55556 4.9968 3.55556 4.5V3.6C2.57333 3.6 1.77778 4.4055 1.77778 5.4V7.2H14.2222V5.4C14.2222 4.4055 13.4258 3.6 12.4444 3.6Z"
-                                            fill="#F66F4D" />
-                                    </svg>
-                                    <h5 class="fs-15 mb-4 ms-3">25-11-2023 10:20 AM</h5>
-                                </div>
-                            </div>
-                            <div class="facilities">
+
+                            <div class="facilities mb-3">
                                 <p class="fs-12">Mô tả</p>
                                 <div class="row">
-                                    <span>
-                                        Hành trình: Đồng Tháp Làng Hoa Sa Đéc - Vườn Quýt Hồng Lai Vung - Chùa Phật Ngọc
-                                        Xá Lợi <br>
-                                        Lịch trình: 2 Ngày <br>
-                                        Khởi hành: 25-11-2023 10:20 AM <br>
-                                        Di chuyển: Xe du lịch đời mới </span>
+                                    <h5 class="fs-15 mb-4 ms-3">{{tour.description}}</h5>
+                                </div>
+                            </div>
+
+                            <div class="facilities mb-3">
+                                <p class="fs-12">Lịch trình</p>
+                                <div class="row">
+                                    <h5 class="fs-15 mb-4 ms-3">{{tour.schedules}}</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer border-0 pt-0">
-                            <div class="d-flex align-items-center justify-content-center mb-4">
-                                <a href="javascript:void(0);" class="btn btn-primary btn-sm">Lưu</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        {{!-- Booking tour --}}
+        <div class="container-fluid">
+            <div class=" d-block d-lg-flex align-items-center justify-content-between mb-5">
+                {{!-- Tất cả, Đang diễn ra, Đã xong --}}
+                <div class="coin-tabs">
+                    <ul class="nav nav-tabs " id="ListViewTabLink" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="all-status-tab" data-bs-toggle="tab"
+                                data-bs-target="#all-status" type="button" role="tab" aria-controls="all-status"
+                                aria-selected="true">Tất cả</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="available-tab" data-bs-toggle="tab" data-bs-target="#available"
+                                type="button" role="tab" aria-controls="available" aria-selected="false">Mặc
+                                định</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="soldout-tab" data-bs-toggle="tab" data-bs-target="#soldout"
+                                type="button" role="tab" aria-controls="soldout" aria-selected="false">Người dùng
+                                tạo</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list" aria-labelledby="list-tab">
+                    <div class="tab-content" id="ListViewTabLinkContent">
+
+                        <div class="tab-pane fade active show" id="all-status" aria-labelledby="boxed-all-status-tab">
+                            <div class="table-responsive card">
+                                <div class="table-responsive">
+                                    <table
+                                        class="table border-0 display mb-4 dataTablesCard booking-table table-responsive-lg "
+                                        id="guestTable-all6">
+                                        <thead>
+                                            <tr>
+                                                <th>Thông tin người dùng</th>
+                                                <th>Giá</th>
+                                                <th>Giảm giá</th>
+                                                <th>Số người</th>
+                                                <th>Ngày tạo</th>
+                                                <th>Ghi chú</th>
+                                                <th>Thay đổi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each bookings}}
+                                            <tr>
+                                                <td>
+                                                    <div class="media-bx d-flex py-3 align-items-center">
+                                                        <img class="me-3 rounded-circle" src="{{this.user_id.avatar}}"
+                                                            alt="images">
+                                                        <div>
+                                                            <h4
+                                                                class="mb-0 mt-1 fs-15 font-w500 text-nowrap text-nowrap">
+                                                                {{this.user_id.name}}
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <span class="fs-15 font-w500 text-nowrap">{{this.price}}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <span
+                                                            class="fs-15 font-w500 text-nowrap">{{this.discount}}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <span
+                                                            class="fs-15 font-w500 text-nowrap">{{this.adult_count}}({{this.child_count}})</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="fs-15 font-w500">{{this.created_at}}</h5>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="fs-15 font-w500">{{this.note}}</h5>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    {{#each this.location_custom}}
+                                                    <span class="fs-15 font-w500 text-nowrap">{{this.name}}</span> <br>
+                                                    {{/each}}
+                                                </td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="available" aria-labelledby="available-tab">
+                            <div class="table-responsive card">
+                                <div class="table-responsive">
+                                    <table
+                                        class="table border-0 display mb-4 dataTablesCard booking-table table-responsive-lg "
+                                        id="guestTable-all6">
+                                        <thead>
+                                            <tr>
+                                                <th>Thông tin người dùng</th>
+                                                <th>Giá</th>
+                                                <th>Giảm giá</th>
+                                                <th>Số người</th>
+                                                <th>Ngày tạo</th>
+                                                <th>Ghi chú</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each bookings}}
+                                            <tr>
+                                                <td>
+                                                    <div class="media-bx d-flex py-3 align-items-center">
+                                                        <img class="me-3 rounded-circle" src="{{this.user_id.avatar}}"
+                                                            alt="images">
+                                                        <div>
+                                                            <h4
+                                                                class="mb-0 mt-1 fs-15 font-w500 text-nowrap text-nowrap">
+                                                                {{this.user_id.name}}
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <span class="fs-15 font-w500 text-nowrap">{{this.price}}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <span
+                                                            class="fs-15 font-w500 text-nowrap">{{this.discount}}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <span
+                                                            class="fs-15 font-w500 text-nowrap">{{this.adult_count}}({{this.child_count}})</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="fs-15 font-w500">{{this.created_at}}</h5>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="fs-15 font-w500">{{this.note}}</h5>
+                                                    </div>
+                                                </td>
+                                                {{!-- <td>
+                                                    {{#each this.location_custom}}
+                                                    <span class="fs-15 font-w500 text-nowrap">{{this.name}}</span> <br>
+                                                    {{/each}}
+                                                </td> --}}
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="soldout" aria-labelledby="soldout-tab">
+                            <div class="table-responsive card">
+                                <div class="table-responsive">
+                                    <table
+                                        class="table border-0 display mb-4 dataTablesCard booking-table table-responsive-lg "
+                                        id="guestTable-all6">
+                                        <thead>
+                                            <tr>
+                                                <th>Thông tin người dùng</th>
+                                                <th>Giá</th>
+                                                <th>Giảm giá</th>
+                                                <th>Số người</th>
+                                                <th>Ngày tạo</th>
+                                                <th>Ghi chú</th>
+                                                <th>Thay đổi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each bookings}}
+                                            <tr>
+                                                <td>
+                                                    <div class="media-bx d-flex py-3 align-items-center">
+                                                        <img class="me-3 rounded-circle" src="{{this.user_id.avatar}}"
+                                                            alt="images">
+                                                        <div>
+                                                            <h4
+                                                                class="mb-0 mt-1 fs-15 font-w500 text-nowrap text-nowrap">
+                                                                {{this.user_id.name}}
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <span class="fs-15 font-w500 text-nowrap">{{this.price}}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <span
+                                                            class="fs-15 font-w500 text-nowrap">{{this.discount}}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <span
+                                                            class="fs-15 font-w500 text-nowrap">{{this.adult_count}}({{this.child_count}})</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="fs-15 font-w500">{{this.created_at}}</h5>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="fs-15 font-w500">{{this.note}}</h5>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    {{#each this.location_custom}}
+                                                    <span class="fs-15 font-w500 text-nowrap">{{this.name}}</span> <br>
+                                                    {{/each}}
+                                                </td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="row mb-3">
-                    <div class="col-sm-4 h-auto mb-3">
-                        <img width="100%" src="images/event-card-img/pic-1.jpg" alt="">
-                    </div>
-                    <div class="col-sm-4 h-auto mb-3">
-                        <img width="100%" src="images/event-card-img/pic-1.jpg" alt="">
-                    </div>
-                    <div class="col-sm-4 h-auto mb-3">
-                        <img width="100%" src="images/event-card-img/pic-1.jpg" alt="">
-                    </div>
-                    <div class="col-sm-4 h-auto mb-3">
-                        <img width="100%" src="images/event-card-img/pic-1.jpg" alt="">
-                    </div>
-                </div>
-
-                <!-- Event-Card-Start -->
-                {{!-- <div class="col-xl-8">
-                    <div class="swiper mySwiper2">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="event-card">
-                                    <div class="event-img position-relative">
-                                        <img src="images/event-card-img/pic-1.jpg" alt="">
-                                    </div>
-                                    <div class="event-content">
-                                        <h4 class="font-w500 mb-0">Main Bedroom </h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="event-card">
-                                    <div class="event-img position-relative">
-                                        <img src="images/event-card-img/pic-2.jpg" alt="">
-                                    </div>
-                                    <div class="event-content">
-                                        <h4 class="font-w500 mb-0">Main Bedroom </h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="event-card">
-                                    <div class="event-img position-relative">
-                                        <img src="images/event-card-img/pic-3.jpg" alt="">
-                                    </div>
-                                    <div class="event-content">
-                                        <h4 class="font-w500 mb-0">Main Bedroom </h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="event-card">
-                                    <div class="event-img position-relative">
-                                        <img src="images/event-card-img/pic-4.jpg" alt="">
-                                    </div>
-                                    <div class="event-content">
-                                        <h4 class="font-w500 mb-0">Main Bedroom </h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="event-card">
-                                    <div class="event-img position-relative">
-                                        <img src="images/event-card-img/pic-1.jpg" alt="">
-                                    </div>
-                                    <div class="event-content">
-                                        <h4 class="font-w500 mb-0">Main Bedroom </h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="event-card">
-                                    <div class="event-img position-relative">
-                                        <img src="images/event-card-img/pic-2.jpg" alt="">
-                                    </div>
-                                    <div class="event-content">
-                                        <h4 class="font-w500 mb-0">Main Bedroom </h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="event-card">
-                                    <div class="event-img position-relative">
-                                        <img src="images/event-card-img/pic-3.jpg" alt="">
-                                    </div>
-                                    <div class="event-content">
-                                        <h4 class="font-w500 mb-0">Main Bedroom </h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="event-card">
-                                    <div class="event-img position-relative">
-                                        <img src="images/event-card-img/pic-4.jpg" alt="">
-                                    </div>
-                                    <div class="event-content">
-                                        <h4 class="font-w500 mb-0">Main Bedroom </h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper mySwiper gallery-slider">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="swiper-img">
-                                    <img src="images/light-slider/pic-1.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="swiper-img">
-                                    <img src="images/light-slider/pic-2.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="swiper-img">
-                                    <img src="images/light-slider/pic-3.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="swiper-img">
-                                    <img src="images/light-slider/pic-4.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="swiper-img">
-                                    <img src="images/light-slider/pic-1.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="swiper-img">
-                                    <img src="images/light-slider/pic-2.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="swiper-img">
-                                    <img src="images/light-slider/pic-3.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="swiper-img">
-                                    <img src="images/light-slider/pic-4.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </div>

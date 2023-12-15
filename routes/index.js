@@ -94,8 +94,15 @@ router.get('/tours', async function (req, res, next) {
   }
 });
 
-router.get('/detailTour', function (req, res, next) {
-  res.render('tour/edit', { title: 'Express' });
+router.get('/detailTour', async function (req, res, next) {
+  try {
+    const tour = await tourController.getTourByIdAndLocations('656e13898ec01ff31a645c8f');
+    const bookings = await bookingTourController.getAllBookingToursByTour('656e13898ec01ff31a645c8f');
+    res.render('tour/edit', { tour, bookings });
+  } catch (error) {
+    console.log("Detail tour cpanel error: " + error);
+    throw error;
+  }
 });
 
 router.get('/addTour', async function (req, res, next) {
