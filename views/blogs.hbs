@@ -131,7 +131,7 @@
                                                 </td>
                                                 <td>  <div class="button-bx mt-2 mt-xl-0">
                                        
-                                        <button onclick="confirmDelete('{{this._id}}', false);" class="btn btn-primary ms-sm-3 ms-0">
+                                        <button onclick="confirmDelete('{{this._id}}');" class="btn btn-primary ms-sm-3 ms-0">
                                             Ẩn
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -162,7 +162,7 @@
         const fech = await fetch(url, option);
         return fech.json();
     }
-    const deleteProduct = async (id, _status) => {
+    const deleteProduct = async (id) => {
         const url = `/cpanel/blogs/${id}/deleted`;
         const options = {
             method: "get",
@@ -202,7 +202,7 @@
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    deleteProduct(id, _status);
+                    deleteProduct(id);
                 }
             });
     }
