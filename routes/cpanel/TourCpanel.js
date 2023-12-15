@@ -5,10 +5,42 @@ const locationController = require('../../components/location/LocationController
 const provinceController = require('../../components/province/ProvinceController');
 const bookingTourController = require('../../components/bookingtour/BookingTourController');
 
+
+function formatDateString(dateString) {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  return `${day < 10 ? '0' : ''}${day}/${month < 10 ? '0' : ''}${month}/${year}`;
+}
 // //Lấy danh sách tour
 router.get('/', async function (req, res, next) {
   try {
-    const tours = await tourController.getAllTours();
+    const query = await tourController.getAllTours();
+    const tours = query.map(tour => {
+      return {
+        _id: tour._id,
+        province_id: {
+          _id: tour.province_id._id,
+          name: tour.province_id.name,
+          image: tour.province_id.image,
+        },
+        image: tour.image,
+        name: tour.name,
+        description: tour.description,
+        price: tour.price,
+        departure_date: formatDateString(tour.departure_date),
+        departure_location: tour.departure_location,
+        end_date: formatDateString(tour.end_date),
+        status: tour.status,
+        is_popular: tour.is_popular,
+        schedules: tour.schedules,
+        locations: tour.locations, 
+        created_at: formatDateString(tour.created_at),
+        }
+      
+    });
+    console.log(tours);
     res.render('tour/list', { tours })
   } catch (error) {
     console.log("Get all tour cpanel error: " + error);
