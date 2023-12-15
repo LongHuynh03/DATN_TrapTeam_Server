@@ -94,10 +94,11 @@ router.get('/tours', async function (req, res, next) {
   }
 });
 
-router.get('/detailTour', async function (req, res, next) {
+router.get('/:id', async function (req, res, next) {
   try {
-    const tour = await tourController.getTourByIdAndLocations('656e13898ec01ff31a645c8f');
-    const bookings = await bookingTourController.getAllBookingToursByTour('656e13898ec01ff31a645c8f');
+    const { id} = req.params;
+    const tour = await tourController.getTourByIdAndLocations(id);
+    const bookings = await bookingTourController.getAllBookingToursByTour(id);
     res.render('tour/edit', { tour, bookings });
   } catch (error) {
     console.log("Detail tour cpanel error: " + error);
