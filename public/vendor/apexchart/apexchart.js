@@ -2680,7 +2680,7 @@
         var pointY = 0;
 
         if (this.annoCtx.invertAxis) {
-          console.warn('Point annotation is not supported in horizontal bar charts.');
+          // console.warn('Point annotation is not supported in horizontal bar charts.');
         }
 
         var annoY = parseFloat(anno.y);
@@ -6514,7 +6514,7 @@
 
         if (w.config.dataLabels.enabled) {
           if (this.totalItems > this.barOptions.dataLabels.maxItems) {
-            console.warn('WARNING: DataLabels are enabled but there are too many to display. This may cause performance issue when rendering.');
+            // console.warn('WARNING: DataLabels are enabled but there are too many to display. This may cause performance issue when rendering.');
           }
         }
 
@@ -8516,7 +8516,7 @@
         }
 
         if (isLogY && series.length > 1 && series.length !== opts.yaxis.length) {
-          console.warn('A multi-series logarithmic chart should have equal number of series and y-axes. Please make sure to equalize both.');
+          // console.warn('A multi-series logarithmic chart should have equal number of series and y-axes. Please make sure to equalize both.');
         }
 
         return opts;
@@ -8613,7 +8613,7 @@
         if (config.chart.type === 'bar' || config.chart.type === 'rangeBar') {
           if (config.tooltip.shared) {
             if (config.xaxis.crosshairs.width === 'barWidth' && config.series.length > 1) {
-              console.warn('crosshairs.width = "barWidth" is only supported in single series, not in a multi-series barChart.');
+              // console.warn('crosshairs.width = "barWidth" is only supported in single series, not in a multi-series barChart.');
               config.xaxis.crosshairs.width = 'tickWidth';
             }
           }
@@ -8621,19 +8621,19 @@
 
         if (config.chart.type === 'candlestick' || config.chart.type === 'boxPlot') {
           if (config.yaxis[0].reversed) {
-            console.warn("Reversed y-axis in ".concat(config.chart.type, " chart is not supported."));
+            // console.warn("Reversed y-axis in ".concat(config.chart.type, " chart is not supported."));
             config.yaxis[0].reversed = false;
           }
         }
 
         if (config.chart.group && config.yaxis[0].labels.minWidth === 0) {
-          console.warn('It looks like you have multiple charts in synchronization. You must provide yaxis.labels.minWidth which must be EQUAL for all grouped charts to prevent incorrect behaviour.');
+          // console.warn('It looks like you have multiple charts in synchronization. You must provide yaxis.labels.minWidth which must be EQUAL for all grouped charts to prevent incorrect behaviour.');
         } // if user supplied array for stroke width, it will only be applicable to line/area charts, for any other charts, revert back to Number
 
 
         if (Array.isArray(config.stroke.width)) {
           if (config.chart.type !== 'line' && config.chart.type !== 'area') {
-            console.warn('stroke.width option accepts array only for line and area charts. Reverted back to Number');
+            // console.warn('stroke.width option accepts array only for line and area charts. Reverted back to Number');
             config.stroke.width = config.stroke.width[0];
           }
         }
@@ -9358,7 +9358,7 @@
           this.threeDSeries = [];
 
           if (typeof ser[i].data === 'undefined') {
-            console.error("It is a possibility that you may have not included 'data' property in series.");
+            // console.error("It is a possibility that you may have not included 'data' property in series.");
             return;
           }
 
@@ -11264,7 +11264,7 @@
         if (yMin > yMax) {
           // if somehow due to some wrong config, user sent max less than min,
           // adjust the min/max again
-          console.warn('axis.min cannot be greater than axis.max');
+          // console.warn('axis.min cannot be greater than axis.max');
           yMax = yMin + 0.1;
         } else if (yMin === yMax) {
           // If yMin and yMax are identical, then
@@ -11663,7 +11663,7 @@
         if (w.globals.isMultipleYAxis || w.globals.collapsedSeries.length) {
           // The autoScale option for multiple y-axis is turned off as it leads to buggy behavior.
           // Also, when a series is collapsed, it results in incorrect behavior. Hence turned it off for that too - fixes apexcharts.js#795
-          console.warn('autoScaleYaxis is not supported in a multi-yaxis chart.');
+          // console.warn('autoScaleYaxis is not supported in a multi-yaxis chart.');
           return yaxis;
         }
 
@@ -13561,7 +13561,7 @@
         var val = labels.reduce(function (a, b) {
           // if undefined, maybe user didn't pass the datetime(x) values
           if (typeof a === 'undefined') {
-            console.error('You have possibly supplied invalid Date format. Please supply a valid JavaScript Date');
+            // console.error('You have possibly supplied invalid Date format. Please supply a valid JavaScript Date');
             return 0;
           } else {
             return a.length > b.length ? a : b;
@@ -23485,7 +23485,7 @@
             if (ser[st].type === 'column' || ser[st].type === 'bar') {
               if (gl.series.length > 1 && cnf.plotOptions.bar.horizontal) {
                 // horizontal bars not supported in mixed charts, hence show a warning
-                console.warn('Horizontal bars are not supported in a mixed/combo chart. Please turn off `plotOptions.bar.horizontal`');
+                // console.warn('Horizontal bars are not supported in a mixed/combo chart. Please turn off `plotOptions.bar.horizontal`');
               }
 
               columnSeries.series.push(series);
@@ -23517,7 +23517,7 @@
               comboCount++;
             } else {
               // user has specified type, but it is not valid (other than line/area/column)
-              console.warn('You have specified an unrecognized chart type. Available types for this property are line/area/column/bar/scatter/bubble');
+              // console.warn('You have specified an unrecognized chart type. Available types for this property are line/area/column/bar/scatter/bubble');
             }
 
             if (comboCount > 1) {
@@ -24052,7 +24052,7 @@
           var graphics = new Graphics(this.ctx);
           graphics.pathMouseDown(elPath, null);
         } else {
-          console.warn('toggleDataPointSelection: Element not found');
+          // console.warn('toggleDataPointSelection: Element not found');
           return null;
         }
 

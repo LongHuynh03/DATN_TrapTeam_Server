@@ -139,7 +139,7 @@
                                 </div>
                                 <div class="d-inline-block d-xl-flex align-items-center justify-content-between">
                                     <div class="button-bx mt-2 mt-xl-0">
-                                        <button class="btn btn-success">
+                                        <button onclick="confirmDelete('{{this._id}}', true);" class="btn btn-success">
                                             Hiện
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -148,7 +148,7 @@
                                                     fill="white" />
                                             </svg>
                                         </button>
-                                        <button class="btn btn-primary ms-sm-3 ms-0">
+                                        <button onclick="confirmDelete('{{this._id}}', false);" class="btn btn-primary ms-sm-3 ms-0">
                                             Ẩn
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -251,7 +251,7 @@
                                                 <div
                                                     class="d-inline-block d-xl-flex align-items-center justify-content-between">
                                                     <div class="button-bx mt-2 mt-xl-0">
-                                                        <button class="btn btn-success">
+                                                        <button onclick="confirmDelete('{{this._id}}');" class="btn btn-success">
                                                             Hiện
                                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -260,7 +260,7 @@
                                                                     fill="white" />
                                                             </svg>
                                                         </button>
-                                                        <button class="btn btn-primary ms-sm-3 ms-0">
+                                                        <button onclick="confirmDelete('{{this._id}}',false);" class="btn btn-primary ms-sm-3 ms-0">
                                                             Ẩn
                                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -287,3 +287,56 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    const fectAPI = async (url, option) => {
+        const fech = await fetch(url, option);
+        return fech.json();
+    }
+    const deleteProduct = async (id, _status) => {
+        const url = `/blog/${id}&${_status}/change`;
+        const options = {
+            method: "get",
+            headers: { 'Content-Type': 'application/json' }
+        };
+        try {
+            const result = await fectAPI(url, options);
+            console.log(result);
+            if (result) {
+                swal({
+                    title: "Success",
+                    text: "Delete Success !!!",
+                    icon: "success",
+                    buttons: true,
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        window.location.reload();
+                    }
+                });
+            } else {
+                alert("Delete Failed!");
+            }
+        }
+        catch (e) {
+            console.log("Delete failed: " + e);
+        }
+    }
+
+    const confirmDelete = (id) => {
+        console.log("Delete: " + id);
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    deleteProduct(id, _status);
+                }
+            });
+    }
+
+</script>
