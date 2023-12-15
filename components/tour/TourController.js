@@ -2,7 +2,7 @@ const tourService = require("./TourService");
 // Lấy danh sách tour
 const getAllTours = async (page, size) => {
   try {
-    return await tourService.getAllTours(page, size);
+    return (await tourService.getAllTours(page, size));
   } catch (error) {
     console.log("Get all tours controller: ", error);
     throw error;
@@ -101,6 +101,36 @@ const changeStatus = async (tour_id, status) => {
   }
 };
 
+const createTour = async (
+  province_id,
+  name,
+  description,
+  available_seats,
+  image,
+  price,
+  departure_date,
+  departure_location,
+  end_date,
+  schedules,
+  locations,) => {
+  try {
+    return await tourService.createTour( 
+      province_id,
+      name,
+      description,
+      available_seats,
+      image,
+      price,
+      departure_date,
+      departure_location,
+      end_date,
+      schedules,
+      locations);
+  } catch (error) {
+    console.log("Create tour controller error: ", error);
+    throw error;
+  }
+};
 module.exports = {
   getAllTours,
   getTourHighlight,
@@ -111,4 +141,5 @@ module.exports = {
   getTourByIdAndLocations,
   popularTour,
   changeStatus
+  , createTour
 };

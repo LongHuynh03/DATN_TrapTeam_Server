@@ -8,7 +8,7 @@ const getAllTours = async (page, size) => {
     return await tourModel
       .find()
       .populate("province_id", "")
-      .populate("locations", "");
+      .populate("locations", "").sort({ _id: -1 });
   } catch (error) {
     console.log("Get all tours servive: ", error);
     throw error;
@@ -142,37 +142,33 @@ const getTourByIdAndLocations = async (tour_id) => {
   }
 };
 
-//Thêm tour (chưa xong)
+//Thêm tour 
 const createTour = async (
+  province_id,
   name,
-  price,
-  member,
-  departure_province,
-  end_province,
-  locations,
-  departure_date,
-  end_date,
   description,
-  schedules,
+  available_seats,
   image,
-  is_popular,
-  status,
+  price,
+  departure_date,
+  departure_location,
+  end_date,
+  schedules,
+  locations,
 ) => {
   try {
     const newTour = {
+      province_id,
       name,
-      price,
-      member,
-      departure_province,
-      end_province,
-      locations,
-      departure_date,
-      end_date,
       description,
-      schedules,
+      available_seats,
       image,
-      is_popular,
-      status,
+      price,
+      departure_date,
+      departure_location,
+      end_date,
+      schedules,
+      locations,
     }
     const tour = new tourModel(newTour);
     await tour.save();
@@ -225,4 +221,5 @@ module.exports = {
   getTourByIdAndLocations,
   popularTour,
   changeStatus
+  , createTour
 };

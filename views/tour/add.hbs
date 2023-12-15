@@ -95,141 +95,195 @@
 
     <div class="content-body">
         <!-- row -->
+          <form action="/cpanel/tours/add-tour" method="post">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6 mb-3">
                     <div class="card h-auto mb-2">
                         <div class="card-body col-sm-12 border-0 pb-0">
                             <span>Tên</span> <br>
-                            <input class="fs-24 col-sm-12 font-w500 form-control" type="text" name="" id="">
+                            <input class="fs-24 col-sm-12 font-w500 form-control" type="text" name="name_tour" id="">
                         </div>
                         <div class="row card-body border-0 pb-0">
                             <div class="col-sm-6 border-0 pb-0">
                                 <span>Giá</span> <br>
-                                <input class="fs-15 col-sm-12 font-w400 form-control" type="text" name="" id="">
+                                <input class="fs-15 col-sm-12 font-w400 form-control" type="text" name="price_tour" id="">
                             </div>
                             <div class="col-sm-6 border-0 pb-0">
-                                <span>Số thành viên</span> <br>
-                                <input class="fs-15 col-sm-12 font-w400 form-control" type="text" name="" id="">
+                                <span>Số lượng</span> <br>
+                                <input class="fs-15 col-sm-12 font-w400 form-control" type="text" name="quantity" id="">
                             </div>
                         </div>
                         <div class="row card-body border-0 pb-0">
                             <div class="col-sm-6 border-0 pb-0">
                                 <span>Điểm khởi hành</span> <br>
-                                <select class="form-select" aria-label="">
+                                <select class="form-select" aria-label="" name="departure_start">
                                     <option selected>Chọn địa điểm</option>
                                     {{#each provinces}}
-                                    <option value="{{this._id}}">{{this.name}}</option>
+                                    <option value="{{this._id}}" >{{this.name}}</option>
                                     {{/each}}
                                 </select>
                             </div>
                             <div class="col-sm-6 border-0 pb-0">
                                 <span>Điểm đến</span> <br>
-                                <select class="form-select" aria-label="">
+                                <select class="form-select" aria-label="" name="departure_end">
                                     <option selected>Chọn địa điểm</option>
                                     {{#each provinces}}
-                                    <option value="{{this._id}}">{{this.name}}</option>
+                                    <option value="{{this.name}}">{{this.name}}</option>
                                     {{/each}}
                                 </select>
                             </div>
                         </div>
                         <div class="card-body col-sm-12 border-0 pb-0">
                             <span>Địa điểm</span> <br>
-                            <div class="card-body col-sm-12 border-0 pb-0">
-                                <span>Địa điểm 1</span> <br>
-                                <select class="form-select" aria-label="">
-                                    <option selected>Chọn địa điểm</option>
+                            <select class="form-select" aria-label="" multiple multiselect-hide-x="true" multiselect-search="true" name="locations_tour" onchange="removePlaceholder(this)">
+                                 <option value="" disabled selected>Chọn địa điểm</option>
                                     {{#each locations}}
                                     <option value="{{this._id}}">{{this.name}}</option>
                                     {{/each}}
                                 </select>
-                            </div>
-                            <div class="card-body col-sm-12 border-0 pb-0">
-                                <span>Địa điểm 2</span> <br>
-                                <select class="form-select" aria-label="">
-                                    <option selected>Chọn địa điểm</option>
-                                    {{#each locations}}
-                                    <option value="{{this._id}}">{{this.name}}</option>
-                                    {{/each}}
-                                </select>
-                            </div>
-                            <div class="card-body col-sm-12 border-0 pb-0">
-                                <span>Địa điểm 3</span> <br>
-                                <select class="form-select" aria-label="">
-                                    <option selected>Chọn địa điểm</option>
-                                    {{#each locations}}
-                                    <option value="{{this._id}}">{{this.name}}</option>
-                                    {{/each}}
-                                </select>
-                            </div>
+                          
+                            
                         </div>
                         <div class="row card-body border-0 pb-0">
                             <div class="col-sm-6 border-0 pb-0">
                                 <span>Ngày khởi hành</span> <br>
-                                <input class="fs-15 col-sm-12 font-w400 form-control" type="date" name="" id="">
+                                <input class="fs-15 col-sm-12 font-w400 form-control" type="date" name="day_start" id="">
                             </div>
                             <div class="col-sm-6 border-0 pb-0">
                                 <span>Ngày kết thúc</span> <br>
-                                <input class="fs-15 col-sm-12 font-w400 form-control" type="date" name="" id="">
+                                <input class="fs-15 col-sm-12 font-w400 form-control" type="date" name="day_end" id="">
                             </div>
                         </div>
                         <div class="card-body col-sm-12 border-0 pb-0">
                             <span>Mô tả</span> <br>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea name="description_tour" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
                         <div class="card-body col-sm-12 border-0 pb-0">
-                            <span>Lịch trình</span> <br>
-                            {{!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            --}}
-                            <div class="card-body col-sm-12 border-0 pb-0">
-                                <span>Ngày 1</span> <br>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
-                            </div>
-                            <div class="card-body col-sm-12 border-0 pb-0">
-                                <span>Ngày 2</span> <br>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
-                            </div>
-                            <div class="card-body col-sm-12 border-0 pb-0">
-                                <span>Ngày 3</span> <br>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
-                            </div>
+                            <div style="margin-bottom: 10px ; margin-top: 5px"> <span>Lịch trình</span>  
+                               <button style="width: 20px; height: 20px; border-radius: 20px" type="button" id="add-input">+</button></div>
+                           
+                            <div id="input-container">
+   <input class="form-control" style="width: 90%" type="text" name="dataArray" placeholder="Nhập lịch trình ngày 1" /> </br>
+  </div>
+  
                         </div>
-                        <div class="card-body align-items-center pd-0">
-                            <span>Trạng thái</span> <br>
-                            <div class="row card-body">
-                                <div class="col-sm-4 align-items-center">
-                                    <input style="margin-left: 10px;" class="form-check-input" type="radio" value=""
-                                        name="status">
-                                    <span>Hoạt dộng</span>
-                                </div>
-                                <div class="col-sm-4 align-items-center">
-                                    <input style="margin-left: 10px;" class="form-check-input" type="radio" value=""
-                                        name="status">
-                                    <span>Đã xong</span>
-                                </div>
-                                <div class="col-sm-4 align-items-center">
-                                    <input style="margin-left: 10px;" class="form-check-input" type="radio" value=""
-                                        name="status">
-                                    <span>Đã hủy</span>
-                                </div>
+                     
+                         <div class="card-footer border-0 pt-0">
+                                <button style="width: 150px;" type="submit" class="btn btn-success btn-sm mb-4">
+                                    Thêm
+                                </button>
                             </div>
-                        </div>
-                        <div class="card-footer border-0 pt-0 mt-3">
-                            <div class="d-flex align-items-center justify-content-center mb-4">
-                                <a href="javascript:void(0);" class="btn btn-success btn-sm">Lưu</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
-                <div class="col-sm-6 mb-3">
-                    <div class="h-auto mb-3">
-                        <input type="file" name="" id="">
-                    </div>
-                    <div class="h-auto mb-3">
-                        <img width="100%" src="images/event-card-img/pic-1.jpg" alt="">
-                    </div>
-                </div>
+               <div class="col-sm-6 mb-3">
+            <div class="h-auto mb-3">
+              <input
+                type="file"
+                name="image"
+                id="file"
+                onchange="displayImg()"
+              />
+              <input type="hidden" name="imgUrl" id="imgUrl">
+            </div>
+            <div class="h-auto mb-3">
+              <img
+                width="300"
+                height="300"
+                style="margin-left:30px,object-fit: cover; object-position: center;"
+                id="img"
+              />
+            </div>
+          </div>
             </div>
         </div>
+        </form>
     </div>
 </div>
+
+
+
+<script>
+  function removePlaceholder(selectElement) {
+    var selectedOptions = selectElement.selectedOptions;
+    var placeholderOption = selectElement.querySelector('option[disabled][selected]');
+
+    if (selectedOptions.length > 0 && placeholderOption) {
+      placeholderOption.removeAttribute('selected');
+      placeholderOption.disabled = false;
+    }
+  }
+</script>
+
+<style>
+  .input-row {
+    margin-bottom: 20px;
+  }
+
+  .input-row input,
+  .input-row button {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .input-row button {
+    margin-left: 10px;
+   
+  }
+</style>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var counter = 1;
+
+    $('#add-input').on('click', function() {
+      var input = $('<div class="input-row"><input class="form-control" style="width: 90%;" type="text" name="dataArray" placeholder="Nhập lịch trình ngày ' + (counter + 1) + '" /><button style="padding: 5px; border-radius: 8px; border-color: grey" type="button" class="remove-input">Xoá</button><br></div>');
+      $('#input-container').append(input);
+      counter++;
+    });
+
+    $('#input-container').on('click', '.remove-input', function() {
+      $(this).closest('.input-row').remove();
+      counter--; // Giảm giá trị của counter khi xoá phần tử
+    });
+  });
+</script>
+
+<script>
+  // hiển thị hình ảnh khi chọn
+  const displayImg = async () => {
+    var file = document.getElementById('file').files[0];
+    var reader = new FileReader();
+
+    reader.onload = async function (e) {
+      var image = document.getElementById("img");
+      image.src = e.target.result;
+
+      // Upload the file to Firebase Storage
+      try {
+        const formData = new FormData();
+        formData.append('image', file);
+
+        const response = await fetch('http://localhost:3000/api/image/upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          // Do something with the imageURL from Firebase Storage
+          console.log('Image URL:', data.imageURL);
+          document.getElementById('imgUrl').value = data.imageURL;
+        } else {
+          console.error('Image upload failed:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error uploading image:', error);
+      }
+    };
+
+    reader.readAsDataURL(file);
+  }
+</script>

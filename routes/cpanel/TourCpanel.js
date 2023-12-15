@@ -4,6 +4,7 @@ const tourController = require('../../components/tour/TourController');
 const locationController = require('../../components/location/LocationController');
 const provinceController = require('../../components/province/ProvinceController');
 const bookingTourController = require('../../components/bookingtour/BookingTourController');
+const moment = require('moment');
 
 
 function formatDateString(dateString) {
@@ -59,6 +60,62 @@ router.get('/', async function (req, res, next) {
 //     throw error;
 //   }
 // });
+
+// THÊM TOUR
+router.get('/add-tour', async function (req, res, next) {
+  try {
+    const provinces = await provinceController.getAllProvinces();
+    const locations = await locationController.getAllLocations();
+    res.render('tour/add', { provinces, locations });
+  } catch (error) {
+    
+  }
+});
+
+router.post('/add-tour', async function (req, res, next) {
+  try {
+    let { body } = req;
+    let { name_tour, price_tour, quantity, departure_start, departure_end, day_start, day_end, description_tour,  locations_tour, dataArray, imgUrl,  } = body;
+    const dayStart = moment(day_start).format('DD/MM/YYYY');
+    const dayEnd = moment(day_end).format('DD/MM/YYYY');
+
+    const departureDate = moment(dayStart, 'DD/MM/YYYY').toDate();
+    const endDate = moment(dayEnd, 'DD/MM/YYYY').toDate();
+
+
+    const province_id = departure_start;
+    const name = name_tour;
+    const description = description_tour;
+    const available_seats = quantity;
+    const image = imgUrl;
+    const price = price_tour;
+    const departure_date = departureDate;
+    const departure_location = departure_end;
+    const end_date = endDate;
+    const schedules = dataArray;
+    const locations = locations_tour
+
+    console.log("????????? Province: " + province_id);
+    console.log("????????? Name: " + name);
+    console.log("????????? Des: " + description);
+    console.log("????????? Available: " + available_seats);
+    console.log("????????? Image: " + image);
+    console.log("????????? Price: " + price);
+    console.log("????????? Departure: " + departure_date);
+    console.log("????????? Departure location: " + departure_location);
+    console.log("????????? End date: " + end_date);
+    console.log("????????? Schedules: " + schedules);
+    console.log("????????? Locations: " + locations);
+
+  
+    await tourController.createTour(province_id, name, description, available_seats, image, price, departure_date, departure_location, end_date, schedules, locations);
+    res.redirect('/cpanel/tours');
+   
+  } catch (error) {
+    console.log("Post location cpanel error: " + error);
+    throw error;
+  }
+});
 
 // // Thêm tour (POST) (Chưa xong)
 // router.post('/create', async function (req, res, next) {

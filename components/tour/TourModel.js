@@ -16,9 +16,9 @@ const tourSchema = new Schema({
   departure_date: Date,
   departure_location: String,
   end_date: Date,
-  status: Boolean,
+  status: {type: Boolean, default: true},
   created_at: { type: Date, default: Date.now() },
-  is_popular: Boolean,
+  is_popular: {type: Boolean, default: false },
   schedules: [String],
   locations: [
     {
