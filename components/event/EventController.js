@@ -18,7 +18,17 @@ const createEvent = async (title, province_id, image) => {
   }
 };
 
+const deleteEvent = async (event_id) => {
+  try {
+    return await eventService.deleteEvent(event_id);
+  } catch (error) {
+    console.log("Delete event controller error: "+ error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllEvents,
   createEvent,
+  deleteEvent,
 };

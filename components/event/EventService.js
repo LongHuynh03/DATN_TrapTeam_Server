@@ -27,7 +27,19 @@ const createEvent = async (title, province_id, image) => {
   }
 };
 
+//Xóa sự kiện
+const deleteEvent = async (event_id) => {
+  try {
+    await eventModel.findByIdAndDelete(event_id);
+    return true;
+  } catch (error) {
+    console.log("Delete event servive error: " + error);
+    throw error;
+  }
+}
+
 module.exports = {
   getAllEvents,
   createEvent,
+  deleteEvent
 };
