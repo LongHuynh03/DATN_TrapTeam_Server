@@ -129,7 +129,7 @@
                 {{!-- Thêm tour --}}
                 <div class="form-head d-inline-block d-sm-flex align-items-center mt-2 mt-lg-0">
                     <div class="align-items-center justify-content-center">
-                        <a href="/addLocation" class="btn btn-success btn-sm">
+                        <a href="/cpanel/locations/addLocation" class="btn btn-success btn-sm">
                             Thêm
                         </a>
                     </div>
@@ -160,9 +160,9 @@
                                                     <div class="form-check style-3">
                                                         {{!-- <input class="form-check-input" type="checkbox" value=""> --}}
                                                         {{#if this.is_popular}}
-                                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                                        <input name="is_popular" class="form-check-input" type="checkbox" value="" checked onclick="confirmUpdatePopular('{{this._id}}', {{this.is_popular}})">
                                                         {{else}}
-                                                        <input class="form-check-input" type="checkbox" value="">
+                                                        <input name="is_popular" class="form-check-input" type="checkbox" value="" onclick="confirmUpdatePopular('{{this._id}}', {{this.is_popular}})">
                                                         {{/if}}
                                                     </div>
                                                 </td>
@@ -680,54 +680,87 @@
 </div>
 
 <script>
+  const fetchAPI = async (url, option) => {
+    const res = await fetch(url, option);
+    return res.json();
+  }
+  const deleteProduct = async (id) => {
+    const url = `/cpanel/locations/${id}/delete`;
+    const option = {
+      method: 'get',
+      headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+      const result = await fetchAPI(url, option);
+      console.log('Delete Result:', result);
+      if (result) {
+        swal("Delete successfully!", { icon: "success" });
+        setTimeout(function () {
+          window.location.reload();
+        }, 2000);
 
-    const fectAPI = async (url, option) => {
-        const fech = await fetch(url, option);
-        return fech.json();
-    }
-    const deleteProduct = async (id) => {
-        const url = `/location/${id}/deleted`;
-        const options = {
-            method: "get",
-            headers: { 'Content-Type': 'application/json' }
-        };
-        try {
-            const result = await fectAPI(url, options);
-            console.log(result);
-            if (result) {
-                swal({
-                    title: "Success",
-                    text: "Delete Success !!!",
-                    icon: "success",
-                    buttons: true,
-                }).then((willDelete) => {
-                    if (willDelete) {
-                        window.location.reload();
-                    }
-                });
-            } else {
-                alert("Delete Failed!");
-            }
-        }
-        catch (e) {
-            console.log("Delete failed: " + e);
-        }
-    }
+      } else {
+        swal("Delete failed!", { icon: "error" });
+      }
 
-    const confirmDelete = (id) => {
-        console.log("Delete: " + id);
-        swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this imaginary file!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    deleteProduct(id);
-                }
-            });
+    } catch (e) {
+      console.log('Delete ERROR:', e);
     }
+  }
+
+  const updatePopular = async (id, is_popular) => {
+    const url = `/cpanel/locations/${id}/popular/${is_popular}`;
+    const option = {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+      const result = await fetchAPI(url, option);
+      console.log('update popular Result:', result);
+      if (result) {
+        swal("Update popular successfully!", { icon: "success" });
+        setTimeout(function () {
+          window.location.reload();
+        }, 2000);
+
+      } else {
+        swal("Update popular failed!", { icon: "error" });
+      }
+
+    } catch (e) {
+      console.log('Update popular ERROR:', e);
+    }
+  }
+  const confirmDelete = (id) => {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+
+          deleteProduct(id);
+
+        }
+      });
+  }
+
+  const confirmUpdatePopular = (id, is_popular) => {
+    swal({
+      title: "Are you sure?",
+      text: "Once update, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willUpdate) => {
+        if (willUpdate) {
+          updatePopular(id, is_popular);
+        }
+      });
+  }
 
 </script>

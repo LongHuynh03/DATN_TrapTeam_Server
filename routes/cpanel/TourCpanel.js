@@ -6,15 +6,15 @@ const provinceController = require('../../components/province/ProvinceController
 const bookingTourController = require('../../components/bookingtour/BookingTourController');
 
 // //Lấy danh sách tour
-// router.get('/', async function (req, res, next) {
-//   try {
-//     const tours = await tourController.getAllTours();
-//     res.render('tour/list', { tours })
-//   } catch (error) {
-//     console.log("Get all tour cpanel error: " + error);
-//     throw error;
-//   }
-// });
+router.get('/', async function (req, res, next) {
+  try {
+    const tours = await tourController.getAllTours();
+    res.render('tour/list', { tours })
+  } catch (error) {
+    console.log("Get all tour cpanel error: " + error);
+    throw error;
+  }
+});
 
 // // Lấy danh sách địa điểm, tỉnh đổ vào tour, thêm tour (GET)
 // router.get('/create', async function (req, res, next) {
