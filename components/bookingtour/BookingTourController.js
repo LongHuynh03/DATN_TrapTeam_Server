@@ -24,9 +24,13 @@ const getAllBookingToursByUser = async (user_id) => {
 // Lấy danh sách tour đã đặt theo Id tour
 const getAllBookingToursByTour = async (tour_id) => {
   try {
-    return await bookingtourService.getAllBookingToursByTour(tour_id);
+    return await bookingtourModel
+      .find({ tour_id: tour_id })
+      .populate("tour_id", "")
+      .populate("user_id", "")
+      .populate("location_custom", "");
   } catch (error) {
-    console.log("Get all booking tours controller ", error);
+    console.log("Get all booking tours servive ", error);
     throw error;
   }
 };
