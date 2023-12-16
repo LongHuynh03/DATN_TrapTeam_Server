@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-
+const moment = require('moment');
 const tourController = require("../../components/tour/TourController");
 
 //Lấy tất cả tour
@@ -93,6 +93,8 @@ router.get("/getTourByFilter", async (req, res) => {
       is_popular,
       dayFind,
     } = req.query;
+
+    console.log("locationProvinces: ", dayFind);
 
     const dateParts = dayFind.split("/");
     const day = parseInt(dateParts[0], 10);
