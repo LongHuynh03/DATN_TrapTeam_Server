@@ -41,7 +41,6 @@ router.get('/', async function (req, res, next) {
         }
       
     });
-    console.log(tours);
     res.render('tour/list', { tours })
   } catch (error) {
     console.log("Get all tour cpanel error: " + error);
@@ -82,7 +81,6 @@ router.post('/add-tour', async function (req, res, next) {
     const departureDate = moment(dayStart, 'DD/MM/YYYY').toDate();
     const endDate = moment(dayEnd, 'DD/MM/YYYY').toDate();
 
-
     const province_id = departure_start;
     const name = name_tour;
     const description = description_tour;
@@ -94,19 +92,6 @@ router.post('/add-tour', async function (req, res, next) {
     const end_date = endDate;
     const schedules = dataArray;
     const locations = locations_tour
-
-    console.log("????????? Province: " + province_id);
-    console.log("????????? Name: " + name);
-    console.log("????????? Des: " + description);
-    console.log("????????? Available: " + available_seats);
-    console.log("????????? Image: " + image);
-    console.log("????????? Price: " + price);
-    console.log("????????? Departure: " + departure_date);
-    console.log("????????? Departure location: " + departure_location);
-    console.log("????????? End date: " + end_date);
-    console.log("????????? Schedules: " + schedules);
-    console.log("????????? Locations: " + locations);
-
   
     await tourController.createTour(province_id, name, description, available_seats, image, price, departure_date, departure_location, end_date, schedules, locations);
     res.redirect('/cpanel/tours');
@@ -184,9 +169,77 @@ router.get('/:id', async function (req, res, next) {
   try {
     const { id} = req.params;
     console.log("ID: " + id);
-    const tour = await tourController.getTourByIdAndLocations(id);
-    const bookings = await bookingTourController.getAllBookingToursByTour(id);
-    res.render('tour/edit', {tour, bookings});
+    const query_tour = await tourController.getTourByIdAndLocations(id);
+    const tour = {
+      _id: query_tour._id,
+      province_id: {
+        _id: query_tour.province_id._id,
+        name: query_tour.province_id.name,
+        image: query_tour.province_id.image,
+      },
+      image: query_tour.image,
+      name: query_tour.name,
+      description: query_tour.description,
+      price: query_tour.price,
+      departure_date: formatDateString(query_tour.departure_date),
+      departure_location: query_tour.departure_location,
+      end_date: formatDateString(query_tour.end_date),
+      status: query_tour.status,
+      is_popular: query_tour.is_popular,
+      schedules: query_tour.schedules,
+      locations: query_tour.locations, 
+      created_at: formatDateString(query_tour.created_at),
+      }
+
+    
+    const query = await bookingTourController.getAllBookingToursByTour(id);
+      quantity = 0;
+      query.forEach((bookingTour) => {
+        if(bookingTour.role == false){ quantity += bookingTour.adult_count + bookingTour.child_count;}
+       
+      });
+
+    console.log("quantity: " + quantity);
+    const bookings = query.map(booking => {
+      return {
+        _id: booking._id,
+        user_id: {
+          _id: booking.user_id._id,
+          phone_number: booking.user_id.phone_number,
+          name: booking.user_id.name,
+          email: booking.user_id.email,
+          avatar: booking.user_id.avatar,
+          created_at: formatDateString(booking.user_id.created_at),
+          __v: booking.user_id.__v,
+        },
+        tour_id: {
+          _id: booking.tour_id._id,
+          province_id: booking.tour_id.province_id,
+          name: booking.tour_id.name,
+          description: booking.tour_id.description,
+          available_seats: booking.tour_id.available_seats,
+          image: booking.tour_id.image,
+          price: booking.tour_id.price,
+          departure_date: formatDateString(booking.tour_id.departure_date),
+          departure_location: booking.tour_id.departure_location,
+          end_date: formatDateString(booking.tour_id.end_date),
+          status: booking.tour_id.status,
+          is_popular: booking.tour_id.is_popular,
+          schedules: booking.tour_id.schedules,
+          locations: booking.tour_id.locations,
+        },
+        discount: booking.discount,
+        created_at: formatDateString(booking.created_at),
+        adult_count: booking.adult_count,
+        child_count: booking.child_count,
+        price: booking.price,
+        note: booking.note,
+        role: booking.role,
+        location_custom: booking.location_custom,
+        __v: booking.__v,
+      }
+    });
+    res.render('tour/edit', {tour, bookings, quantity});
   } catch (error) {
     console.log("Detail tour cpanel error: " + error);
     throw error;
