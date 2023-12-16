@@ -117,17 +117,17 @@ router.post('/add-tour', async function (req, res, next) {
   }
 });
 
-// // Thêm tour (POST) (Chưa xong)
-// router.post('/create', async function (req, res, next) {
-//   try {
-//     const provinces = await provinceController.getAllProvinces();
-//     const location = await locationController.getAllLocations();
-//     res.render('tour/list', { provinces, location });
-//   } catch (error) {
-//     console.log("Get create tour cpanel error: " + error);
-//     throw error;
-//   }
-// });
+// Cập nhật nổi bật tour
+router.post("/:id/popular/:is_popular", async function (req, res, next) {
+  try {
+    let { id, is_popular } = req.params;
+    await tourController.popularTour(id, is_popular);
+    return res.json({ status: true });
+  } catch (error) {
+    console.log("Popular tour cpanel error: " + error);
+    return res.json({ status: false });
+  }
+});
 
 // // Xem chi tiết tour (có danh sách hóa booking tour)
 // router.get('/:id/detailTour', async function (req, res, next) {

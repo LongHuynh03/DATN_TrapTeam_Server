@@ -179,21 +179,7 @@ const createTour = async (
   }
 }
 
-//Cập nhật tour nổi bật
-const popularTour = async (tour_id, is_popular) => {
-  try {
-    const tour = await tourModel.findById(tour_id);
-    if (tour) {
-      tour.is_popular = is_popular ? is_popular : tour.is_popular;
-      await tour.save();
-      return true;
-    }
-    return false;
-  } catch (error) {
-    console.log("Popular tour servive error: ", error);
-    throw error;
-  }
-}
+
 
 //Thay đổi trạng thái tour
 const changeStatus = async ( tour_id, status) => {
@@ -207,6 +193,21 @@ const changeStatus = async ( tour_id, status) => {
     return false;
   } catch (error) {
     console.log("Change status tour service: ", error);
+    throw error;
+  }
+}
+
+//Cập nhật nổi bật cho tour
+const popularTour = async (tour_id, is_popular) => {
+  try {
+    const popular = is_popular == 'true' ? false : true;
+    const tour = await tourModel.findByIdAndUpdate(tour_id, { is_popular: popular});
+    if (tour) {
+      return true;
+    }
+    return false;
+  } catch (error) {
+    console.log("Popular tour servive ", error);
     throw error;
   }
 }

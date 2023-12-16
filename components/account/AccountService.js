@@ -4,7 +4,7 @@ const accountModel = require("./AccountModel");
 // Lấy danh sách tài khoản
 const getAllAccounts = async (page, size) => {
   try {
-    return await accountModel.find();
+    return await accountModel.find().sort({_id: -1});
   } catch (error) {
     console.log("Get all accounts servive ", error);
     throw error;

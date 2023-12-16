@@ -93,9 +93,9 @@ router.get("/login", function (req, res, next) {
 //   }
 // });
 
-router.get('/detailTour', function (req, res, next) {
-  res.render('tour/edit', { title: 'Express' });
-});
+// router.get('/detailTour', function (req, res, next) {
+//   res.render('tour/edit', { title: 'Express' });
+// });
 
 // router.get('/addTour', async function (req, res, next) {
 //   try {
