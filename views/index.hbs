@@ -109,7 +109,7 @@
             <span class="nav-text">Bài viết</span>
           </a>
         </li>
-        <li><a class="has-arrow" href="/cpanel/login" aria-expanded="false">
+        <li><a class="has-arrow" href="/login" aria-expanded="false">
             <i class="flaticon-061-outside"></i>
             <span class="nav-text">Đăng xuất</span>
           </a>
@@ -147,7 +147,7 @@
                       </svg>
                     </span>
                     <div>
-                      <h2 class="font-w600 mb-0 income-value">400.000.000</h2>
+                      <h2 class="font-w600 mb-0 income-value">{{newTotalPrice}}</h2>
                       <span class="fs-6 font-w500">Doanh thu</span>
                     </div>
                   </div>
@@ -159,7 +159,7 @@
                         class="income-data d-flex justify-content-between align-items-center mb-sm-0 mb-2 ps-lg-0"
                       >
                         <div>
-                          <h3 class="font-w600 fs-2 mb-0 text-white">845</h3>
+                          <h3 class="font-w600 fs-2 mb-0 text-white">{{numberAccounts}}</h3>
                           <span class="fs-6 font-w500 text-white">Tài khoản đăng
                             ký</span>
                         </div>
@@ -188,7 +188,7 @@
                         class="income-data d-flex justify-content-between align-items-center mb-sm-0 mb-2 mb-sm-0 mb-2 ps-lg-0"
                       >
                         <div>
-                          <h3 class="font-w600 fs-2 mb-0">195</h3>
+                          <h3 class="font-w600 fs-2 mb-0">{{numberTours}}</h3>
                           <span class="fs-6 font-w500">Chuyến du lịch</span>
                         </div>
                         <span class="income-icon style-3">
@@ -264,11 +264,11 @@
                   <div class="d-flex justify-content-between flex-wrap">
                     <span><span class="pills-lable bg-dark me-2"></span>Đang
                       diễn ra</span>
-                    <h4>100</h4>
+                    <h4>{{numberToursActive}}</h4>
                   </div>
                   <div class="d-flex justify-content-between flex-wrap">
                     <span><span class="pills-lable me-2"></span>Đã xong </span>
-                    <h4>129</h4>
+                    <h4>{{numberToursFinish}}</h4>
                   </div>
                 </div>
               </div>

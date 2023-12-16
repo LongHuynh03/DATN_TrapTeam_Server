@@ -9,12 +9,51 @@ const bookingTourController = require("../components/bookingtour/BookingTourCont
 const blogController = require("../components/blogs/BlogController");
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
-});
+// router.get("/", function (req, res, next) {
+//   res.render("index", { title: "Express" });
+// });
 
 router.get("/login", function (req, res, next) {
   res.render("login", { title: "Express" });
+});
+
+router.get('/',async function (req, res, next) {
+  try {
+    const bookings = await bookingTourController.getAllBookingTours();
+    let totalPrice = 0;
+    const total = bookings.forEach(element => {
+      totalPrice += element.price
+    });
+
+    const newTotalPrice = totalPrice.toLocaleString('vi-VN');
+
+    const accountCount = await userController.getAllAccounts();
+    let numberAccounts = accountCount.length;
+
+    const tours = await tourController.getAllTours();
+    let numberTours = tours.length;
+
+    let numberToursActive = 0;
+    const tourActive = tours.forEach(element => {
+      if (element.status){
+        numberToursActive += 1;
+      }
+    });
+
+    let numberToursFinish = 0;
+    const tourFinish = tours.forEach(element => {
+      if (!element.status){
+        numberToursFinish += 1;
+      }
+    });
+
+    res.render('index', { newTotalPrice, numberAccounts, numberTours, numberToursActive, numberToursFinish });
+  } catch (error) {
+    console.log("Get all user cpanel error: " + error)
+    throw error;
+  }
+  
+
 });
 
 /* USER */
