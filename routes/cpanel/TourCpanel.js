@@ -183,9 +183,10 @@ router.post("/:id/popular/:is_popular", async function (req, res, next) {
 router.get('/:id', async function (req, res, next) {
   try {
     const { id} = req.params;
-    // const tour = await tourController.getTourByIdAndLocations(id);
-    // const bookings = await bookingTourController.getAllBookingToursByTour(id);
-    res.render('tour/edit');
+    console.log("ID: " + id);
+    const tour = await tourController.getTourByIdAndLocations(id);
+    const bookings = await bookingTourController.getAllBookingToursByTour(id);
+    res.render('tour/edit', {tour, bookings});
   } catch (error) {
     console.log("Detail tour cpanel error: " + error);
     throw error;
