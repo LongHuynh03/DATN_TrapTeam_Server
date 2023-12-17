@@ -63,11 +63,8 @@ const getTourByFilter = async (
 ) => {
   try {
     var formattedDate = moment(dayFind, 'DD/MM/YYYY').format('YYYY-MM-DD');
-    var start = new Date(formattedDate + 'T00:00:00.000Z');
-    var end = new Date(formattedDate + 'T23:59:59.999Z');
-    console.log("dayFind: ", dayFind);
-    console.log("start: ", start);
-    console.log("end: ", end);
+    var start = new Date(formattedDate );
+    var end = new Date(formattedDate );
 
     const tours = await tourModel.aggregate([
       {
@@ -84,7 +81,7 @@ const getTourByFilter = async (
           is_popular: is_popular === "true" ? true : false,
           price: { $gte: Number(minPrice), $lte: Number(maxPrice) },
           departure_date: {  $gte: start,
-            $lt: end },
+            },
         },
         },
       
