@@ -72,9 +72,9 @@ const getTourByFilter = async (
       },
       {
         $match: {
-          "province.name": { $regex: locationProvinces, $options: "i" },
+          "province.name": locationProvinces ? { $regex: locationProvinces, $options: "i" } : { $regex: '', $options: "i" },
           is_popular: is_popular === "true" ? true : false,
-          price: { $gte: Number(minPrice), $lte: Number(maxPrice) },
+          price: maxPrice<=0 ?  { $gte: Number(minPrice), $lte: Number(1000000000) } : { $gte: Number(minPrice), $lte: Number(maxPrice) },
           departure_date: dayFind,
         },
       },
@@ -124,12 +124,6 @@ const getTourByProvinceId = async (province_id) => {
 const getTourByIdAndLocations = async (tour_id) => {
   try {
     return await tourModel
-<<<<<<< HEAD
-    .findById(tour_id)
-    .populate("locations", "")
-    .populate("province_id", "name")
-    .populate("departure_location", "");
-=======
       .findById(tour_id)
       .populate({
         path: "locations",
@@ -139,7 +133,6 @@ const getTourByIdAndLocations = async (tour_id) => {
         },
       })
       .populate("province_id", "");
->>>>>>> devTrongLV
   } catch (error) {
     console.log(
       "Lấy tour theo id và danh sách địa điểm của tour service: ",
