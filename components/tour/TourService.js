@@ -80,13 +80,10 @@ const ngayKhoiHanhISO = ngayKhoiHanhDate.toISOString();
       },
       {
         $match: {
-          $or: [{   "province.name": { $regex: locationProvinces, $options: "i" },
+           "province.name": { $regex: locationProvinces, $options: "i" },
           is_popular: is_popular === "true" ? true : false,
           price: { $gte: Number(minPrice), $lte: Number(maxPrice) },
-          // tìm kiếm theo ngày khởi hành của tour, giá trị nhận vào là ngày tháng năm (16/12/2023) => chuyển về dạng Date để so sánh với ngày khởi hành của tour trong database có dạng (2023-12-16T00:00:00.000Z). tìm kiếm từ ngày đó trở đi
-          departure_date: {  $gte: new Date(ngayKhoiHanhISO) },}
-         
-          ]
+          departure_date: {  $gte: new Date(ngayKhoiHanhISO) },
         },
       },
       {
