@@ -65,6 +65,9 @@ const getTourByFilter = async (
     var formattedDate = moment(dayFind, 'DD/MM/YYYY').format('YYYY-MM-DD');
     var start = new Date(formattedDate + 'T00:00:00.000Z');
     var end = new Date(formattedDate + 'T23:59:59.999Z');
+    console.log("dayFind: ", dayFind);
+    console.log("start: ", start);
+    console.log("end: ", end);
 
     const tours = await tourModel.aggregate([
       {
