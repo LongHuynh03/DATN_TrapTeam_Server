@@ -7,6 +7,9 @@ const eventSchema = new Schema({
   province_id: { type: ObjectId, ref: "province" },
   title: String,
   image: String,
+  deleted: { type: Boolean, default: false },
 });
+
+
 
 module.exports = mongoose.models.event || mongoose.model("event", eventSchema);

@@ -44,29 +44,30 @@ router.get("/getAllBlogsByUserId", async (req, res) => {
 router.post("/createBlog", async (req, res) => {
   try {
     const { user_id, content, image } = req.body;
-    const created_at = new Date();
     const status = true;
     const result = await blogController.createBlog(
       user_id,
       content,
       image,
-      created_at,
       status
     );
     if (result) {
       return res.status(200).json({
         result: true,
         message: "Thêm bài viết thành công",
+        blog: result,
       });
     }
     return res.status(400).json({
       result: false,
       message: "Thêm bài viết thất bại",
+      blog: null,
     });
   } catch (error) {
     return res.status(500).json({
       result: false,
       message: error.message,
+      blog: null,
     });
   }
 });

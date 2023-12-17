@@ -6,7 +6,8 @@ const getAllBookingTours = async (page, size) => {
     return await bookingtourModel
       .find()
       .populate("tour_id", "")
-      .populate("user_id", "");
+      .populate("user_id", "")
+      .populate("location_custom", "");
   } catch (error) {
     console.log("Get all booking tours servive ", error);
     throw error;
@@ -18,7 +19,22 @@ const getAllBookingToursByUser = async (user_id) => {
   try {
     return await bookingtourModel
       .find({ user_id: user_id })
-      .populate("tour_id", "");
+      .populate({ path: "tour_id", populate: { path: "province_id" } })
+      .sort({ created_at: -1 });
+  } catch (error) {
+    console.log("Get all booking tours servive ", error);
+    throw error;
+  }
+};
+
+// Lấy danh sách tour đã đặt theo Id tour
+const getAllBookingToursByTour = async (tour_id) => {
+  try {
+    return await bookingtourModel
+      .find({ tour_id: tour_id })
+      .populate("tour_id", "")
+      .populate("user_id", "")
+      .populate("location_custom", "");
   } catch (error) {
     console.log("Get all booking tours servive ", error);
     throw error;
@@ -30,7 +46,6 @@ const addNewBookingTour = async (
   user_id,
   tour_id,
   discount,
-  created_at,
   adult_count,
   child_count,
   price,
@@ -43,7 +58,6 @@ const addNewBookingTour = async (
       user_id,
       tour_id,
       discount,
-      created_at,
       adult_count,
       child_count,
       price,
@@ -60,8 +74,20 @@ const addNewBookingTour = async (
   }
 };
 
+// Lấy danh sách tour đã đặt theo tour_id và role: false: mặc định
+const getAllBookingToursByTourId = async (tour_id) => {
+  try {
+    return await bookingtourModel.find({ tour_id: tour_id, role: false });
+  } catch (error) {
+    console.log("Get all booking tours servive ", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllBookingTours,
   getAllBookingToursByUser,
+  getAllBookingToursByTour,
   addNewBookingTour,
+  getAllBookingToursByTourId,
 };

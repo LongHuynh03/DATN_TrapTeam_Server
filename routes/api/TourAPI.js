@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-
+const moment = require('moment');
 const tourController = require("../../components/tour/TourController");
 
 //Lấy tất cả tour
@@ -88,11 +88,9 @@ router.get("/getTourByFilter", async (req, res) => {
   try {
     const {
       locationProvinces,
-      locationCountry,
       minPrice,
       maxPrice,
       is_popular,
-
       dayFind,
     } = req.query;
 
@@ -104,11 +102,10 @@ router.get("/getTourByFilter", async (req, res) => {
 
     const tours = await tourController.getTourByFilter(
       locationProvinces,
-      locationCountry,
       minPrice,
       maxPrice,
       is_popular,
-      date
+      dayFind
     );
     return res.status(200).json({
       result: true,

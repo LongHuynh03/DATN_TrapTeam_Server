@@ -2,7 +2,7 @@ const tourService = require("./TourService");
 // Lấy danh sách tour
 const getAllTours = async (page, size) => {
   try {
-    return await tourService.getAllTours(page, size);
+    return (await tourService.getAllTours(page, size));
   } catch (error) {
     console.log("Get all tours controller: ", error);
     throw error;
@@ -44,7 +44,6 @@ const getTourByName = async (name) => {
 // tìm kiếm tour theo filter
 const getTourByFilter = async (
   locationProvinces,
-  locationCountry,
   minPrice,
   maxPrice,
   is_popular,
@@ -53,7 +52,6 @@ const getTourByFilter = async (
   try {
     return await tourService.getTourByFilter(
       locationProvinces,
-      locationCountry,
       minPrice,
       maxPrice,
       is_popular,
@@ -85,6 +83,57 @@ const getTourByIdAndLocations = async (tour_id) => {
   }
 };
 
+
+const changeStatus = async (tour_id, status) => {
+  try {
+    return await tourService.changeStatus(tour_id, status);
+  } catch (error) {
+    console.log("Change status tour controller error: ", error);
+    throw error;
+  }
+};
+
+const createTour = async (
+  province_id,
+  name,
+  description,
+  available_seats,
+  image,
+  price,
+  departure_date,
+  departure_location,
+  end_date,
+  schedules,
+  locations,) => {
+  try {
+    return await tourService.createTour( 
+      province_id,
+      name,
+      description,
+      available_seats,
+      image,
+      price,
+      departure_date,
+      departure_location,
+      end_date,
+      schedules,
+      locations);
+  } catch (error) {
+    console.log("Create tour controller error: ", error);
+    throw error;
+  }
+};
+
+// Cập nhật nổi bật tour
+
+const popularTour = async (tour_id, is_popular) => {
+  try {
+    return await tourService.popularTour(tour_id, is_popular);
+  } catch (error) {
+    console.log("Popular tour controller error: ", error);
+    throw error;
+  }
+};
 module.exports = {
   getAllTours,
   getTourHighlight,
@@ -93,4 +142,7 @@ module.exports = {
   getTourByFilter,
   getTourByProvinceId,
   getTourByIdAndLocations,
+  changeStatus
+  , createTour,
+  popularTour 
 };

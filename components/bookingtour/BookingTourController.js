@@ -21,12 +21,21 @@ const getAllBookingToursByUser = async (user_id) => {
   }
 };
 
+// Lấy danh sách tour đã đặt theo Id tour
+const getAllBookingToursByTour = async (tour_id) => {
+  try {
+    return await bookingtourService.getAllBookingToursByTour(tour_id);
+  } catch (error) {
+    console.log("Get all booking tours servive ", error);
+    throw error;
+  }
+};
+
 // Đặt tour
 const addNewBookingTour = async (
   user_id,
   tour_id,
   discount,
-  created_at,
   adult_count,
   child_count,
   price,
@@ -39,7 +48,6 @@ const addNewBookingTour = async (
       user_id,
       tour_id,
       discount,
-      created_at,
       adult_count,
       child_count,
       price,
@@ -53,8 +61,22 @@ const addNewBookingTour = async (
   }
 };
 
+// lấy danh sach tour theo tour_id và role
+const getAllBookingToursByTourId = async (tour_id) => {
+  try {
+    return await bookingtourService.getAllBookingToursByTourId(
+      tour_id,
+    );
+  } catch (error) {
+    console.log("Get all booking tours controller ", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getAllBookingTours,
   getAllBookingToursByUser,
+  getAllBookingToursByTour,
   addNewBookingTour,
+  getAllBookingToursByTourId
 };

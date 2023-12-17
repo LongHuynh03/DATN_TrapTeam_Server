@@ -54,19 +54,14 @@ router.post("/addNewBookingTour", async (req, res) => {
       child_count,
       price,
       note,
+      role,
       location_custom,
     } = req.body;
-    const created_at = new Date();
-    let role = false; // false: tour mặc định, true: tour tùy chọn
-    if (location_custom.length > 0) {
-      role = true;
-    }
 
     const bookingTour = await bookingTourController.addNewBookingTour(
       user_id,
       tour_id,
       discount,
-      created_at,
       adult_count,
       child_count,
       price,
@@ -92,6 +87,38 @@ router.post("/addNewBookingTour", async (req, res) => {
     return res.status(500).json({
       result: false,
       bookingTour: {},
+    });
+  }
+});
+
+// lấy danh sách tour theo tour_id và role
+// http://localhost:3000/api/bookingtour/getAllBookingToursByTourId?tour_id=
+
+router.get("/getAllBookingToursByTourId", async (req, res) => {
+  try {
+    const bookingTours = await bookingTourController.getAllBookingToursByTourId(
+      req.query.tour_id
+    );
+    let quantity = 0;
+
+    if (bookingTours.length === 0) {
+      return res.status(200).json({
+        result: true,
+        quantity: quantity,
+      });
+    } else {
+      bookingTours.forEach((bookingTour) => {
+        quantity += bookingTour.adult_count + bookingTour.child_count;
+      });
+      return res.status(200).json({
+        result: true,
+        quantity: quantity,
+      });
+    }
+  } catch (error) {
+    return res.status(500).json({
+      result: false,
+      quantity: 0,
     });
   }
 });

@@ -18,7 +18,7 @@ const addNewFavorite = async (user_id, tour_id) => {
     };
     const favorite = new favoriteModel(newFavorite);
     await favorite.save();
-    return true;
+    return favoriteModel.findById(favorite._id);
   } catch (error) {
     console.log("Add new favorite service ", error);
     throw error;
@@ -36,7 +36,11 @@ const deleteFavorite = async (user_id, tour_id) => {
       return false;
     }
     await favoriteModel.deleteOne({ user_id, tour_id });
-    return true;
+    const data = {
+      id: favorite._id,
+      tour_id: tour_id,
+    };
+    return data;
   } catch (error) {
     console.log("Delete favorite service ", error);
     throw error;

@@ -7,19 +7,24 @@
 
 <div id="main-wrapper">
     <!--Nav header end-->
-	<div class="nav-header">
-		<a href="/" class="brand-logo">
-			<div class="column">
-				<img class="logo-abbr" width="auto" height="50%" src="images/logo.png" />
-			</div>
-		</a>
-		<div class="nav-control">
-			<div class="hamburger">
-				<span class="line"></span><span class="line"></span><span class="line"></span>
-			</div>
-		</div>
-	</div>
-	<!--Nav header end-->
+    <div class="nav-header">
+        <a href="/" class="brand-logo">
+            <div class="column">
+ <img
+          class="logo-abbr"
+          width="40px"
+          height="45px"
+          src="/images/logo.png"
+        />
+            </div>
+        </a>
+        <div class="nav-control">
+            <div class="hamburger">
+                <span class="line"></span><span class="line"></span><span class="line"></span>
+            </div>
+        </div>
+    </div>
+    <!--Nav header end-->
 
     <!--Header start-->
     <div class="header">
@@ -56,7 +61,7 @@
     </div>
     <!--Header end ti-comment-alt-->
 
-<!--Sidebar start-->
+    <!--Sidebar start-->
     <div class="deznav">
         <div class="deznav-scroll">
             <ul class="metismenu" id="menu">
@@ -65,27 +70,27 @@
                         <span class="nav-text">Thống kê</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/listUser" aria-expanded="false">
+                <li><a class="has-arrow " href="/cpanel/users" aria-expanded="false">
                         <i class="flaticon-006-brightness"></i>
                         <span class="nav-text">Tài khoản</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/location" aria-expanded="false">
+                <li><a class="has-arrow " href="/cpanel/locations" aria-expanded="false">
                         <i class="flaticon-017-clipboard"></i>
                         <span class="nav-text">Điểm du lịch</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/tours" aria-expanded="false">
+                <li><a class="has-arrow " href="/cpanel/tours" aria-expanded="false">
                         <i class="flaticon-017-clipboard"></i>
                         <span class="nav-text">Chuyến du lịch</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/event" aria-expanded="false">
+                <li><a class="has-arrow " href="/cpanel/events" aria-expanded="false">
                         <i class="flaticon-086-star"></i>
                         <span class="nav-text">Sự kiện</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/blogs" aria-expanded="false">
+                <li><a class="has-arrow " href="/cpanel/blogs" aria-expanded="false">
                         <i class="flaticon-022-copy"></i>
                         <span class="nav-text">Bài viết</span>
                     </a>
@@ -114,13 +119,11 @@
                                         id="guestTable-all6">
                                         <thead>
                                             <tr>
-                                                <th>Stt</th>
                                                 <th>Thông tin</th>
                                                 <th>Địa điểm</th>
-                                                <th>Ngày tạo</th>
                                                 <th>
                                                     <div class="align-items-center justify-content-center">
-                                                        <a href="/addEvent" class="btn btn-success btn-sm">
+                                                        <a href="/cpanel/events/add-event" class="btn btn-success btn-sm">
                                                             Thêm
                                                         </a>
                                                     </div>
@@ -128,46 +131,43 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {{#each events}}
                                             <tr>
-                                                <td>1</td>
                                                 <td>
                                                     <div class="guest-bx">
-                                                        <img class="me-4" src="images/tour-img/Img-1.png" alt="">
+                                                        <img class="me-4" src="{{this.image}}" alt="">
                                                         <div>
                                                             <h4 class="mb-0 mt-1 fs-18 font-w500 text-nowrap">
-                                                                    Tour Tết 2024: Đà Nẵng - Hội An
+                                                                {{this.title}}
                                                             </h4>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div>
-                                                        <span class="fs-15 font-w500 text-nowrap">Đà Nẵng</span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="fs-15 font-w500 text-nowrap">29-10-2023</h5>
+                                                        <span
+                                                            class="fs-15 font-w500 text-nowrap">{{this.province_id.name}}</span>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="dropdown dropstart justify-content-center ">
-                                                        <a href="javascript:void(0);" class="btn-link"
-                                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <button onclick="confirmDelete('{{this._id}}');" class="btn btn-danger btn-xs"
+                                                            aria-expanded="false">
                                                             <svg xmlns="http://www.w3.org/2000/svg" height="1.5em"
                                                                 viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                                                                 <style>
                                                                     svg {
-                                                                        fill: #ff4000
+                                                                        fill: #ffffff
                                                                     }
                                                                 </style>
                                                                 <path
                                                                     d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
                                                             </svg>
-                                                        </a>
+                                                        </button>
                                                     </div>
                                                 </td>
                                             </tr>
+                                            {{/each}}
                                         </tbody>
                                     </table>
                                 </div>
@@ -179,3 +179,49 @@
         </div>
     </div>
 </div>
+
+
+<script>
+  const fetchAPI = async (url, option) => {
+    const res = await fetch(url, option);
+    return res.json();
+  }
+  const deleteProduct = async (id) => {
+    const url = `/cpanel/events/${id}/deleted`;
+    const option = {
+      method: 'get',
+      headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+      const result = await fetchAPI(url, option);
+      console.log('Delete Result:', result);
+      if (result) {
+        swal("Delete successfully!", { icon: "success" });
+        setTimeout(function () {
+          window.location.reload();
+        }, 2000);
+
+      } else {
+        swal("Delete failed!", { icon: "error" });
+      }
+
+    } catch (e) {
+      console.log('Delete ERROR:', e);
+    }
+  }
+
+  const confirmDelete = (id) => {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          deleteProduct(id);
+        }
+      });
+  }
+</script>

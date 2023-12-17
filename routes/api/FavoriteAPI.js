@@ -31,16 +31,19 @@ router.post("/addNewFavorite", async (req, res) => {
       return res.status(200).json({
         result: true,
         message: "Thêm favorite thành công",
+        favorite: favorite,
       });
     }
     return res.status(400).json({
       result: false,
       message: "Thêm favorite thất bại",
+      favorite: null,
     });
   } catch (error) {
     return res.status(500).json({
       result: false,
       message: error.message,
+      favorite: null,
     });
   }
 });
@@ -56,16 +59,19 @@ router.delete("/deleteFavorite", async (req, res) => {
       return res.status(200).json({
         result: true,
         message: "Xóa favorite thành công",
+        data: favorite,
       });
     }
     return res.status(400).json({
       result: false,
       message: "Xóa favorite thất bại",
+      data: null,
     });
   } catch (error) {
     return res.status(500).json({
       result: false,
       message: error.message,
+      data: null,
     });
   }
 });

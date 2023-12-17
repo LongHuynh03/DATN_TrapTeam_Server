@@ -25,13 +25,11 @@ router.get("/getAllAccounts", async (req, res) => {
 router.post("/saveAccount", async (req, res) => {
   try {
     const { email, phone_number, avatar, name } = req.body;
-    const created_at = new Date();
 
     const savedAccount = await accountController.saveAccount(
       email,
       phone_number,
       avatar,
-      created_at,
       name
     );
 

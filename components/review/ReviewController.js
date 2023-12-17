@@ -12,13 +12,12 @@ const getAllReviews = async (page, size) => {
 };
 // Thêm đánh giá cho tour
 
-const addReview = async (user_id, tour_id, content, created_at) => {
+const addReview = async (user_id, tour_id, content) => {
   try {
     const addReview = await reviewService.addReview(
       user_id,
       tour_id,
       content,
-      created_at
     );
     if (addReview) {
       return addReview;

@@ -8,19 +8,24 @@
 <div id="main-wrapper">
 
     <!--Nav header end-->
-	<div class="nav-header">
-		<a href="/" class="brand-logo">
-			<div class="column">
-				<img class="logo-abbr" width="auto" height="50%" src="images/logo.png" />
-			</div>
-		</a>
-		<div class="nav-control">
-			<div class="hamburger">
-				<span class="line"></span><span class="line"></span><span class="line"></span>
-			</div>
-		</div>
-	</div>
-	<!--Nav header end-->
+    <div class="nav-header">
+        <a href="/" class="brand-logo">
+            <div class="column">
+ <img
+          class="logo-abbr"
+          width="40px"
+          height="45px"
+          src="/images/logo.png"
+        />
+            </div>
+        </a>
+        <div class="nav-control">
+            <div class="hamburger">
+                <span class="line"></span><span class="line"></span><span class="line"></span>
+            </div>
+        </div>
+    </div>
+    <!--Nav header end-->
 
     <!--Header start-->
     <div class="header">
@@ -47,27 +52,27 @@
                         <span class="nav-text">Thống kê</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/listUser" aria-expanded="false">
+                <li><a class="has-arrow " href="/cpanel/users" aria-expanded="false">
                         <i class="flaticon-006-brightness"></i>
                         <span class="nav-text">Tài khoản</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/location" aria-expanded="false">
+                <li><a class="has-arrow " href="/cpanel/locations" aria-expanded="false">
                         <i class="flaticon-017-clipboard"></i>
                         <span class="nav-text">Điểm du lịch</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/tours" aria-expanded="false">
+                <li><a class="has-arrow " href="/cpanel/tours" aria-expanded="false">
                         <i class="flaticon-017-clipboard"></i>
                         <span class="nav-text">Chuyến du lịch</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/event" aria-expanded="false">
+                <li><a class="has-arrow " href="/cpanel/events" aria-expanded="false">
                         <i class="flaticon-086-star"></i>
                         <span class="nav-text">Sự kiện</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/blogs" aria-expanded="false">
+                <li><a class="has-arrow " href="/cpanel/blogs" aria-expanded="false">
                         <i class="flaticon-022-copy"></i>
                         <span class="nav-text">Bài viết</span>
                     </a>
@@ -97,110 +102,39 @@
                                             <th>Thông tin</th>
                                             <th>Email</th>
                                             <th>Số điện thoại</th>
-                                            <th>Giới tính</th>
                                             <th>Ngày tạo</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {{#each users}}
                                         <tr>
                                             <td>
                                                 <div class="media-bx d-flex py-3 align-items-center">
-                                                    <img class="me-3 rounded-circle" src="images/list/pic-1.jpg"
-                                                        alt="images">
+                                                    <img class="me-3 rounded-circle" src="{{this.avatar}}" alt="images">
                                                     <div>
                                                         <h4 class="mb-0 mt-1 fs-15 font-w500 text-nowrap text-nowrap">
-                                                            Kierra Geidt
+                                                            {{this.name}}
                                                         </h4>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div>
-                                                    <h5 class="fs-15 font-w500 text-nowrap">abc@gmail.com</h5>
+                                                    <h5 class="fs-15 font-w500 text-nowrap">{{this.email}}</h5>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div>
-                                                    <h5 class="fs-15 font-w500 text-nowrap">0123456789</h5>
+                                                    <h5 class="fs-15 font-w500 text-nowrap">{{this.phone_number}}</h5>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div>
-                                                    <h5 class="fs-15 font-w500 text-nowrap">Nữ</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h5 class="fs-15 font-w500 text-nowrap">21-09-2023</h5>
+                                                    <h5 class="fs-15 font-w500 text-nowrap">{{this.created_at}}</h5>
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="media-bx d-flex py-3 align-items-center">
-                                                    <img class="me-3 rounded-circle" src="images/list/pic-1.jpg"
-                                                        alt="images">
-                                                    <div>
-                                                        <h4 class="mb-0 mt-1 fs-15 font-w500 text-nowrap text-nowrap">
-                                                            Kierra Geidt
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h5 class="fs-15 font-w500 text-nowrap">abc@gmail.com</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h5 class="fs-15 font-w500 text-nowrap">0123456789</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h5 class="fs-15 font-w500 text-nowrap">Nữ</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h5 class="fs-15 font-w500 text-nowrap">21-09-2023</h5>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="media-bx d-flex py-3 align-items-center">
-                                                    <img class="me-3 rounded-circle" src="images/list/pic-1.jpg"
-                                                        alt="images">
-                                                    <div>
-                                                        <h4 class="mb-0 mt-1 fs-15 font-w500 text-nowrap text-nowrap">
-                                                            Kierra Geidt
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h5 class="fs-15 font-w500 text-nowrap">abc@gmail.com</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h5 class="fs-15 font-w500 text-nowrap">0123456789</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h5 class="fs-15 font-w500 text-nowrap">Nữ</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h5 class="fs-15 font-w500 text-nowrap">21-09-2023</h5>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        {{/each}}
                                     </tbody>
                                 </table>
                             </div>
