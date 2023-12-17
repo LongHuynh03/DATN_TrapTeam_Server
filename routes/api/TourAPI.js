@@ -94,8 +94,6 @@ router.get("/getTourByFilter", async (req, res) => {
       dayFind,
     } = req.query;
 
-    console.log("locationProvinces: ", dayFind);
-
     const dateParts = dayFind.split("/");
     const day = parseInt(dateParts[0], 10);
     const month = parseInt(dateParts[1], 10) - 1;
