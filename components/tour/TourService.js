@@ -83,7 +83,7 @@ const ngayTruyenVaoISOString = ngayTruyenVaoUTC.toISOString();
           "province.name": { $regex: locationProvinces, $options: "i" },
           is_popular: is_popular === "true" ? true : false,
           price: { $gte: Number(minPrice), $lte: Number(maxPrice) },
-          departure_date: { $eq: ngayTruyenVaoISOString } 
+          departure_date: { $eq: ngayTruyenVaoUTC } 
         },
         },
       
