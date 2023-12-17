@@ -43,6 +43,7 @@ const getTourByName = async (name) => {
 
 // tìm kiếm tour theo filter
 const getTourByFilter = async (
+  departure_location,
   locationProvinces,
   minPrice,
   maxPrice,
@@ -51,6 +52,7 @@ const getTourByFilter = async (
 ) => {
   try {
     return await tourService.getTourByFilter(
+      departure_location,
       locationProvinces,
       minPrice,
       maxPrice,

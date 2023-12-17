@@ -54,6 +54,7 @@ const getTourByName = async (name) => {
 
 // tìm kiếm tour theo filter
 const getTourByFilter = async (
+  departure_location,
   locationProvinces,
   minPrice,
   maxPrice,
@@ -61,6 +62,11 @@ const getTourByFilter = async (
   dayFind
 ) => {
   try {
+
+    const parts = dayFind.split("/");
+    const ngayKhoiHanhDate = new Date(parts[2], parts[1] - 1, parts[0]);
+    const ngayKhoiHanhISO = ngayKhoiHanhDate.toISOString();
+
     const tours = await tourModel.aggregate([
       {
         $lookup: {
@@ -72,11 +78,11 @@ const getTourByFilter = async (
       },
       {
         $match: {
-          
+          "departure_location": departure_location ? { $regex: departure_location, $options: "i" } : { $regex: '', $options: "i" },
           "province.name": locationProvinces ? { $regex: locationProvinces, $options: "i" } : { $regex: '', $options: "i" },
           is_popular: is_popular === "true" ? true : false,
-          price: maxPrice == 0 ?  { $gte: Number(minPrice), $lte: Number(1000000000000000) } : { $gte: Number(minPrice), $lte: Number(maxPrice) },
-          departure_date: {  $gte: new Date(ngayKhoiHanhISO) },
+          price: maxPrice == 0 ? { $gte: Number(minPrice), $lte: Number(1000000000000000) } : { $gte: Number(minPrice), $lte: Number(maxPrice) },
+          departure_date: { $gte: new Date(ngayKhoiHanhISO) },
         },
       },
       {
@@ -89,18 +95,18 @@ const getTourByFilter = async (
             ],
           },
           name: 1,
-  description: 1,
-  available_seats: 1,
-  image: 1,
-  price: 1,
-  departure_date: 1,
-  departure_location: 1,
-  end_date: 1,
-  status: 1,
-  created_at: 1,
-  is_popular: 1,
-  schedules: 1,
-  locations: 1,
+          description: 1,
+          available_seats: 1,
+          image: 1,
+          price: 1,
+          departure_date: 1,
+          departure_location: 1,
+          end_date: 1,
+          status: 1,
+          created_at: 1,
+          is_popular: 1,
+          schedules: 1,
+          locations: 1,
         },
       },
     ]);
@@ -183,7 +189,7 @@ const createTour = async (
 
 
 //Thay đổi trạng thái tour
-const changeStatus = async ( tour_id, status) => {
+const changeStatus = async (tour_id, status) => {
   try {
     const tour = await tourModel.findById(tour_id);
     if (tour) {
@@ -202,7 +208,7 @@ const changeStatus = async ( tour_id, status) => {
 const popularTour = async (tour_id, is_popular) => {
   try {
     const popular = is_popular == 'true' ? false : true;
-    const tour = await tourModel.findByIdAndUpdate(tour_id, { is_popular: popular});
+    const tour = await tourModel.findByIdAndUpdate(tour_id, { is_popular: popular });
     if (tour) {
       return true;
     }
