@@ -62,9 +62,12 @@ const getTourByFilter = async (
   dayFind
 ) => {
   try {
-    var formattedDate = moment(dayFind, 'DD/MM/YYYY').format('YYYY-MM-DD');
-    var start = new Date(formattedDate );
-    var end = new Date(formattedDate );
+   
+    console.log("dayFind: ", dayFind);
+
+const parts = dayFind.split("/");
+const ngayKhoiHanhDate = new Date(parts[2], parts[1] - 1, parts[0]);
+const ngayKhoiHanhISO = ngayKhoiHanhDate.toISOString();
 
     const tours = await tourModel.aggregate([
       {
@@ -80,11 +83,11 @@ const getTourByFilter = async (
           "province.name": { $regex: locationProvinces, $options: "i" },
           is_popular: is_popular === "true" ? true : false,
           price: { $gte: Number(minPrice), $lte: Number(maxPrice) },
-          departure_date: {  $gte: start,
-            },
+          // tìm kiếm theo ngày khởi hành của tour, giá trị nhận vào là ngày tháng năm (16/12/2023) => chuyển về dạng Date để so sánh với ngày khởi hành của tour trong database có dạng (2023-12-16T00:00:00.000Z). tìm kiếm từ ngày đó trở đi
+          departure_date: {  $gte: new Date(ngayKhoiHanhISO) },
+
         },
-        },
-      
+      },
       {
         $project: {
           _id: 1,
