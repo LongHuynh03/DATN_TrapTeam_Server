@@ -62,10 +62,10 @@ const getTourByFilter = async (
   dayFind
 ) => {
   try {
-    const parts = dayFind.split("/");
-    const ngayTruyenVaoISO = new Date(Date.UTC(parts[2], parts[1] - 1, parts[0], 0, 0, 0)).toISOString();
+    var formattedDate = moment(dayFind, 'DD/MM/YYYY').format('YYYY-MM-DD');
+    var start = new Date(formattedDate + 'T00:00:00.000Z');
+    var end = new Date(formattedDate + 'T23:59:59.999Z');
 
-    
     const tours = await tourModel.aggregate([
       {
         $lookup: {
@@ -80,7 +80,8 @@ const getTourByFilter = async (
           "province.name": { $regex: locationProvinces, $options: "i" },
           is_popular: is_popular === "true" ? true : false,
           price: { $gte: Number(minPrice), $lte: Number(maxPrice) },
-          departure_date: { $gte: new Date(ngayTruyenVaoISO) },
+          departure_date: {  $gte: start,
+            $lt: end },
         },
         },
       
