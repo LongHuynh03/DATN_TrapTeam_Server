@@ -63,7 +63,7 @@ const getTourByFilter = async (
 ) => {
   try {
     const date = new Date(dayFind.split("/").reverse().join("-"))
-    const ngayTruyenVaoDate = moment(dayFind, "DD/MM/YYYY").toDate();
+    const ngayTruyenVaoDate = moment(dayFind, "DD/MM/YYYY").toDate().toISOString();
     const ngayTruyenVaoDate1 = moment(date, "DD/MM/YYYY").toDate();
 
     console.log("date: ", date);
@@ -83,7 +83,7 @@ const getTourByFilter = async (
           "province.name": { $regex: locationProvinces, $options: "i" },
           is_popular: is_popular === "true" ? true : false,
           price: { $gte: Number(minPrice), $lte: Number(maxPrice) },
-          departure_date: { $eq: date } 
+          departure_date: { $eq: ngayTruyenVaoDate } 
         },
         },
       
