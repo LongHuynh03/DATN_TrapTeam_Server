@@ -72,10 +72,11 @@ const getTourByFilter = async (
       },
       {
         $match: {
-          // "province.name": { $regex: locationProvinces, $options: "i" },
-          // is_popular: is_popular === "true" ? true : false,
-          // price: { $gte: Number(minPrice), $lte: Number(maxPrice) },
-          departure_date: { $eq: new Date(dayFind) } },
+          "province.name": { $regex: locationProvinces, $options: "i" },
+          is_popular: is_popular === "true" ? true : false,
+          price: { $gte: Number(minPrice), $lte: Number(maxPrice) },
+          // departure_date: { $eq: new Date(dayFind) } 
+        },
         },
       
       {
