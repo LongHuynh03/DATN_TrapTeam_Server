@@ -72,10 +72,11 @@ const getTourByFilter = async (
       },
       {
         $match: {
+          
           "province.name": locationProvinces ? { $regex: locationProvinces, $options: "i" } : { $regex: '', $options: "i" },
           is_popular: is_popular === "true" ? true : false,
-          price: maxPrice<=0 ?  { $gte: Number(minPrice), $lte: Number(1000000000) } : { $gte: Number(minPrice), $lte: Number(maxPrice) },
-          departure_date: dayFind,
+          price: maxPrice == 0 ?  { $gte: Number(minPrice), $lte: Number(1000000000000000) } : { $gte: Number(minPrice), $lte: Number(maxPrice) },
+          departure_date: {  $gte: new Date(ngayKhoiHanhISO) },
         },
       },
       {
