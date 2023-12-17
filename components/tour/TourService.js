@@ -62,12 +62,9 @@ const getTourByFilter = async (
   dayFind
 ) => {
   try {
-    const ngayTruyenVao = "16/12/2023";
-const parts = ngayTruyenVao.split("/");
-const ngayTruyenVaoUTC = new Date(Date.UTC(parts[2], parts[1] - 1, parts[0], 0, 0, 0));
-const ngayTruyenVaoISOString = ngayTruyenVaoUTC.toISOString();
+    const parts = dayFind.split("/");
+    const ngayTruyenVaoISO = new Date(Date.UTC(parts[2], parts[1] - 1, parts[0], 0, 0, 0)).toISOString();
 
-    console.log("date: ", ngayTruyenVaoISOString);
     
     const tours = await tourModel.aggregate([
       {
@@ -83,7 +80,7 @@ const ngayTruyenVaoISOString = ngayTruyenVaoUTC.toISOString();
           "province.name": { $regex: locationProvinces, $options: "i" },
           is_popular: is_popular === "true" ? true : false,
           price: { $gte: Number(minPrice), $lte: Number(maxPrice) },
-          departure_date: { $eq: ngayTruyenVaoUTC } 
+          departure_date: { $eq: new Date(ngayTruyenVaoISO) } 
         },
         },
       
