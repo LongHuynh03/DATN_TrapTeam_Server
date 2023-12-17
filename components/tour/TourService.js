@@ -8,7 +8,8 @@ const getAllTours = async (page, size) => {
     return await tourModel
       .find()
       .populate("province_id", "")
-      .populate("locations", "").sort({ _id: -1 });
+      .populate("locations", "")
+      .sort({ _id: -1 });
   } catch (error) {
     console.log("Get all tours servive: ", error);
     throw error;
@@ -54,7 +55,7 @@ const getTourByName = async (name) => {
 
 // tìm kiếm tour theo filter
 const getTourByFilter = async (
-  departure_location,
+  departureLocation,
   locationProvinces,
   minPrice,
   maxPrice,
@@ -62,7 +63,6 @@ const getTourByFilter = async (
   dayFind
 ) => {
   try {
-
     const parts = dayFind.split("/");
     const ngayKhoiHanhDate = new Date(parts[2], parts[1] - 1, parts[0]);
     const ngayKhoiHanhISO = ngayKhoiHanhDate.toISOString();
@@ -78,10 +78,19 @@ const getTourByFilter = async (
       },
       {
         $match: {
-          "departure_location": departure_location ? { $regex: departure_location, $options: "i" } : { $regex: '', $options: "i" },
-          "province.name": locationProvinces ? { $regex: locationProvinces, $options: "i" } : { $regex: '', $options: "i" },
+          departure_location:
+            departureLocation == ""
+              ? { $regex: "", $options: "i" }
+              : { $regex: departureLocation, $options: "i" },
+          "province.name":
+            locationProvinces == ""
+              ? { $regex: "", $options: "i" }
+              : { $regex: locationProvinces, $options: "i" },
           is_popular: is_popular === "true" ? true : false,
-          price: maxPrice == 0 ? { $gte: Number(minPrice), $lte: Number(1000000000000000) } : { $gte: Number(minPrice), $lte: Number(maxPrice) },
+          price:
+            maxPrice == 0
+              ? { $gte: Number(minPrice), $lte: Number(1000000000000000) }
+              : { $gte: Number(minPrice), $lte: Number(maxPrice) },
           departure_date: { $gte: new Date(ngayKhoiHanhISO) },
         },
       },
@@ -149,7 +158,7 @@ const getTourByIdAndLocations = async (tour_id) => {
   }
 };
 
-//Thêm tour 
+//Thêm tour
 const createTour = async (
   province_id,
   name,
@@ -161,7 +170,7 @@ const createTour = async (
   departure_location,
   end_date,
   schedules,
-  locations,
+  locations
 ) => {
   try {
     const newTour = {
@@ -176,7 +185,7 @@ const createTour = async (
       end_date,
       schedules,
       locations,
-    }
+    };
     const tour = new tourModel(newTour);
     await tour.save();
     return true;
@@ -184,9 +193,7 @@ const createTour = async (
     console.log("Create tour service error: ", error);
     throw error;
   }
-}
-
-
+};
 
 //Thay đổi trạng thái tour
 const changeStatus = async (tour_id, status) => {
@@ -202,13 +209,15 @@ const changeStatus = async (tour_id, status) => {
     console.log("Change status tour service: ", error);
     throw error;
   }
-}
+};
 
 //Cập nhật nổi bật cho tour
 const popularTour = async (tour_id, is_popular) => {
   try {
-    const popular = is_popular == 'true' ? false : true;
-    const tour = await tourModel.findByIdAndUpdate(tour_id, { is_popular: popular });
+    const popular = is_popular == "true" ? false : true;
+    const tour = await tourModel.findByIdAndUpdate(tour_id, {
+      is_popular: popular,
+    });
     if (tour) {
       return true;
     }
@@ -217,7 +226,7 @@ const popularTour = async (tour_id, is_popular) => {
     console.log("Popular tour servive ", error);
     throw error;
   }
-}
+};
 
 module.exports = {
   getAllTours,
@@ -228,6 +237,6 @@ module.exports = {
   getTourByProvinceId,
   getTourByIdAndLocations,
   popularTour,
-  changeStatus
-  , createTour
+  changeStatus,
+  createTour,
 };
