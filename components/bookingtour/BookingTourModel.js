@@ -7,7 +7,7 @@ const bookingtourSchema = new Schema({
   user_id: { type: ObjectId, ref: "user" },
   tour_id: { type: ObjectId, ref: "tour" },
   discount: Number,
-  created_at: Date,
+  created_at: { type: Date, default: Date.now()},
   adult_count: Number,
   child_count: Number,
   price: Number,

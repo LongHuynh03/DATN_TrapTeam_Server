@@ -7,8 +7,8 @@ const getAllTours = async (page, size) => {
   try {
     return await tourModel
       .find()
-      .populate("province_id", "name")
-      .populate("locations", "");
+      .populate("province_id", "")
+      .populate("locations", "").sort({ _id: -1 });
   } catch (error) {
     console.log("Get all tours servive: ", error);
     throw error;
@@ -21,7 +21,7 @@ const getTourHighlight = async (page, size) => {
     return await tourModel
       .find({ is_popular: true })
       // "_id name price images" là các trường cần lấy ra
-      .populate("province_id", "name");
+      .populate("province_id", "");
   } catch (error) {
     console.log("Lấy danh sách tour nổi bật service: ", error);
     throw error;
@@ -31,7 +31,9 @@ const getTourHighlight = async (page, size) => {
 // lấy danh sách tour có chứa địa điểm phổ biến
 const getTourByLocation = async (location_id) => {
   try {
-    return await tourModel.find({ locations: { $in: [location_id] } });
+    return await tourModel
+      .find({ locations: { $in: [location_id] } })
+      .populate("province_id", "");
   } catch (error) {
     console.log("Lấy danh sách tour chứa địa điểm phổ biến service: ", error);
     throw error;
@@ -41,7 +43,9 @@ const getTourByLocation = async (location_id) => {
 // tìm kiếm tour theo tên
 const getTourByName = async (name) => {
   try {
-    return await tourModel.find({ name: { $regex: name, $options: "i" } });
+    return await tourModel
+      .find({ name: { $regex: name, $options: "i" } })
+      .populate("province_id", "");
   } catch (error) {
     console.log("Tìm kiếm tour theo tên service: ", error);
     throw error;
@@ -51,7 +55,6 @@ const getTourByName = async (name) => {
 // tìm kiếm tour theo filter
 const getTourByFilter = async (
   locationProvinces,
-  locationCountry,
   minPrice,
   maxPrice,
   is_popular,
@@ -73,6 +76,30 @@ const getTourByFilter = async (
           is_popular: is_popular === "true" ? true : false,
           price: { $gte: Number(minPrice), $lte: Number(maxPrice) },
           departure_date: dayFind,
+        },
+      },
+      {
+        $project: {
+          _id: 1,
+          province_id: {
+            $mergeObjects: [
+              { _id: "$province_id" },
+              { $arrayElemAt: ["$province", 0] },
+            ],
+          },
+          name: 1,
+  description: 1,
+  available_seats: 1,
+  image: 1,
+  price: 1,
+  departure_date: 1,
+  departure_location: 1,
+  end_date: 1,
+  status: 1,
+  created_at: 1,
+  is_popular: 1,
+  schedules: 1,
+  locations: 1,
         },
       },
     ]);
@@ -97,10 +124,22 @@ const getTourByProvinceId = async (province_id) => {
 const getTourByIdAndLocations = async (tour_id) => {
   try {
     return await tourModel
+<<<<<<< HEAD
     .findById(tour_id)
     .populate("locations", "")
     .populate("province_id", "name")
     .populate("departure_location", "");
+=======
+      .findById(tour_id)
+      .populate({
+        path: "locations",
+        populate: {
+          path: "province_id",
+          select: "name image", // Thay thế otherField1, otherField2 bằng các trường khác bạn muốn lấy
+        },
+      })
+      .populate("province_id", "");
+>>>>>>> devTrongLV
   } catch (error) {
     console.log(
       "Lấy tour theo id và danh sách địa điểm của tour service: ",
@@ -110,37 +149,33 @@ const getTourByIdAndLocations = async (tour_id) => {
   }
 };
 
-//Thêm tour (chưa xong)
+//Thêm tour 
 const createTour = async (
+  province_id,
   name,
-  price,
-  member,
-  departure_province,
-  end_province,
-  locations,
-  departure_date,
-  end_date,
   description,
-  schedules,
+  available_seats,
   image,
-  is_popular,
-  status,
+  price,
+  departure_date,
+  departure_location,
+  end_date,
+  schedules,
+  locations,
 ) => {
   try {
     const newTour = {
+      province_id,
       name,
-      price,
-      member,
-      departure_province,
-      end_province,
-      locations,
-      departure_date,
-      end_date,
       description,
-      schedules,
+      available_seats,
       image,
-      is_popular,
-      status,
+      price,
+      departure_date,
+      departure_location,
+      end_date,
+      schedules,
+      locations,
     }
     const tour = new tourModel(newTour);
     await tour.save();
@@ -151,21 +186,7 @@ const createTour = async (
   }
 }
 
-//Cập nhật tour nổi bật
-const popularTour = async (tour_id, is_popular) => {
-  try {
-    const tour = await tourModel.findById(tour_id);
-    if (tour) {
-      tour.is_popular = is_popular ? is_popular : tour.is_popular;
-      await tour.save();
-      return true;
-    }
-    return false;
-  } catch (error) {
-    console.log("Popular tour servive error: ", error);
-    throw error;
-  }
-}
+
 
 //Thay đổi trạng thái tour
 const changeStatus = async ( tour_id, status) => {
@@ -183,6 +204,21 @@ const changeStatus = async ( tour_id, status) => {
   }
 }
 
+//Cập nhật nổi bật cho tour
+const popularTour = async (tour_id, is_popular) => {
+  try {
+    const popular = is_popular == 'true' ? false : true;
+    const tour = await tourModel.findByIdAndUpdate(tour_id, { is_popular: popular});
+    if (tour) {
+      return true;
+    }
+    return false;
+  } catch (error) {
+    console.log("Popular tour servive ", error);
+    throw error;
+  }
+}
+
 module.exports = {
   getAllTours,
   getTourHighlight,
@@ -193,4 +229,5 @@ module.exports = {
   getTourByIdAndLocations,
   popularTour,
   changeStatus
+  , createTour
 };

@@ -3,7 +3,12 @@
     <div class="nav-header">
         <a href="/" class="brand-logo">
             <div class="column">
-                <img class="logo-abbr" width="auto" height="50%" src="images/logo.png" />
+                  <img
+          class="logo-abbr"
+          width="40px"
+          height="45px"
+          src="/images/logo.png"
+        />
             </div>
         </a>
         <div class="nav-control">
@@ -58,27 +63,27 @@
                         <span class="nav-text">Thống kê</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/users" aria-expanded="false">
+                <li><a class="has-arrow " href="/cpanel/users" aria-expanded="false">
                         <i class="flaticon-006-brightness"></i>
                         <span class="nav-text">Tài khoản</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/locations" aria-expanded="false">
+                <li><a class="has-arrow " href="/cpanel/locations" aria-expanded="false">
                         <i class="flaticon-017-clipboard"></i>
                         <span class="nav-text">Điểm du lịch</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/tours" aria-expanded="false">
+                <li><a class="has-arrow " href="/cpanel/tours" aria-expanded="false">
                         <i class="flaticon-017-clipboard"></i>
                         <span class="nav-text">Chuyến du lịch</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/events" aria-expanded="false">
+                <li><a class="has-arrow " href="/cpanel/events" aria-expanded="false">
                         <i class="flaticon-086-star"></i>
                         <span class="nav-text">Sự kiện</span>
                     </a>
                 </li>
-                <li><a class="has-arrow " href="/blogs" aria-expanded="false">
+                <li><a class="has-arrow " href="/cpanel/blogs" aria-expanded="false">
                         <i class="flaticon-022-copy"></i>
                         <span class="nav-text">Bài viết</span>
                     </a>
@@ -166,7 +171,7 @@
                                                     <path fill="#F66F4D"
                                                         d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM625 177L497 305c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L591 143c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
                                                 </svg>
-                                                <h5 class="fs-15 mb-4 ms-3">{{tour.available_seats}} người</h5>
+                                                <h5 class="fs-15 mb-4 ms-3">{{quantity}} người</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -364,6 +369,9 @@
                                         </thead>
                                         <tbody>
                                             {{#each bookings}}
+                                            {{#if this.role}}
+                                            <span></span>
+                                            {{else}}
                                             <tr>
                                                 <td>
                                                     <div class="media-bx d-flex py-3 align-items-center">
@@ -410,6 +418,7 @@
                                                     {{/each}}
                                                 </td> --}}
                                             </tr>
+                                            {{/if}}
                                             {{/each}}
                                         </tbody>
                                     </table>
@@ -436,6 +445,7 @@
                                         </thead>
                                         <tbody>
                                             {{#each bookings}}
+                                            {{#if this.role}}
                                             <tr>
                                                 <td>
                                                     <div class="media-bx d-flex py-3 align-items-center">
@@ -482,6 +492,55 @@
                                                     {{/each}}
                                                 </td>
                                             </tr>
+                                            {{else}}
+                                            <span></span>
+                                            {{/if}}
+                                            {{!-- <tr>
+                                                <td>
+                                                    <div class="media-bx d-flex py-3 align-items-center">
+                                                        <img class="me-3 rounded-circle" src="{{this.user_id.avatar}}"
+                                                            alt="images">
+                                                        <div>
+                                                            <h4
+                                                                class="mb-0 mt-1 fs-15 font-w500 text-nowrap text-nowrap">
+                                                                {{this.user_id.name}}
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <span class="fs-15 font-w500 text-nowrap">{{this.price}}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <span
+                                                            class="fs-15 font-w500 text-nowrap">{{this.discount}}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <span
+                                                            class="fs-15 font-w500 text-nowrap">{{this.adult_count}}({{this.child_count}})</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="fs-15 font-w500">{{this.created_at}}</h5>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="fs-15 font-w500">{{this.note}}</h5>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    {{#each this.location_custom}}
+                                                    <span class="fs-15 font-w500 text-nowrap">{{this.name}}</span> <br>
+                                                    {{/each}}
+                                                </td>
+                                            </tr> --}}
                                             {{/each}}
                                         </tbody>
                                     </table>

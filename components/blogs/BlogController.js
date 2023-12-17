@@ -18,13 +18,12 @@ const getAllBlogsByUserId = async (user_id) => {
   }
 };
 // Thêm bài viết
-const createBlog = async (user_id, content, image, create_at, status) => {
+const createBlog = async (user_id, content, image, status) => {
   try {
     return await blogService.createBlog(
       user_id,
       content,
       image,
-      create_at,
       status
     );
   } catch (error) {
@@ -46,9 +45,19 @@ const changeStatus = async (blog_id, status) => {
   }
 };
 
+const deleteBlog = async (blog_id) => {
+  try {
+    return await blogService.deleteBlog(blog_id);
+  } catch (error) {
+    console.log("Delete blog controller: ", error);
+    throw error;
+  }
+}
+
 module.exports = {
   getAllBlogs,
   getAllBlogsByUserId,
   createBlog,
   changeStatus,
+  deleteBlog
 };

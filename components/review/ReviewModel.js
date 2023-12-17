@@ -7,7 +7,7 @@ const reviewSchema = new Schema({
     user_id: { type: ObjectId, ref: "user" },
     tour_id: { type: ObjectId, ref: "tour" },
     content: String,
-    created_at: Date,
+    created_at: { type: Date, default: Date.now()},
 });
 
 module.exports =

@@ -34,7 +34,7 @@ const imageAPIRouter = require("./routes/api/ImageAPI");
 const indexCpanel = require("./routes/index");
 const blogCpanel = require("./routes/cpanel/BlogCpanel");
 const eventCpanel = require("./routes/cpanel/EventCpanel");
-const locationCpanel = require('./routes/cpanel/LocationCpanel');
+const locationCpanel = require("./routes/cpanel/LocationCpanel");
 const tourCpanel = require("./routes/cpanel/TourCpanel");
 const userCpanel = require("./routes/cpanel/UserCpanel");
 
@@ -61,11 +61,11 @@ mongoose
   .catch((err) => console.log(">>>>>>>>> DB Error: ", err));
 
 app.use("/", indexCpanel);
-app.use("/blogs", blogCpanel);
-app.use("/events", eventCpanel);
-app.use('/cpanel/locations', locationCpanel);
-app.use("/tours", tourCpanel);
-app.use("/users", userCpanel);
+app.use("/cpanel/blogs", blogCpanel);
+app.use("/cpanel/events", eventCpanel);
+app.use("/cpanel/locations", locationCpanel);
+app.use("/cpanel/tours", tourCpanel);
+app.use("/cpanel/users", userCpanel);
 
 //API
 // http://localhost:3000/api/province
