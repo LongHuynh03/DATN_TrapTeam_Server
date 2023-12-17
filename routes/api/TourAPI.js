@@ -105,7 +105,7 @@ router.get("/getTourByFilter", async (req, res) => {
       minPrice,
       maxPrice,
       is_popular,
-      date
+      dayFind
     );
     return res.status(200).json({
       result: true,
