@@ -62,9 +62,10 @@ const getTourByFilter = async (
   dayFind
 ) => {
   try {
-    const parts = dayFind.split("/");
-    const ngayTruyenVaoDate = new Date(parts[2], parts[1] - 1, parts[0]);
-    const ngayTruyenVaoISOString = new Date(ngayTruyenVaoDate.toISOString().replace("Z", "+00:00")) ;
+    const ngayTruyenVao = "16/12/2023";
+const parts = ngayTruyenVao.split("/");
+const ngayTruyenVaoUTC = new Date(Date.UTC(parts[2], parts[1] - 1, parts[0], 0, 0, 0));
+const ngayTruyenVaoISOString = ngayTruyenVaoUTC.toISOString();
 
     console.log("date: ", ngayTruyenVaoISOString);
     
