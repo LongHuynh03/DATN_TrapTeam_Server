@@ -62,7 +62,12 @@ const getTourByFilter = async (
 ) => {
   try {
     const date = new Date(dayFind.split("/").reverse().join("-"))
+    const ngayTruyenVaoDate = moment(dayFind, "DD/MM/YYYY").toDate();
+    const ngayTruyenVaoDate1 = moment(date, "DD/MM/YYYY").toDate();
+
     console.log("date: ", date);
+    console.log("ngayTruyenVaoDate: ", ngayTruyenVaoDate);
+    console.log("ngayTruyenVaoDate1 day find: ", ngayTruyenVaoDate1);
     const tours = await tourModel.aggregate([
       {
         $lookup: {
