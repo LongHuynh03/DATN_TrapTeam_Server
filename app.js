@@ -3,6 +3,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+const session = require('express-session');
 const mongoose = require("mongoose");
 
 //import các model, thứ tự rất quan trọng
@@ -47,6 +48,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+//webtoken
+app.use(session({
+  secret: 'bnbtour',
+  resave: true,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}));
 
 //mongoose
 mongoose

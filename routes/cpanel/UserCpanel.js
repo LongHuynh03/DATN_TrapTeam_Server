@@ -1,7 +1,8 @@
 var express = require("express");
 var router = express.Router();
 const userController = require("../../components/account/AccountController");
-
+const auth = require('../../midle/Authen');
+const jwt = require('jsonwebtoken');
 
 
 function formatDateString(dateString) {
@@ -13,7 +14,7 @@ function formatDateString(dateString) {
 }
 
 //Lấy danh sách user
-router.get("/", async function (req, res, next) {
+router.get("/",[auth.authenWeb], async function (req, res, next) {
   try {
     const query = await userController.getAllAccounts();
     const users = query.map(user => {
