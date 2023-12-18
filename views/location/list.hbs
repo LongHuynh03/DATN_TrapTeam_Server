@@ -243,15 +243,14 @@
     }
     try {
       const result = await fetchAPI(url, option);
-      console.log('Delete Result:', result);
       if (result) {
-        swal("Delete successfully!", { icon: "success" });
+        swal("Xóa thành công!", { icon: "success" });
         setTimeout(function () {
           window.location.reload();
         }, 2000);
 
       } else {
-        swal("Delete failed!", { icon: "error" });
+        swal("Xóa thất bại!", { icon: "error" });
       }
 
     } catch (e) {
@@ -267,15 +266,14 @@
     }
     try {
       const result = await fetchAPI(url, option);
-      console.log('update popular Result:', result);
       if (result) {
-        swal("Update popular successfully!", { icon: "success" });
+        swal("Thay đổi thành công!", { icon: "success" });
         setTimeout(function () {
           window.location.reload();
         }, 2000);
 
       } else {
-        swal("Update popular failed!", { icon: "error" });
+        swal("Thay đổi thất bại!", { icon: "error" });
       }
 
     } catch (e) {
@@ -284,8 +282,8 @@
   }
   const confirmDelete = (id) => {
     swal({
-      title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this imaginary file!",
+      title: "Xác nhận xóa ???",
+      text: "",
       icon: "warning",
       buttons: true,
       dangerMode: true,
@@ -301,8 +299,8 @@
 
   const confirmUpdatePopular = (id, is_popular) => {
     swal({
-      title: "Are you sure?",
-      text: "Once update, you will not be able to recover this imaginary file!",
+      title: "Xác nhận thay đổi",
+      text: "",
       icon: "warning",
       buttons: true,
       dangerMode: true,

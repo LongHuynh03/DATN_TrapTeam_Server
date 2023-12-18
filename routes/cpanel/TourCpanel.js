@@ -74,7 +74,7 @@ router.get('/add-tour', async function (req, res, next) {
 router.post('/add-tour', async function (req, res, next) {
   try {
     let { body } = req;
-    let { name_tour, price_tour, quantity, departure_start, departure_end, day_start, day_end, description_tour,  locations_tour, dataArray, imgUrl,  } = body;
+    let { name_tour, price_tour, departure_start, departure_end, day_start, day_end, description_tour,  locations_tour, dataArray, imgUrl,  } = body;
     const dayStart = moment(day_start).format('DD/MM/YYYY');
     const dayEnd = moment(day_end).format('DD/MM/YYYY');
 
@@ -84,7 +84,7 @@ router.post('/add-tour', async function (req, res, next) {
     const province_id = departure_start;
     const name = name_tour;
     const description = description_tour;
-    const available_seats = quantity;
+    const available_seats = 50;
     const image = imgUrl;
     const price = price_tour;
     const departure_date = departureDate;
@@ -114,13 +114,12 @@ router.post("/:id/popular/:is_popular", async function (req, res, next) {
   }
 });
 
-// // Xem chi tiết tour (có danh sách hóa booking tour)
+// Xem chi tiết tour (có danh sách hóa booking tour)
 // router.get('/:id/detailTour', async function (req, res, next) {
 //   try {
 //     let { id } = req.params;
 //     const tour = await tourController.getTourByIdAndLocations(id);
-//     const bookingTour = await bookingTourController.getAllBookingToursByTour(id);
-//     res.render('tour/list', { tour, bookingTour });
+//     res.render('tour/status', { tour });
 //   } catch (error) {
 //     console.log("Get create tour cpanel error: " + error);
 //     throw error;
@@ -239,6 +238,7 @@ router.get('/:id', async function (req, res, next) {
         __v: booking.__v,
       }
     });
+    console.log(tour.locations) 
     res.render('tour/edit', {tour, bookings, quantity});
   } catch (error) {
     console.log("Detail tour cpanel error: " + error);
