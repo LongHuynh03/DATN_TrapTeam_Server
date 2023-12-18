@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const moment = require('moment');
+
 const tourController = require("../../components/tour/TourController");
 
 //Lấy tất cả tour
@@ -79,14 +79,15 @@ router.get("/getTourByName", async (req, res) => {
   }
 });
 
-// Tìm kiếm tour theo filter
-// http://localhost:3000/api/tour/getTourByFilter?locationProvinces=&locationCountry=&minPrice=&maxPrice=&is_popular=
+// Tìm kiếm tour theo filter http://localhost:3000/api/tour/getTourByFilter?departureLocation=&locationProvinces=&minPrice=&maxPrice=&is_popular=&dayFind
+//
 
 // http://localhost:3000/api/tour/getTourByFilter?locationProvinces=hồ chí minh&is_popular=false&minPrice=0&maxPrice=1000000&dayFind=06/02/2024
 
 router.get("/getTourByFilter", async (req, res) => {
   try {
     const {
+      departureLocation,
       locationProvinces,
       minPrice,
       maxPrice,
@@ -94,13 +95,8 @@ router.get("/getTourByFilter", async (req, res) => {
       dayFind,
     } = req.query;
 
-    const dateParts = dayFind.split("/");
-    const day = parseInt(dateParts[0], 10);
-    const month = parseInt(dateParts[1], 10) - 1;
-    const year = parseInt(dateParts[2], 10);
-    const date = new Date(year, month, day);
-
     const tours = await tourController.getTourByFilter(
+      departureLocation,
       locationProvinces,
       minPrice,
       maxPrice,

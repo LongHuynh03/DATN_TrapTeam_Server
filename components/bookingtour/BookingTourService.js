@@ -27,6 +27,32 @@ const getAllBookingToursByUser = async (user_id) => {
   }
 };
 
+// Lấy danh sách tour đã đặt theo mặc định
+const getAllBookingToursByDefault = async (tour_id) => {
+  try {
+    return await bookingtourModel
+      .find({ tour_id: tour_id, role: false })
+      .populate("tour_id", "")
+      .populate("user_id", "");
+  } catch (error) {
+    console.log("Get all booking tours servive ", error);
+    throw error;
+  }
+};
+
+// Lấy danh sách tour đã đặt theo mặc định
+const getAllBookingToursBy = async (tour_id) => {
+  try {
+    return await bookingtourModel
+      .find({ tour_id: tour_id, role: false })
+      .populate("tour_id", "")
+      .populate("user_id", "");
+  } catch (error) {
+    console.log("Get all booking tours servive ", error);
+    throw error;
+  }
+};
+
 // Lấy danh sách tour đã đặt theo Id tour
 const getAllBookingToursByTour = async (tour_id) => {
   try {

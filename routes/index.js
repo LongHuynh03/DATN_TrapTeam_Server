@@ -17,6 +17,10 @@ router.get("/login", function (req, res, next) {
   res.render("login", { title: "Express" });
 });
 
+router.get("/test", function (req, res, next) {
+  res.render("test", { title: "Express" });
+});
+
 router.get('/',async function (req, res, next) {
   try {
     const bookings = await bookingTourController.getAllBookingTours();
@@ -120,7 +124,6 @@ router.get('/',async function (req, res, next) {
 
 // })
 
-// /* TOUR */
 
 // router.get('/tours', async function (req, res, next) {
 //   try {

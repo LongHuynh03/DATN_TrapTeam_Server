@@ -155,7 +155,7 @@
                                                 <th>Giá</th>
                                                 <th>Địa điểm</th>
                                                 <th>Trạng thái</th>
-                                                <th>Ngày tạo</th>
+                                                <th>Ngày Đi</th>
                                                 <th class="bg-none"></th>
                                             </tr>
                                         </thead>
@@ -206,32 +206,7 @@
                                                 </td>
                                                 <td>
                                                     <div>
-                                                        <h5 class="fs-15 font-w500">{{this.created_at}}</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown dropstart">
-                                                        <a href="javascript:void(0);" class="btn-link"
-                                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12Z"
-                                                                    stroke="#262626" stroke-width="2"
-                                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                                                <path
-                                                                    d="M18 12C18 12.5523 18.4477 13 19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12Z"
-                                                                    stroke="#262626" stroke-width="2"
-                                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                                                <path
-                                                                    d="M4 12C4 12.5523 4.44772 13 5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12Z"
-                                                                    stroke="#262626" stroke-width="2"
-                                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                                            </svg>
-                                                        </a>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="/detailTour">Edit</a>
-                                                        </div>
+                                                        <h5 class="fs-15 font-w500">{{this.departure_date}}</h5>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -423,29 +398,6 @@
     const res = await fetch(url, option);
     return res.json();
   }
-  const deleteProduct = async (id) => {
-    const url = `/cpanel/locations/${id}/delete`;
-    const option = {
-      method: 'get',
-      headers: { 'Content-Type': 'application/json' }
-    }
-    try {
-      const result = await fetchAPI(url, option);
-      console.log('Delete Result:', result);
-      if (result) {
-        swal("Delete successfully!", { icon: "success" });
-        setTimeout(function () {
-          window.location.reload();
-        }, 2000);
-
-      } else {
-        swal("Delete failed!", { icon: "error" });
-      }
-
-    } catch (e) {
-      console.log('Delete ERROR:', e);
-    }
-  }
 
   const updatePopular = async (id, is_popular) => {
     const url = `/cpanel/tours/${id}/popular/${is_popular}`;
@@ -455,42 +407,25 @@
     }
     try {
       const result = await fetchAPI(url, option);
-      console.log('update popular Result:', result);
       if (result) {
-        swal("Update popular successfully!", { icon: "success" });
+        swal("Thay đỗi thành công!", { icon: "success" });
         setTimeout(function () {
           window.location.reload();
         }, 2000);
 
       } else {
-        swal("Update popular failed!", { icon: "error" });
+        swal("Thay đổi thất bại!", { icon: "error" });
       }
 
     } catch (e) {
       console.log('Update popular ERROR:', e);
     }
   }
-  const confirmDelete = (id) => {
-    swal({
-      title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this imaginary file!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-      .then((willDelete) => {
-        if (willDelete) {
-
-          deleteProduct(id);
-
-        }
-      });
-  }
-
+  
   const confirmUpdatePopular = (id, is_popular) => {
     swal({
-      title: "Are you sure?",
-      text: "Once update, you will not be able to recover this imaginary file!",
+      title: "Xác nhận thay đổi",
+      text: "",
       icon: "warning",
       buttons: true,
       dangerMode: true,
