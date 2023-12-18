@@ -80,14 +80,14 @@ router.post("/add-tour", [auth.authenWeb], async function (req, res, next) {
     const departureDate = moment(dayStart, "DD/MM/YYYY").toDate();
     const endDate = moment(dayEnd, "DD/MM/YYYY").toDate();
 
-    const province_id = departure_start;
+    const province_id = departure_end;
     const name = name_tour;
     const description = description_tour;
     const available_seats = 50;
     const image = imgUrl;
     const price = price_tour;
     const departure_date = departureDate;
-    const departure_location = departure_end;
+    const departure_location = departure_start;
     const end_date = endDate;
     const schedules = dataArray;
     const locations = locations_tour;
