@@ -1,31 +1,31 @@
 const express = require("express");
 const accountModel = require("./AccountModel");
-const mailer = require('nodemailer');
+const mailer = require("nodemailer");
 
 //Thông tin mail
 const transporter = mailer.createTransport({
   pool: true,
-  host: 'smtp.gmail.com',
+  host: "smtp.gmail.com",
   port: 465,
   secure: true, // use TLS
   auth: {
-      user: 'long09102003hpl@gmail.com',
-      pass: 'czfcbstiilkmvkyk'
+    user: "long09102003hpl@gmail.com",
+    pass: "czfcbstiilkmvkyk",
   },
 });
 
 //Gửi mail
 const sendEmail = async (email, subject, content) => {
   try {
-      const mailOptions = {
-          from: "Huynh Phi Long <long09102003hpl@gmail.com>",
-          to: email,
-          subject: subject,
-          html: content,
-      };
-      return await transporter.sendMail(mailOptions);
+    const mailOptions = {
+      from: "BnB Tour <long09102003hpl@gmail.com>",
+      to: email,
+      subject: subject,
+      html: content,
+    };
+    return await transporter.sendMail(mailOptions);
   } catch (error) {
-      console.log("SendMail error: " + error);
+    console.log("SendMail error: " + error);
   }
   return false;
 };
@@ -33,7 +33,7 @@ const sendEmail = async (email, subject, content) => {
 // Lấy danh sách tài khoản
 const getAllAccounts = async (page, size) => {
   try {
-    return await accountModel.find().sort({_id: -1});
+    return await accountModel.find().sort({ _id: -1 });
   } catch (error) {
     console.log("Get all accounts servive ", error);
     throw error;
