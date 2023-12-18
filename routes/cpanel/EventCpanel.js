@@ -3,9 +3,11 @@ var router = express.Router();
 const eventController = require('../../components/event/EventController');
 const locationController = require('../../components/location/LocationController');
 const provinceController = require('../../components/province/ProvinceController');
+const auth = require('../../midle/Authen');
+const jwt = require('jsonwebtoken');
 
 // //Lấy danh sách event
-router.get('/', async function (req, res, next) {
+router.get('/',[auth.authenWeb], async function (req, res, next) {
     try {
         const events = await eventController.getAllEvents();
         res.render('event/list', { events });
@@ -16,7 +18,7 @@ router.get('/', async function (req, res, next) {
 });
 
 // Lấy danh sách location thêm vào event
-router.get('/add-event', async function (req, res, next) {
+router.get('/add-event',[auth.authenWeb], async function (req, res, next) {
     try {
         const provinces = await provinceController.getAllProvinces();
         res.render('event/add', { provinces });
@@ -27,7 +29,7 @@ router.get('/add-event', async function (req, res, next) {
 });
 
 // Thêm event
-router.post('/add-event', async function (req, res, next) {
+router.post('/add-event',[auth.authenWeb], async function (req, res, next) {
     try {
         let {body} = req;
         let {title, province_id, imgUrl} = body;
@@ -40,7 +42,7 @@ router.post('/add-event', async function (req, res, next) {
 });
 
 // Xóa event
-router.get('/:id/deleted', async function (req, res, next) {
+router.get('/:id/deleted',[auth.authenWeb], async function (req, res, next) {
   try {
     const { id } = req.params;
     await eventController.deleteEvent(id);

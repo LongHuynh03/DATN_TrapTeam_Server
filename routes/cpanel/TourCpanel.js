@@ -5,7 +5,8 @@ const locationController = require('../../components/location/LocationController
 const provinceController = require('../../components/province/ProvinceController');
 const bookingTourController = require('../../components/bookingtour/BookingTourController');
 const moment = require('moment');
-
+const auth = require('../../midle/Authen');
+const jwt = require('jsonwebtoken');
 
 function formatDateString(dateString) {
   const date = new Date(dateString);
@@ -15,7 +16,7 @@ function formatDateString(dateString) {
   return `${day < 10 ? '0' : ''}${day}/${month < 10 ? '0' : ''}${month}/${year}`;
 }
 // //Lấy danh sách tour
-router.get('/', async function (req, res, next) {
+router.get('/',[auth.authenWeb], async function (req, res, next) {
   try {
     const query = await tourController.getAllTours();
     const tours = query.map(tour => {
@@ -48,20 +49,8 @@ router.get('/', async function (req, res, next) {
   }
 });
 
-// // Lấy danh sách địa điểm, tỉnh đổ vào tour, thêm tour (GET)
-// router.get('/create', async function (req, res, next) {
-//   try {
-//     const provinces = await provinceController.getAllProvinces();
-//     const location = await locationController.getAllLocations();
-//     res.render('tour/list', { provinces, location });
-//   } catch (error) {
-//     console.log("Get create tour cpanel error: " + error);
-//     throw error;
-//   }
-// });
-
 // THÊM TOUR
-router.get('/add-tour', async function (req, res, next) {
+router.get('/add-tour',[auth.authenWeb], async function (req, res, next) {
   try {
     const provinces = await provinceController.getAllProvinces();
     const locations = await locationController.getAllLocations();
@@ -71,7 +60,7 @@ router.get('/add-tour', async function (req, res, next) {
   }
 });
 
-router.post('/add-tour', async function (req, res, next) {
+router.post('/add-tour',[auth.authenWeb], async function (req, res, next) {
   try {
     let { body } = req;
     let { name_tour, price_tour, departure_start, departure_end, day_start, day_end, description_tour,  locations_tour, dataArray, imgUrl,  } = body;
@@ -103,7 +92,7 @@ router.post('/add-tour', async function (req, res, next) {
 });
 
 // Cập nhật nổi bật tour
-router.post("/:id/popular/:is_popular", async function (req, res, next) {
+router.post("/:id/popular/:is_popular",[auth.authenWeb], async function (req, res, next) {
   try {
     let { id, is_popular } = req.params;
     await tourController.popularTour(id, is_popular);
@@ -114,57 +103,7 @@ router.post("/:id/popular/:is_popular", async function (req, res, next) {
   }
 });
 
-// Xem chi tiết tour (có danh sách hóa booking tour)
-// router.get('/:id/detailTour', async function (req, res, next) {
-//   try {
-//     let { id } = req.params;
-//     const tour = await tourController.getTourByIdAndLocations(id);
-//     res.render('tour/status', { tour });
-//   } catch (error) {
-//     console.log("Get create tour cpanel error: " + error);
-//     throw error;
-//   }
-// });
-
-// // Thay đổi trạng thái tour
-// router.get('/:id/statusTour', async function (req, res, next) {
-//   try {
-//     let { id } = req.params;
-//     const tour = await tourController.getTourByIdAndLocations(id);
-//     res.render('tour/list', { tour, bookingTour });
-//   } catch (error) {
-//     console.log("Get create tour cpanel error: " + error);
-//     throw error;
-//   }
-// });
-
-// // Thay đổi trạng thái tour
-// router.post('/:id/statusTour', async function (req, res, next) {
-//   try {
-//     const { tour_id } = req.params;
-//     const { status } = req.params;
-//     await tourController.changeStatus(tour_id, status);
-//     res.render('tour/list', { tour, bookingTour });
-//   } catch (error) {
-//     console.log("Change status tour cpanel error: " + error);
-//     throw error;
-//   }
-// });
-
-// // Tour nổi bật
-// router.get('/:id/popular', async function (req, res, next) {
-//   try {
-//     let { id } = req.params;
-//     let { is_popular } = req.body;
-//     await tourController.popularTour(id, is_popular);
-//     return res.json({ status: true });
-//   } catch (error) {
-//     console.log("Popular tour cpanel error: " + error);
-//     return res.json({ status: false });
-//   }
-// });
-
-router.get('/:id', async function (req, res, next) {
+router.get('/:id',[auth.authenWeb], async function (req, res, next) {
   try {
     const { id} = req.params;
     console.log("ID: " + id);

@@ -1,7 +1,8 @@
 var express = require("express");
 var router = express.Router();
 const blogController = require("../../components/blogs/BlogController");
-
+const auth = require('../../midle/Authen');
+const jwt = require('jsonwebtoken');
 
 function formatDateString(dateString) {
   const date = new Date(dateString);
@@ -12,7 +13,7 @@ function formatDateString(dateString) {
 }
 
 //Lấy danh sách bài viết
-router.get("/", async function (req, res, next) {
+router.get("/",[auth.authenWeb], async function (req, res, next) {
   try {
     const query = await blogController.getAllBlogs();
     const blogs = query.map((blog) => {
@@ -38,22 +39,9 @@ router.get("/", async function (req, res, next) {
   }
 });
 
-// //Thay đổi trạng thái blogs
-// router.post('/', async function (req, res, next) {
-//     try {
-//         const { blog_id } = req.params;
-//         const { status } = req.params;
-
-//         await blogController.changeStatus(blog_id, status);
-//         return res.render('/blogs');
-//     } catch (error) {
-//         console.log("Change status blog cpanel: ", error);
-//         throw error;
-//     }
-// });
 
 // // Xóa bài viết
- router.get('/:id/deleted', async function (req, res, next) {
+ router.get('/:id/deleted',[auth.authenWeb], async function (req, res, next) {
     try {
       const { id } = req.params;
       await blogController.deleteBlog(id);
