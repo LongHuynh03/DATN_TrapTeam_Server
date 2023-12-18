@@ -1,5 +1,34 @@
 const express = require("express");
 const accountModel = require("./AccountModel");
+const mailer = require('nodemailer');
+
+//Thông tin mail
+const transporter = mailer.createTransport({
+  pool: true,
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true, // use TLS
+  auth: {
+      user: 'long09102003hpl@gmail.com',
+      pass: 'czfcbstiilkmvkyk'
+  },
+});
+
+//Gửi mail
+const sendEmail = async (email, subject, content) => {
+  try {
+      const mailOptions = {
+          from: "Huynh Phi Long <long09102003hpl@gmail.com>",
+          to: email,
+          subject: subject,
+          html: content,
+      };
+      return await transporter.sendMail(mailOptions);
+  } catch (error) {
+      console.log("SendMail error: " + error);
+  }
+  return false;
+};
 
 // Lấy danh sách tài khoản
 const getAllAccounts = async (page, size) => {
@@ -39,6 +68,16 @@ const getAccountByEmail = async (email) => {
   }
 };
 
+// lấy thông tin tài khoản theo id
+const getAccountById = async (user_id) => {
+  try {
+    return await accountModel.findById(user_id);
+  } catch (error) {
+    console.log("Lấy thông tin tài khoản theo Id service: ", error);
+    return null;
+  }
+};
+
 // api chỉnh sửa thông tin cá nhân
 const updateAccount = async (id, name, phone_number, avatar) => {
   try {
@@ -61,5 +100,7 @@ module.exports = {
   getAllAccounts,
   saveAccount,
   getAccountByEmail,
+  getAccountById,
   updateAccount,
+  sendEmail,
 };

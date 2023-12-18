@@ -129,7 +129,7 @@
                                                     <path
                                                         d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
                                                 </svg>
-                                                <h5 class="fs-15 mb-4 ms-3">{{tour.departure_location.name}}</h5>
+                                                <h5 class="fs-15 mb-4 ms-3">{{tour.departure_location}}</h5>
                                             </div>
                                         </div>
                                         <div class="">
@@ -148,7 +148,17 @@
                                                 <h5 class="fs-15 mb-4 ms-3">{{tour.province_id.name}}</h5>
                                             </div>
                                         </div>
-
+                                        
+                                        <div class="ms-10">
+                                            <p class="fs-12">Địa điểm</p>
+                                            {{#each tour.locations}}
+                                            <div class="d-flex">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M224 208H129.4l241.4-98.7L272 350.6V256c0-26.5-21.5-48-48-48zm-48 48h48v48V432c0 15.3 10.8 28.4 25.8 31.4s30-5.1 35.8-19.3l144-352c4.9-11.9 2.1-25.6-7-34.7s-22.8-11.9-34.7-7l-352 144c-14.2 5.8-22.2 20.8-19.3 35.8s16.1 25.8 31.4 25.8H176z"/></svg>
+                                                <h5 class="fs-15 mb-4 ms-3">{{this.name}}</h5>
+                                            </div>
+                                            {{/each}}
+                                        </div>
+                                        
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <div class="me-5">
@@ -164,7 +174,7 @@
                                             </div>
                                         </div>
                                         <div class="ms-3">
-                                            <p class="fs-12">Còn trống</p>
+                                            <p class="fs-12">Đã đặt</p>
                                             <div class="d-flex">
                                                 <svg xmlns="http://www.w3.org/2000/svg" height="1.5em"
                                                     viewBox="0 0 640 512">
@@ -370,7 +380,7 @@
                                         <tbody>
                                             {{#each bookings}}
                                             {{#if this.role}}
-                                            <span></span>
+                                            {{!-- <span></span> --}}
                                             {{else}}
                                             <tr>
                                                 <td>

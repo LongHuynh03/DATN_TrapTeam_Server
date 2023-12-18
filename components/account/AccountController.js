@@ -44,6 +44,20 @@ const getAccountByEmail = async (email) => {
   }
 };
 
+// Lấy thông tin tài khoản theo email
+const getAccountById = async (user_id) => {
+  try {
+    const account = await accountService.getAccountById(user_id);
+    if (account) {
+      return account;
+    }
+    return null;
+  } catch (error) {
+    console.log("Lấy thông tin tài khoản theo Id controller: ", error);
+    return false;
+  }
+};
+
 // api chỉnh sửa thông tin cá nhân
 const updateAccount = async (id, name, phone_number, avatar) => {
   try {
@@ -63,9 +77,20 @@ const updateAccount = async (id, name, phone_number, avatar) => {
   }
 };
 
+const sendEmail = async (email, subject, content) => {
+  try {
+    return await accountService.sendEmail(email, subject, content);
+  } catch (error) {
+    console.log("Gửi email error: ", error);
+    return false;
+  }
+}
+
 module.exports = {
   getAllAccounts,
   saveAccount,
   getAccountByEmail,
+  getAccountById,
   updateAccount,
+  sendEmail
 };
