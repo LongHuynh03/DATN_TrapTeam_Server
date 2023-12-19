@@ -53,7 +53,7 @@ router.get('/',[auth.authenWeb], async function (req, res, next) {
 router.get('/add-tour',[auth.authenWeb], async function (req, res, next) {
   try {
     const provinces = await provinceController.getAllProvinces();
-    const locations = await locationController.getAllLocations();
+    const locations = await locationController.getAllLocations_web();
     res.render('tour/add', { provinces, locations });
   } catch (error) {
     
