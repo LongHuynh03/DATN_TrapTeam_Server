@@ -20,7 +20,7 @@ const getAllTours = async (page, size) => {
 const getTourHighlight = async (page, size) => {
   try {
     return await tourModel
-      .find({ is_popular: true })
+      .find({ is_popular: true ,  departure_date: { $gte: new Date() }})
       // "_id name price images" là các trường cần lấy ra
       .populate("province_id", "");
   } catch (error) {
@@ -33,7 +33,7 @@ const getTourHighlight = async (page, size) => {
 const getTourByLocation = async (location_id) => {
   try {
     return await tourModel
-      .find({ locations: { $in: [location_id] } })
+      .find({ locations: { $in: [location_id] } ,  departure_date: { $gte: new Date() }})
       .populate("province_id", "");
   } catch (error) {
     console.log("Lấy danh sách tour chứa địa điểm phổ biến service: ", error);
@@ -45,7 +45,7 @@ const getTourByLocation = async (location_id) => {
 const getTourByName = async (name) => {
   try {
     return await tourModel
-      .find({ name: { $regex: name, $options: "i" } })
+      .find({ name: { $regex: name, $options: "i" } ,  departure_date: { $gte: new Date() } })
       .populate("province_id", "");
   } catch (error) {
     console.log("Tìm kiếm tour theo tên service: ", error);
@@ -129,7 +129,7 @@ const getTourByFilter = async (
 // Lấy danh sách tour theo id của tỉnh
 const getTourByProvinceId = async (province_id) => {
   try {
-    return await tourModel.find({ province_id: province_id });
+    return await tourModel.find({ province_id: province_id ,  departure_date: { $gte: new Date() } });
   } catch (error) {
     console.log("Lấy danh sách tour theo id của tỉnh service: ", error);
     throw error;
