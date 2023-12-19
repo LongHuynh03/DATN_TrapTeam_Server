@@ -1,8 +1,8 @@
 const accountService = require("./AccountService");
 
-const getAllAccounts = async (page, size) => {
+const getAllAccounts = async () => {
   try {
-    return (await accountService.getAllAccounts(page, size));
+    return (await accountService.getAllAccounts());
   } catch (error) {
     console.log("Get all accounts controller ", error);
     throw error;

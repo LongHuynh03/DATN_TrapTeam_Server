@@ -9,6 +9,7 @@ const bookingTourController = require("../components/bookingtour/BookingTourCont
 const blogController = require("../components/blogs/BlogController");
 const auth = require('../midle/Authen');
 const jwt = require('jsonwebtoken');
+const adminController = require("../components/admin/AdminController");
 
 /* GET home page. */
 // router.get("/", function (req, res, next) {
@@ -21,10 +22,8 @@ router.get("/login",[auth.authenWeb], function (req, res, next) {
 
 router.post("/login",[auth.authenWeb],async function (req, res, next) {
   const { account, password } = req.body;
-    console.log(">>>>>>>>>>>" +account + ' ' + password);
-
-    if (account=="admin" && password=="111") {
-      console.log("HIHI")
+    const result = await adminController.getAccount(account, password);
+    if (result) {
       const token = jwt.sign({account, password}, 'secret');
       req.session.token = token;
       return res.redirect("/");

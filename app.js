@@ -16,6 +16,7 @@ require("./components/tour/TourModel");
 require("./components/favorite/FavoriteModel");
 require("./components/review/ReviewModel");
 require("./components/bookingtour/BookingTourModel");
+require("./components/admin/AdminModel");
 
 var app = express();
 
