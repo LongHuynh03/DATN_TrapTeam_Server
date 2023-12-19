@@ -99,7 +99,7 @@ const addNewBookingTour = async (
     };
     const bookingtour = new bookingtourModel(newBookingTour);
     await bookingtour.save();
-    return bookingtourModel.findById(bookingtour._id).populate("tour_id", "");
+    return bookingtourModel.findById(bookingtour._id).populate("tour_id", "").populate("location_custom", "");
   } catch (error) {
     console.log("Add new booking tour service ", error);
     throw error;
