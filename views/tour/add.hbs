@@ -125,7 +125,7 @@
                                 <select class="form-select" aria-label="" name="departure_start">
                                     <option selected>Chọn địa điểm</option>
                                     {{#each provinces}}
-                                    <option value="{{this.name}}" >{{this.name}}</option>
+                                    <option value="{{this._id}}" >{{this.name}}</option>
                                     {{/each}}
                                 </select>
                             </div>
@@ -134,7 +134,7 @@
                                 <select class="form-select" aria-label="" name="departure_end">
                                     <option selected>Chọn địa điểm</option>
                                     {{#each provinces}}
-                                    <option value="{{this._id}}">{{this.name}}</option>
+                                    <option value="{{this.name}}">{{this.name}}</option>
                                     {{/each}}
                                 </select>
                             </div>
