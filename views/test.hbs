@@ -158,11 +158,11 @@ background: linear-gradient(0deg, rgba(222,226,230,1) 59%, rgba(255,255,255,1) 5
                                                                                 <td align="center"
                                                                                     class="esd-block-image"
                                                                                     style="font-size: 0px;"><img
-                                                                                            src="${bookingTour.tour_id.image}"
-                                                                                            alt="Brianna Riley Butler"
-                                                                                            style="display: block;"
-                                                                                            width="176"
-                                                                                            title="Brianna Riley Butler">
+                                                                                        src="${bookingTour.tour_id.image}"
+                                                                                        alt="Brianna Riley Butler"
+                                                                                        style="display: block;"
+                                                                                        width="176"
+                                                                                        title="Brianna Riley Butler">
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
@@ -189,8 +189,27 @@ background: linear-gradient(0deg, rgba(222,226,230,1) 59%, rgba(255,255,255,1) 5
                                                                             <tr>
                                                                                 <td align="left"
                                                                                     class="esd-block-text es-m-txt-c">
-                                                                                    <span><b>Điểm đến:</b>  
-                                                                                        ${bookingTour.departure_location}
+                                                                                    <span><b>Điểm đến:</b>
+                                                                                        ${bookingTour.tour_id.departure_location}
+                                                                                    </span>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td align="left"
+                                                                                    class="esd-block-text es-m-txt-c">
+                                                                                    <span><b>Điểm đến:</b>
+                                                                                        {{#if bookingTour.role}}
+                                                                                        {{#each
+                                                                                        bookingTour.location_custom}}
+                                                                                        ${this.name}
+                                                                                        {{/each}}
+                                                                                        <br>
+                                                                                        {{else}}
+                                                                                        {{#each
+                                                                                        bookingTour.tour_id.locations}}
+                                                                                        ${this.name}
+                                                                                        {{/each}}
+                                                                                        {{/if}}
                                                                                     </span>
                                                                                 </td>
                                                                             </tr>
@@ -209,7 +228,8 @@ background: linear-gradient(0deg, rgba(222,226,230,1) 59%, rgba(255,255,255,1) 5
                                                                                                     width="100%"
                                                                                                     class="es-p10t es-p10b es-p5r es-p5l"
                                                                                                     style="padding-top: 20px; padding-bottom: 5px;">
-                                                                                                    <span><b>Số lượng:</b>
+                                                                                                    <span><b>Số
+                                                                                                            lượng:</b>
                                                                                                         ${bookingTour.adult_count}
                                                                                                         người lớn +
                                                                                                         ${bookingTour.child_count}
@@ -235,8 +255,9 @@ background: linear-gradient(0deg, rgba(222,226,230,1) 59%, rgba(255,255,255,1) 5
                                                                                                     width="100%"
                                                                                                     class="es-p10t es-p10b es-p5r es-p5l"
                                                                                                     style="padding-top: 5px; padding-bottom: 5px;">
-                                                                                                    <span><b>Ngày đi:</b>
-                                                                                                        ${formatDateString(bookingTour.departure_date)}
+                                                                                                    <span><b>Ngày
+                                                                                                            đi:</b>
+                                                                                                        ${formatDateString(bookingTour.tour_id.departure_date)}
                                                                                                     </span>
                                                                                                 </td>
                                                                                             </tr>
@@ -259,7 +280,8 @@ background: linear-gradient(0deg, rgba(222,226,230,1) 59%, rgba(255,255,255,1) 5
                                                                                                     width="100%"
                                                                                                     class="es-p10t es-p10b es-p5r es-p5l"
                                                                                                     style="padding-top: 5px; padding-bottom: 5px;">
-                                                                                                    <span><b>Tổng số tiền:</b>
+                                                                                                    <span><b>Tổng số
+                                                                                                            tiền:</b>
                                                                                                         ${bookingTour.price}
                                                                                                     </span>
                                                                                                 </td>
