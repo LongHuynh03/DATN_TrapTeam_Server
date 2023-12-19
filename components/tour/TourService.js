@@ -198,11 +198,12 @@ const createTour = async (
 //Thay đổi trạng thái tour
 const changeStatus = async (tour_id, status) => {
   try {
-    const tour = await tourModel.findById(tour_id);
+    const is_status = status == "true" ? false : true;
+    const tour = await tourModel.findByIdAndUpdate(tour_id, {
+      status: is_status,
+    });
     if (tour) {
-      tour.status = status ? status : tour.status;
-      await tour.save();
-      return tourModel.findById(blog._id);
+      return true;
     }
     return false;
   } catch (error) {
@@ -210,6 +211,7 @@ const changeStatus = async (tour_id, status) => {
     throw error;
   }
 };
+
 
 //Cập nhật nổi bật cho tour
 const popularTour = async (tour_id, is_popular) => {
