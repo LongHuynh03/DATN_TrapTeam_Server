@@ -178,8 +178,8 @@
             console.log(result);
             if (result) {
                 swal({
-                    title: "Success",
-                    text: "Delete Success !!!",
+                    title: "Xóa thành công",
+                    text: "",
                     icon: "success",
                     buttons: true,
                 }).then((willDelete) => {
@@ -188,7 +188,7 @@
                     }
                 });
             } else {
-                alert("Delete Failed!");
+                alert("Xóa thất bại");
             }
         }
         catch (e) {
@@ -197,10 +197,9 @@
     }
 
     const confirmDelete = (id) => {
-        console.log("Delete: " + id);
         swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this imaginary file!",
+            title: "Xác nhận xóa",
+            text: "",
             icon: "warning",
             buttons: true,
             dangerMode: true,

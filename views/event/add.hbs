@@ -3,12 +3,7 @@
     <div class="nav-header">
         <a href="/" class="brand-logo">
             <div class="column">
- <img
-          class="logo-abbr"
-          width="40px"
-          height="45px"
-          src="/images/logo.png"
-        />
+                <img class="logo-abbr" width="40px" height="45px" src="/images/logo.png" />
             </div>
         </a>
         <div class="nav-control">
@@ -101,7 +96,7 @@
     <div class="content-body">
         <!-- row -->
         <div class="container-fluid">
-            <form action="/cpanel/events/add-event" method="post">
+            <form action="/cpanel/events/add-event" method="post" name="formEvent" onsubmit="return(validate());">
                 <div class="row">
                     <div class="col-sm-6 mb-3">
                         <div class="card h-auto mb-2">
@@ -112,7 +107,7 @@
                             <div class="card-body col-sm-12 border-0 pb-0 mb-3">
                                 <span>Địa điểm</span> <br>
                                 <select class="form-select" aria-label="" name="province_id">
-                                    <option selected>Chọn địa điểm</option>
+                                    <option value="" selected>Chọn địa điểm</option>
                                     {{#each provinces}}
                                     <option value="{{this._id}}">{{this.name}}</option>
                                     {{/each}}
@@ -127,21 +122,12 @@
                     </div>
                     <div class="col-sm-6 mb-3">
                         <div class="h-auto mb-3">
-                              <input
-                type="file"
-                name="image"
-                id="file"
-                onchange="displayImg()"
-              />
-              <input type="hidden" name="imgUrl" id="imgUrl">
+                            <input type="file" name="image" id="file" onchange="displayImg()" />
+                            <input type="hidden" name="imgUrl" id="imgUrl">
                         </div>
                         <div class="h-auto mb-3">
-                             <img
-                width="300"
-                height="300"
-                style="margin-left:30px,object-fit: cover; object-position: center;"
-                id="img"
-              />
+                            <img width="300" height="300"
+                                style="margin-left:30px,object-fit: cover; object-position: center;" id="img" />
                         </div>
                     </div>
                 </div>
@@ -154,38 +140,56 @@
 
 
 <script>
-  // hiển thị hình ảnh khi chọn
-  const displayImg = async () => {
-    var file = document.getElementById('file').files[0];
-    var reader = new FileReader();
+    // hiển thị hình ảnh khi chọn
+    const displayImg = async () => {
+        var file = document.getElementById('file').files[0];
+        var reader = new FileReader();
 
-    reader.onload = async function (e) {
-      var image = document.getElementById("img");
-      image.src = e.target.result;
+        reader.onload = async function (e) {
+            var image = document.getElementById("img");
+            image.src = e.target.result;
 
-      // Upload the file to Firebase Storage
-      try {
-        const formData = new FormData();
-        formData.append('image', file);
+            // Upload the file to Firebase Storage
+            try {
+                const formData = new FormData();
+                formData.append('image', file);
 
-        const response = await fetch('https://bnbtour.onrender.com/api/image/upload', {
-          method: 'POST',
-          body: formData,
-        });
+                const response = await fetch('https://bnbtour.onrender.com/api/image/upload', {
+                    method: 'POST',
+                    body: formData,
+                });
 
-        if (response.ok) {
-          const data = await response.json();
-          // Do something with the imageURL from Firebase Storage
-          console.log('Image URL:', data.imageURL);
-          document.getElementById('imgUrl').value = data.imageURL;
-        } else {
-          console.error('Image upload failed:', response.statusText);
+                if (response.ok) {
+                    const data = await response.json();
+                    // Do something with the imageURL from Firebase Storage
+                    console.log('Image URL:', data.imageURL);
+                    document.getElementById('imgUrl').value = data.imageURL;
+                } else {
+                    console.error('Image upload failed:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error uploading image:', error);
+            }
+        };
+
+        reader.readAsDataURL(file);
+    }
+</script>
+<script>
+    function validate() {
+        if (document.formEvent.title.value == "") {
+            alert("Thiếu thông tin sự kiện 1")
+            return false;
         }
-      } catch (error) {
-        console.error('Error uploading image:', error);
-      }
-    };
+        if (document.formEvent.province_id.value == "") {
+            alert("Thiếu thông tin sự kiện 2")
+            return false;
+        }
+        if (document.formEvent.image.value == "") {
+            alert("Thiếu thông tin sự kiện 3")
+            return false;
+        }
 
-    reader.readAsDataURL(file);
-  }
+        return (true);
+    }
 </script>
