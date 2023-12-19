@@ -32,7 +32,6 @@ const authenWeb = (req, res, next) => {
                     } else {
                         //kiểm tra role
                         const {role} = decoded;
-                        console.log('Decoded: ' +decoded);
                         if (role <100){
                             req.session.destroy();
                             return res.redirect('/login');

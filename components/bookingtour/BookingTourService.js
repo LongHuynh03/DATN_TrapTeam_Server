@@ -27,31 +27,6 @@ const getAllBookingToursByUser = async (user_id) => {
   }
 };
 
-// Lấy danh sách tour đã đặt theo mặc định
-const getAllBookingToursByDefault = async (tour_id) => {
-  try {
-    return await bookingtourModel
-      .find({ tour_id: tour_id, role: false })
-      .populate("tour_id", "")
-      .populate("user_id", "");
-  } catch (error) {
-    console.log("Get all booking tours servive ", error);
-    throw error;
-  }
-};
-
-// Lấy danh sách tour đã đặt theo mặc định
-const getAllBookingToursBy = async (tour_id) => {
-  try {
-    return await bookingtourModel
-      .find({ tour_id: tour_id, role: false })
-      .populate("tour_id", "")
-      .populate("user_id", "");
-  } catch (error) {
-    console.log("Get all booking tours servive ", error);
-    throw error;
-  }
-};
 
 // Lấy danh sách tour đã đặt theo Id tour
 const getAllBookingToursByTour = async (tour_id) => {
@@ -61,6 +36,37 @@ const getAllBookingToursByTour = async (tour_id) => {
       .populate("tour_id", "")
       .populate("user_id", "")
       .populate("location_custom", "");
+  } catch (error) {
+    console.log("Get all booking tours servive ", error);
+    throw error;
+  }
+};
+
+// Lấy danh sách tour đã đặt theo ngày
+const getAllBookingToursByDay = async (day, month, year) => {
+  try {
+    if (day < 10) {
+      day = "0" + day;
+    }
+    let dayFind = year + "-" + month + "-" + day;
+    let test1 = "" + dayFind + "T00:00:00.000Z";
+    let test2 = "" + dayFind + "T23:59:00.000Z"
+    let ngayKhoiHanhISO1 = new Date(test1).toISOString();
+    let ngayKhoiHanhISO2 = new Date(test2).toISOString();
+
+    return await bookingtourModel
+      // .aggregate(
+      //   [
+      //     {
+      //       $group: {
+      //         _id: "$created_at",
+      //         Total_price: { $sum: "$price" },
+      //       }
+      //     }
+      //   ]
+      // );
+    .find({$and:[{'created_at': {$gte: ngayKhoiHanhISO1 , $lte: ngayKhoiHanhISO2}}]})
+
   } catch (error) {
     console.log("Get all booking tours servive ", error);
     throw error;
@@ -116,4 +122,5 @@ module.exports = {
   getAllBookingToursByTour,
   addNewBookingTour,
   getAllBookingToursByTourId,
+  getAllBookingToursByDay
 };
