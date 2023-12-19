@@ -1,5 +1,18 @@
 const locationModel = require("./LocationModel");
 
+// Lấy danh sách địa điểm
+const getAllLocationsWeb = async (page, size) => {
+  try {
+    return await locationModel
+      .find({ deleted: false })
+      .populate("province_id", "").
+      sort({ _id: -1 });
+  } catch (error) {
+    console.log("Get all locations servive ", error);
+    throw error;
+  }
+};
+
 // Lấy danh sách địa điểm nổi bật
 const getAllLocations = async (page, size) => {
   try {

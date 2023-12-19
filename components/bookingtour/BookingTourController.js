@@ -31,6 +31,15 @@ const getAllBookingToursByTour = async (tour_id) => {
   }
 };
 
+const getAllBookingToursByDay = async (day,month,year) => {
+  try {
+    return await bookingtourService.getAllBookingToursByDay(day,month,year);
+  } catch (error) {
+    console.log("Get all booking tours by day servive ", error);
+    throw error;
+  }
+};
+
 // Đặt tour
 const addNewBookingTour = async (
   user_id,
@@ -78,5 +87,6 @@ module.exports = {
   getAllBookingToursByUser,
   getAllBookingToursByTour,
   addNewBookingTour,
-  getAllBookingToursByTourId
+  getAllBookingToursByTourId,
+  getAllBookingToursByDay
 };

@@ -5,6 +5,7 @@
 	</div>
 </div> }}
 
+
 <div id="main-wrapper">
 
 	<!--Nav header end-->
@@ -113,7 +114,8 @@
 								<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
 									<div
 										class="income-data d-flex align-items-center justify-content-xl-start justify-content-between mb-xl-0 mb-3">
-										<span class="income-icon style-1 me-4 d-flex justify-content-center align-items-center">
+										<span
+											class="income-icon style-1 me-4 d-flex justify-content-center align-items-center">
 											<svg width="30" height="30" viewBox="0 0 30 30" fill="none"
 												xmlns="http://www.w3.org/2000/svg">
 												<path
@@ -137,7 +139,8 @@
 													<span class="fs-6 font-w500 text-white">Tài khoản đăng
 														ký</span>
 												</div>
-												<span class="income-icon style-2 d-flex justify-content-center align-items-center">
+												<span
+													class="income-icon style-2 d-flex justify-content-center align-items-center">
 													<svg width="34" height="24" viewBox="0 0 34 24" fill="none"
 														xmlns="http://www.w3.org/2000/svg">
 														<path
@@ -158,7 +161,8 @@
 													<h3 class="font-w600 fs-2 mb-0">{{numberTours}}</h3>
 													<span class="fs-6 font-w500">Chuyến du lịch</span>
 												</div>
-												<span class="income-icon style-3 d-flex justify-content-center align-items-center">
+												<span
+													class="income-icon style-3 d-flex justify-content-center align-items-center">
 													<svg xmlns="http://www.w3.org/2000/svg" height="1.5em"
 														viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
 														<path fill="var(--primary)"
@@ -175,10 +179,10 @@
 					{{! <div class="mt }}
           {{! Thống kê hoạt động }}
           <div class=" row">
-						<div class="col-xl-6">
+						<div class="col-xl-9">
 							<div class="card">
 								<div class="card-header border-0 pb-0 flex-wrap">
-									<h3 class="mb-1">Doanh thu tuần này</h3>
+									<h3 class="mb-1">Doanh thu tháng</h3>
 									<div class="card-action coin-tabs mt-3 mt-sm-0">
 									</div>
 								</div>
@@ -202,6 +206,11 @@
 									</div>
 								</div>
 							</div>
+
+							{{!-- <div class="container">
+								<canvas id="myChart"></canvas>
+							</div> --}}
+
 						</div>
 						<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
 							<div class="card availability line">
@@ -222,518 +231,136 @@
 								</div>
 							</div>
 						</div>
-						{{! <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-							<div class="card">
-								<div class="card-header border-0 pb-0">
-									<h3 class="mb-0">Visitor</h3>
-								</div>
-								<div class="card-body pt-2 pb-2">
-									<h2 class="text">12,456</h2>
-									<div id="columnChart" class="crd-coloum"></div>
-								</div>
-							</div>
-						</div> }}
 					</div>
 
 					<div class="row">
-						{{! Danh sách tài khoản }}
-						{{! <div class="col-xl-3">
-							<div class="card">
-								<div class="card-header border-0 pb-0">
-									<h3>Tài khoản</h3>
-									<a href="javascript:void(0);" class="btn btn-primary light btn-sm">Xem thêm</a>
-								</div>
-								<div class="card-body">
-									<div class="flex-column d-block nav-pills gap dz-scroll" id="Customerslist1">
-										<div class="d-flex guest-list mb-4">
-											<img src="images/img1.jpg" alt="image">
-											<div>
-												<h4 class="m-0">Jordyn George</h4>
-												<span class="text-primary">#GS-2234</span>
-											</div>
-										</div>
-										<div class="d-flex guest-list mb-4">
-											<img src="images/img2.jpg" alt="image">
-											<div>
-												<h4 class="m-0">Marilyn Bator</h4>
-												<span class="text-primary">#GS-2234</span>
-											</div>
-										</div>
-										<div class="d-flex guest-list mb-4">
-											<img src="images/img3.jpg" alt="image">
-											<div>
-												<h4 class="m-0">Jaxson Rosser</h4>
-												<span class="text-primary">#GS-2234</span>
-											</div>
-										</div>
-										<div class="d-flex guest-list mb-4">
-											<img src="images/img4.jpg" alt="image">
-											<div>
-												<h4 class="m-0">Davis Culhane</h4>
-												<span class="text-primary">#GS-2234</span>
-											</div>
-										</div>
-										<div class="d-flex guest-list mb-4">
-											<img src="images/img5.jpg" alt="image">
-											<div>
-												<h4 class="m-0">Lydia Westervelt</h4>
-												<span class="text-primary">#GS-2234</span>
-											</div>
-										</div>
-										<div class="d-flex guest-list mb-4">
-											<img src="images/img5.jpg" alt="image">
-											<div>
-												<h4 class="m-0">Lydia Westervelt</h4>
-												<span class="text-primary">#GS-2234</span>
-											</div>
-										</div>
-										<div class="d-flex guest-list">
-											<img src="images/img5.jpg" alt="image">
-											<div>
-												<h4 class="m-0">Lydia Westervelt</h4>
-												<span class="text-primary">#GS-2234</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> }}
-						{{! Danh sách reviews }}
-						{{! <div class="col-xl-9">
-							<div class="card">
-								<div class="card-header border-0 pb-0 flex-wrap">
-									<h3>Nhận xét</h3>
-									<div class="d-flex">
-										<select class="form-control default-select style-1 me-3 ms-0 border">
-											<option>Sắp xếp theo mới nhất</option>
-											<option>Cũ hơn</option>
-											<option>Mới nhất</option>
-										</select>
-										<a href="javascript:void(0);" class="btn btn-primary light text-nowrap">Xem
-											thêm</a>
-									</div>
-								</div>
-								<div class="card-body">
-									<div class="row">
-										<div class="col-xl-4 col-sm-5">
-											<div class="nav review-tab flex-column d-block nav-pills gap dz-scroll mb-3"
-												id="Customerslist2">
-												<a href="#v-pills-bella" data-bs-toggle="pill"
-													class="nav-link active show">
-													<div class="d-flex guest-list">
-														<img src="images/review1.jpg" alt="image">
-														<div>
-															<h4 class="m-0">Bella Morgan</h4>
-															<span>24min ago</span>
-														</div>
-													</div>
-												</a>
-												<a href="#v-pills-louis" data-bs-toggle="pill" class="nav-link">
-													<div class="d-flex guest-list">
-														<img src="images/review2.jpg" alt="image">
-														<div>
-															<h4 class="m-0">Louis Pattinson</h4>
-															<span>24min ago</span>
-														</div>
-													</div>
-												</a>
-												<a href="#v-pills-hans" data-bs-toggle="pill" class="nav-link">
-													<div class="d-flex guest-list">
-														<img src="images/review3.jpg" alt="image">
-														<div>
-															<h4 class="m-0">Hans Takeshi</h4>
-															<span>24min ago</span>
-														</div>
-													</div>
-												</a>
-												<a href="#v-pills-demian" data-bs-toggle="pill" class="nav-link">
-													<div class="d-flex guest-list">
-														<img src="images/review4.jpg" alt="image">
-														<div>
-															<h4 class="m-0">Demian Sarumaha</h4>
-															<span>24min ago</span>
-														</div>
-													</div>
-												</a>
-												<a href="#v-pills-morgan" data-bs-toggle="pill" class="nav-link">
-													<div class="d-flex guest-list">
-														<img src="images/review1.jpg" alt="image">
-														<div>
-															<h4 class="m-0">Bella Morgan</h4>
-															<span>24min ago</span>
-														</div>
-													</div>
-												</a>
-												<a href="#v-pills-morgan1" data-bs-toggle="pill" class="nav-link">
-													<div class="d-flex guest-list">
-														<img src="images/review1.jpg" alt="image">
-														<div>
-															<h4 class="m-0">Bella Morgan</h4>
-															<span>24min ago</span>
-														</div>
-													</div>
-												</a>
-											</div>
-										</div>
-										<div class="col-xl-8 col-sm-7">
-											<div class="tab-content">
-												<div id="v-pills-bella" class="tab-pane r-tab fade active show">
-													<h3 class="font-w500">I love that room service</h3>
-													<ul class="star-review">
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-													</ul>
-													<p class="review-para mt-xl-4 mt-md-3 mt-sm-2 mt-2">
-														We were totally refreshed and rejuvenated for the whole of next
-														year and it was due to the relaxing stay at the hotel. The hotel
-														is absolutely marvelous! We liked absolutely everything,
-														starting from the breakfast through to the perfect room service
-														including the cleanliness and extra services such as
-													</p>
-													<div class="mb-sm-2">
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm ">Great
-															Service</a>
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm mx-xl-3 mx-md-0">Recomended</a>
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm ">Best
-															Price</a>
-													</div>
-													<div
-														class="d-flex align-items-center justify-content-between flex-md-wrap flex-sm-wrap flex-wrap mt-3 mt-sm-5 pt-xl-5 pt-lg-0 mb-0 mb-sm-0">
-														<div class="d-flex guest-list mb-xl-0 mb-md-2 mb-sm-2 mb-2">
-															<img src="images/review1.jpg" alt="image">
-															<div>
-																<h4 class="m-0">Bella Morgan</h4>
-																<span>24min ago</span>
-															</div>
-														</div>
-														<div>
-															<a href="javascript:void(0);"
-																class="btn btn-success border-0 me-sm-3 me-0">Accept
-																<svg class="ms-2" width="20" height="21"
-																	viewBox="0 0 20 21" fill="none"
-																	xmlns="http://www.w3.org/2000/svg">
-																	<path
-																		d="M10 0.5C4.50742 0.5 0 5.00742 0 10.5C0 15.9926 4.50742 20.5 10 20.5C15.4926 20.5 20 15.9926 20 10.5C20 5.00742 15.4926 0.5 10 0.5ZM8.7898 15.0484L4.4107 10.6694L6.06781 9.01227L8.86648 11.8109L14.485 6.70344L16.062 8.43723L8.7898 15.0484Z"
-																		fill="white" />
-																</svg>
-															</a>
-															<a href="javascript:void(0);"
-																class="btn btn-primary border-0">Reject
-																<svg class="ms-2" width="20" height="21"
-																	viewBox="0 0 20 21" fill="none"
-																	xmlns="http://www.w3.org/2000/svg">
-																	<path
-																		d="M10 0.5C4.50742 0.5 0 5.00742 0 10.5C0 15.9926 4.50742 20.5 10 20.5C15.4926 20.5 20 15.9926 20 10.5C20 5.00742 15.4926 0.5 10 0.5ZM14.9719 13.8148L13.3148 15.4719L10 12.1571L6.68523 15.4719L5.02812 13.8148L8.34289 10.5L5.02812 7.18523L6.68523 5.52812L10 8.84289L13.3148 5.52812L14.9719 7.18523L11.6571 10.5L14.9719 13.8148Z"
-																		fill="white" />
-																</svg>
-															</a>
-														</div>
-													</div>
-												</div>
-												<div id="v-pills-louis" class="tab-pane r-tab fade">
-													<h3>I love that room service</h3>
-													<ul class="star-review">
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-													</ul>
-													<p class="review-para mt-xl-4 mt-md-3 mt-sm-2 mt-2">
-														We were totally refreshed and rejuvenated for the whole of next
-														year and it was due to the relaxing stay at the hotel. The hotel
-														is absolutely marvelous! We liked absolutely everything,
-														starting from the breakfast through to the perfect room service
-														including the cleanliness and extra services such as
-													</p>
-													<div class="mb-sm-2">
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm">Great
-															Service</a>
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm mx-xl-3 mx-md-0">Recomended</a>
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm ">Best
-															Price</a>
-													</div>
-													<div
-														class="d-flex align-items-center justify-content-between flex-md-wrap flex-sm-wrap flex-wrap mt-3 mt-sm-5 pt-xl-5 pt-lg-0 mb-3 mb-sm-0">
-														<div class="d-flex guest-list mb-xl-0 mb-md-2 mb-sm-2 mb-2">
-															<img src="images/review2.jpg" alt="image">
-															<div>
-																<h4 class="m-0">Louis Pattinson</h4>
-																<span>24min ago</span>
-															</div>
-														</div>
-														<div>
-															<a href="javascript:void(0);"
-																class="btn btn-success border-0 me-sm-3 me-0">Accept
-																<svg class="ms-2" width="20" height="21"
-																	viewBox="0 0 20 21" fill="none"
-																	xmlns="http://www.w3.org/2000/svg">
-																	<path
-																		d="M10 0.5C4.50742 0.5 0 5.00742 0 10.5C0 15.9926 4.50742 20.5 10 20.5C15.4926 20.5 20 15.9926 20 10.5C20 5.00742 15.4926 0.5 10 0.5ZM8.7898 15.0484L4.4107 10.6694L6.06781 9.01227L8.86648 11.8109L14.485 6.70344L16.062 8.43723L8.7898 15.0484Z"
-																		fill="white" />
-																</svg>
-															</a>
-															<a href="javascript:void(0);"
-																class="btn btn-primary border-0">Reject
-																<svg class="ms-2" width="20" height="21"
-																	viewBox="0 0 20 21" fill="none"
-																	xmlns="http://www.w3.org/2000/svg">
-																	<path
-																		d="M10 0.5C4.50742 0.5 0 5.00742 0 10.5C0 15.9926 4.50742 20.5 10 20.5C15.4926 20.5 20 15.9926 20 10.5C20 5.00742 15.4926 0.5 10 0.5ZM14.9719 13.8148L13.3148 15.4719L10 12.1571L6.68523 15.4719L5.02812 13.8148L8.34289 10.5L5.02812 7.18523L6.68523 5.52812L10 8.84289L13.3148 5.52812L14.9719 7.18523L11.6571 10.5L14.9719 13.8148Z"
-																		fill="white" />
-																</svg>
-															</a>
-														</div>
-													</div>
-												</div>
-												<div id="v-pills-hans" class="tab-pane r-tab fade">
-													<h3>I love that room service</h3>
-													<ul class="star-review">
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-													</ul>
-													<p class="review-para mt-xl-4 mt-md-3 mt-sm-2 mt-2">
-														We were totally refreshed and rejuvenated for the whole of next
-														year and it was due to the relaxing stay at the hotel. The hotel
-														is absolutely marvelous! We liked absolutely everything,
-														starting from the breakfast through to the perfect room service
-														including the cleanliness and extra services such as
-													</p>
-													<div class="mb-sm-2">
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm">Great
-															Service</a>
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm mx-xl-3 mx-md-0">Recomended</a>
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm">Best
-															Price</a>
-													</div>
-													<div
-														class="d-flex align-items-center justify-content-between flex-md-wrap flex-sm-wrap flex-wrap mt-3 mt-sm-5 pt-xl-5 pt-lg-0 mb-0 mb-sm-0">
-														<div class="d-flex guest-list mb-xl-0 mb-md-2 mb-sm-2 mb-2">
-															<img src="images/review3.jpg" alt="image">
-															<div>
-																<h4 class="m-0">Hans Takeshi</h4>
-																<span>24min ago</span>
-															</div>
-														</div>
-														<div>
-															<a href="javascript:void(0);"
-																class="btn btn-success border-0 me-sm-3 me-0">Accept
-																<svg class="ms-2" width="20" height="21"
-																	viewBox="0 0 20 21" fill="none"
-																	xmlns="http://www.w3.org/2000/svg">
-																	<path
-																		d="M10 0.5C4.50742 0.5 0 5.00742 0 10.5C0 15.9926 4.50742 20.5 10 20.5C15.4926 20.5 20 15.9926 20 10.5C20 5.00742 15.4926 0.5 10 0.5ZM8.7898 15.0484L4.4107 10.6694L6.06781 9.01227L8.86648 11.8109L14.485 6.70344L16.062 8.43723L8.7898 15.0484Z"
-																		fill="white" />
-																</svg>
-															</a>
-															<a href="javascript:void(0);"
-																class="btn btn-primary border-0">Reject
-																<svg class="ms-2" width="20" height="21"
-																	viewBox="0 0 20 21" fill="none"
-																	xmlns="http://www.w3.org/2000/svg">
-																	<path
-																		d="M10 0.5C4.50742 0.5 0 5.00742 0 10.5C0 15.9926 4.50742 20.5 10 20.5C15.4926 20.5 20 15.9926 20 10.5C20 5.00742 15.4926 0.5 10 0.5ZM14.9719 13.8148L13.3148 15.4719L10 12.1571L6.68523 15.4719L5.02812 13.8148L8.34289 10.5L5.02812 7.18523L6.68523 5.52812L10 8.84289L13.3148 5.52812L14.9719 7.18523L11.6571 10.5L14.9719 13.8148Z"
-																		fill="white" />
-																</svg>
-															</a>
-														</div>
-													</div>
-												</div>
-												<div id="v-pills-demian" class="tab-pane r-tab fade">
-													<h3>I love that room service</h3>
-													<ul class="star-review">
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-													</ul>
-													<p class="review-para mt-xl-4 mt-md-3 mt-sm-2 mt-2">
-														We were totally refreshed and rejuvenated for the whole of next
-														year and it was due to the relaxing stay at the hotel. The hotel
-														is absolutely marvelous! We liked absolutely everything,
-														starting from the breakfast through to the perfect room service
-														including the cleanliness and extra services such as
-													</p>
-													<div class="mb-sm-2">
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm">Great
-															Service</a>
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm mx-xl-3 mx-md-0">Recomended</a>
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm">Best
-															Price</a>
-													</div>
-													<div
-														class="d-flex align-items-center justify-content-between flex-md-wrap flex-sm-wrap flex-wrap mt-3 mt-sm-5 pt-xl-5 pt-lg-0 mb-0 mb-sm-0">
-														<div class="d-flex guest-list  mb-xl-0 mb-md-2 mb-sm-2 mb-2">
-															<img src="images/review4.jpg" alt="image">
-															<div>
-																<h4 class="m-0">Demian Sarumaha</h4>
-																<span>24min ago</span>
-															</div>
-														</div>
-														<div>
-															<a href="javascript:void(0);"
-																class="btn btn-success border-0 me-sm-3 me-0">Accept
-																<svg class="ms-2" width="20" height="21"
-																	viewBox="0 0 20 21" fill="none"
-																	xmlns="http://www.w3.org/2000/svg">
-																	<path
-																		d="M10 0.5C4.50742 0.5 0 5.00742 0 10.5C0 15.9926 4.50742 20.5 10 20.5C15.4926 20.5 20 15.9926 20 10.5C20 5.00742 15.4926 0.5 10 0.5ZM8.7898 15.0484L4.4107 10.6694L6.06781 9.01227L8.86648 11.8109L14.485 6.70344L16.062 8.43723L8.7898 15.0484Z"
-																		fill="white" />
-																</svg>
-															</a>
-															<a href="javascript:void(0);"
-																class="btn btn-danger border-0">Reject
-																<svg class="ms-2" width="20" height="21"
-																	viewBox="0 0 20 21" fill="none"
-																	xmlns="http://www.w3.org/2000/svg">
-																	<path
-																		d="M10 0.5C4.50742 0.5 0 5.00742 0 10.5C0 15.9926 4.50742 20.5 10 20.5C15.4926 20.5 20 15.9926 20 10.5C20 5.00742 15.4926 0.5 10 0.5ZM14.9719 13.8148L13.3148 15.4719L10 12.1571L6.68523 15.4719L5.02812 13.8148L8.34289 10.5L5.02812 7.18523L6.68523 5.52812L10 8.84289L13.3148 5.52812L14.9719 7.18523L11.6571 10.5L14.9719 13.8148Z"
-																		fill="white" />
-																</svg>
-															</a>
-														</div>
-													</div>
-												</div>
-												<div id="v-pills-morgan" class="tab-pane r-tab fade">
-													<h3>I love that room service</h3>
-													<ul class="star-review">
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-													</ul>
-													<p class="review-para mt-xl-4 mt-md-3 mt-sm-2 mt-2">
-														We were totally refreshed and rejuvenated for the whole of next
-														year and it was due to the relaxing stay at the hotel. The hotel
-														is absolutely marvelous! We liked absolutely everything,
-														starting from the breakfast through to the perfect room service
-														including the cleanliness and extra services such as
-													</p>
-													<div>
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm">Great
-															Service</a>
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm mx-xl-3 mx-md-0">Recomended</a>
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm ">Best
-															Price</a>
-													</div>
-													<div
-														class="d-flex align-items-center justify-content-between flex-md-wrap flex-sm-wrap flex-wrap mt-3 mt-sm-5 pt-xl-5 pt-lg-0 mb-0 mb-sm-0">
-														<div class="d-flex guest-list mb-xl-0 mb-md-2 mb-sm-2 mb-2">
-															<img src="images/review1.jpg" alt="image">
-															<div>
-																<h4 class="m-0">Bella Morgan</h4>
-																<span>24min ago</span>
-															</div>
-														</div>
-														<div>
-															<a href="javascript:void(0);"
-																class="btn btn-success border-0 me-sm-3 me-0">Accept
-																<svg class="ms-2" width="20" height="21"
-																	viewBox="0 0 20 21" fill="none"
-																	xmlns="http://www.w3.org/2000/svg">
-																	<path
-																		d="M10 0.5C4.50742 0.5 0 5.00742 0 10.5C0 15.9926 4.50742 20.5 10 20.5C15.4926 20.5 20 15.9926 20 10.5C20 5.00742 15.4926 0.5 10 0.5ZM8.7898 15.0484L4.4107 10.6694L6.06781 9.01227L8.86648 11.8109L14.485 6.70344L16.062 8.43723L8.7898 15.0484Z"
-																		fill="white" />
-																</svg>
-															</a>
-															<a href="javascript:void(0);"
-																class="btn btn-primary border-0">Reject
-																<svg class="ms-2" width="20" height="21"
-																	viewBox="0 0 20 21" fill="none"
-																	xmlns="http://www.w3.org/2000/svg">
-																	<path
-																		d="M10 0.5C4.50742 0.5 0 5.00742 0 10.5C0 15.9926 4.50742 20.5 10 20.5C15.4926 20.5 20 15.9926 20 10.5C20 5.00742 15.4926 0.5 10 0.5ZM14.9719 13.8148L13.3148 15.4719L10 12.1571L6.68523 15.4719L5.02812 13.8148L8.34289 10.5L5.02812 7.18523L6.68523 5.52812L10 8.84289L13.3148 5.52812L14.9719 7.18523L11.6571 10.5L14.9719 13.8148Z"
-																		fill="white" />
-																</svg>
-															</a>
-														</div>
-													</div>
-												</div>
-												<div id="v-pills-morgan1" class="tab-pane r-tab fade">
-													<h3>I love that room service</h3>
-													<ul class="star-review">
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-													</ul>
-													<p class="review-para mt-xl-4 mt-md-3 mt-sm-2 mt-2">
-														We were totally refreshed and rejuvenated for the whole of next
-														year and it was due to the relaxing stay at the hotel. The hotel
-														is absolutely marvelous! We liked absolutely everything,
-														starting from the breakfast through to the perfect room service
-														including the cleanliness and extra services such as
-													</p>
-													<div class="mb-sm-2">
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm">Great
-															Service</a>
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm mx-xl-3 mx-md-0">Recomended</a>
-														<a href="javascript:void(0);"
-															class="btn btn-dark light border-0 mb-2 btn-sm">Best
-															Price</a>
-													</div>
-													<div
-														class="d-flex align-items-center justify-content-between flex-md-wrap flex-sm-wrap flex-wrap mt-3 mt-sm-5 pt-xl-5 pt-lg-0 mb-0 mb-sm-0">
-														<div class="d-flex guest-list mb-xl-0 mb-md-2 mb-sm-2 mb-2">
-															<img src="images/review1.jpg" alt="image">
-															<div>
-																<h4 class="m-0">Bella Morgan</h4>
-																<span>24min ago</span>
-															</div>
-														</div>
-														<div>
-															<a href="javascript:void(0);"
-																class="btn btn-success border-0 me-sm-3 me-0">Accept
-																<svg class="ms-2" width="20" height="21"
-																	viewBox="0 0 20 21" fill="none"
-																	xmlns="http://www.w3.org/2000/svg">
-																	<path
-																		d="M10 0.5C4.50742 0.5 0 5.00742 0 10.5C0 15.9926 4.50742 20.5 10 20.5C15.4926 20.5 20 15.9926 20 10.5C20 5.00742 15.4926 0.5 10 0.5ZM8.7898 15.0484L4.4107 10.6694L6.06781 9.01227L8.86648 11.8109L14.485 6.70344L16.062 8.43723L8.7898 15.0484Z"
-																		fill="white" />
-																</svg>
-															</a>
-															<a href="javascript:void(0);"
-																class="btn btn-primary border-0">Reject
-																<svg class="ms-2" width="20" height="21"
-																	viewBox="0 0 20 21" fill="none"
-																	xmlns="http://www.w3.org/2000/svg">
-																	<path
-																		d="M10 0.5C4.50742 0.5 0 5.00742 0 10.5C0 15.9926 4.50742 20.5 10 20.5C15.4926 20.5 20 15.9926 20 10.5C20 5.00742 15.4926 0.5 10 0.5ZM14.9719 13.8148L13.3148 15.4719L10 12.1571L6.68523 15.4719L5.02812 13.8148L8.34289 10.5L5.02812 7.18523L6.68523 5.52812L10 8.84289L13.3148 5.52812L14.9719 7.18523L11.6571 10.5L14.9719 13.8148Z"
-																		fill="white" />
-																</svg>
-															</a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> }}
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<script>
+		var reservationChart = function () {
+			var options = {
+				series: [{
+					name: '',
+						 data: [{{chartPrice}}]
+					// data: [listPrice]
+				},],
+				chart: {
+					height: 300,
+					type: 'area',
+					toolbar: {
+						show: false
+					}
+				},
+				colors: ["var(--primary)", "#ff9d43"],
+				dataLabels: {
+					enabled: false
+				},
+				stroke: {
+					width: 6,
+					curve: 'smooth',
+				},
+				legend: {
+					show: false
+				},
+				grid: {
+					borderColor: '#EBEBEB',
+					strokeDashArray: 6,
+				},
+				markers: {
+					strokeWidth: 6,
+					hover: {
+						size: 15,
+					}
+				},
+				yaxis: {
+					labels: {
+						offsetX: -12,
+						style: {
+							colors: '#787878',
+							fontSize: '13px',
+							fontFamily: 'Poppins',
+							fontWeight: 400
+
+						}
+					},
+				},
+				xaxis: {
+					//  categories: ["SUN","MON","TUE","WED","THU","FRI","SAT"],
+					categories: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"],
+					labels: {
+						style: {
+							colors: '#787878',
+							fontSize: '13px',
+							fontFamily: 'Poppins',
+							fontWeight: 400
+
+						},
+					}
+				},
+				fill: {
+					colors: ["var(--rgba-primary-1)", "#ff9d43"],
+					type: "solid",
+					opacity: 0.1
+				},
+				tooltip: {
+					x: {
+						format: 'dd/MM/yy HH:mm'
+					},
+				},
+			};
+
+			var chart = new ApexCharts(document.querySelector("#reservationChart"), options);
+			chart.render();
+
+		}
+		var pieChart1 = function () {
+			var options = {
+				series: [{{numberToursActive}}, {{numberToursFinish}}],
+				chart: {
+					type: 'donut',
+					height: 250,
+				},
+				dataLabels: {
+					enabled: false
+				},
+				stroke: {
+					width: 0,
+				},
+				colors: ['#717579', 'var(--primary)'],
+				legend: {
+					position: 'bottom',
+					show: false
+				},
+				responsive: [{
+					breakpoint: 1601,
+					options: {
+						chart: {
+							height: 200,
+						},
+					}
+				},
+				{
+					breakpoint: 1024,
+					options: {
+						chart: {
+							height: 200,
+						},
+					}
+				}]
+			};
+
+			var chart = new ApexCharts(document.querySelector("#pieChart1"), options);
+			chart.render();
+
+		}
+
+		setTimeout(function () {
+			pieChart1();
+			reservationChart();
+		}, 2000);
+</script>
