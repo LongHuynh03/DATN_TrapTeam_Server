@@ -82,7 +82,10 @@ router.post("/addNewBookingTour", async (req, res) => {
 
 
     if (bookingTour) {
-
+        let listDiaDiem = [];
+        const diaDiem = bookingTour.location_custom.forEach(element => {
+            listDiaDiem += element.name + ", ";
+        });;
       const user = await accountController.getAccountById(user_id);
       let content = `
       <div class="es-wrapper-color">
@@ -284,19 +287,8 @@ background: linear-gradient(0deg, rgba(222,226,230,1) 59%, rgba(255,255,255,1) 5
                                                                             <tr>
                                                                                 <td align="left"
                                                                                     class="esd-block-text es-m-txt-c">
-                                                                                    <span><b>Điểm đến:</b>
-                                                                                        {{#if bookingTour.role}}
-                                                                                        {{#each
-                                                                                        bookingTour.location_custom}}
-                                                                                        ${this.name}
-                                                                                        {{/each}}
-                                                                                        <br>
-                                                                                        {{else}}
-                                                                                        {{#each
-                                                                                        bookingTour.tour_id.locations}}
-                                                                                        ${this.name}
-                                                                                        {{/each}}
-                                                                                        {{/if}}
+                                                                                    <span><b>Các địa điểm:</b>
+                                                                                        ${diaDiem}
                                                                                     </span>
                                                                                 </td>
                                                                             </tr>
