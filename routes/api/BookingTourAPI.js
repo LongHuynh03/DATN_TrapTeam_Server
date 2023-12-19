@@ -288,7 +288,7 @@ background: linear-gradient(0deg, rgba(222,226,230,1) 59%, rgba(255,255,255,1) 5
                                                                                 <td align="left"
                                                                                     class="esd-block-text es-m-txt-c">
                                                                                     <span><b>Các địa điểm:</b>
-                                                                                        ${diaDiem}
+                                                                                        ${listDiaDiem}
                                                                                     </span>
                                                                                 </td>
                                                                             </tr>
