@@ -96,8 +96,8 @@ router.get("/getTourByFilter", async (req, res) => {
     } = req.query;
 
     const tours = await tourController.getTourByFilter(
-      departureLocation,
       locationProvinces,
+      departureLocation,
       minPrice,
       maxPrice,
       is_popular,

@@ -45,7 +45,7 @@ const getTourByLocation = async (location_id) => {
 const getTourByName = async (name) => {
   try {
     return await tourModel
-      .find({ name: { $regex: name, $options: "i" } })
+      .find({ name: { $regex: name, $options: "i" }  })
       .populate("province_id", "");
   } catch (error) {
     console.log("Tìm kiếm tour theo tên service: ", error);
@@ -129,7 +129,7 @@ const getTourByFilter = async (
 // Lấy danh sách tour theo id của tỉnh
 const getTourByProvinceId = async (province_id) => {
   try {
-    return await tourModel.find({ province_id: province_id });
+    return await tourModel.find({ province_id: province_id ,  departure_date: { $gte: new Date() } });
   } catch (error) {
     console.log("Lấy danh sách tour theo id của tỉnh service: ", error);
     throw error;
@@ -198,11 +198,12 @@ const createTour = async (
 //Thay đổi trạng thái tour
 const changeStatus = async (tour_id, status) => {
   try {
-    const tour = await tourModel.findById(tour_id);
+    const is_status = status == "true" ? false : true;
+    const tour = await tourModel.findByIdAndUpdate(tour_id, {
+      status: is_status,
+    });
     if (tour) {
-      tour.status = status ? status : tour.status;
-      await tour.save();
-      return tourModel.findById(blog._id);
+      return true;
     }
     return false;
   } catch (error) {
@@ -210,6 +211,7 @@ const changeStatus = async (tour_id, status) => {
     throw error;
   }
 };
+
 
 //Cập nhật nổi bật cho tour
 const popularTour = async (tour_id, is_popular) => {
