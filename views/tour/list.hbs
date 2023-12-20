@@ -111,7 +111,7 @@
         <div class="container-fluid">
             <div class=" d-block d-lg-flex align-items-center justify-content-between mb-5">
                 {{!-- Tất cả, Đang diễn ra, Đã xong --}}
-                <div class="coin-tabs">
+                {{!-- <div class="coin-tabs">
                     <ul class="nav nav-tabs " id="ListViewTabLink" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="all-status-tab" data-bs-toggle="tab"
@@ -128,7 +128,7 @@
                                 type="button" role="tab" aria-controls="soldout" aria-selected="false">Đã xong</button>
                         </li>
                     </ul>
-                </div>
+                </div> --}}
                 {{!-- Thêm tour --}}
                 <div class="form-head d-inline-block d-sm-flex align-items-center mt-2 mt-lg-0">
                     <div class="align-items-center justify-content-center">
@@ -198,9 +198,9 @@
                                                 <td>
                                                     <div>
                                                         {{#if this.status}}
-                                                        <span class="btn btn-success btn-sm">Đang diễn ra</span>
+                                                        <span onclick="confirmUpdateStatus('{{this._id}}', {{this.status}})" class="btn btn-success btn-sm">Đang diễn ra</span>
                                                         {{else}}
-                                                        <span class="btn btn-danger btn-sm">Đã xong</span>
+                                                        <span onclick="confirmUpdateStatus('{{this._id}}', {{this.status}})" class="btn btn-danger btn-sm">Đã xong</span>
                                                         {{/if}}
                                                     </div>
                                                 </td>
@@ -417,6 +417,44 @@
       .then((willUpdate) => {
         if (willUpdate) {
           updatePopular(id, is_popular);
+        }
+      });
+  }
+
+   const updateStatus = async (id, status) => {
+    const url = `/cpanel/tours/${id}/status/${status}`;
+    const option = {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+      const result = await fetchAPI(url, option);
+      if (result) {
+        swal("Thay đỗi thành công!", { icon: "success" });
+        setTimeout(function () {
+          window.location.reload();
+        }, 2000);
+
+      } else {
+        swal("Thay đổi thất bại!", { icon: "error" });
+      }
+
+    } catch (e) {
+      console.log('Update status ERROR:', e);
+    }
+  }
+
+   const confirmUpdateStatus = (id, status) => {
+    swal({
+      title: "Xác nhận thay đổi",
+      text: "",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willUpdate) => {
+        if (willUpdate) {
+          updateStatus(id, status);
         }
       });
   }

@@ -103,6 +103,18 @@ router.post("/:id/popular/:is_popular",[auth.authenWeb], async function (req, re
   }
 });
 
+// Cập nhật status tour
+router.post("/:id/status/:status",[auth.authenWeb], async function (req, res, next) {
+  try {
+    let { id, status } = req.params;
+    await tourController.changeStatus(id, status);
+    return res.json({ status: true });
+  } catch (error) {
+    console.log("Change status tour cpanel error: " + error);
+    return res.json({ status: false });
+  }
+});
+
 router.get('/:id',[auth.authenWeb], async function (req, res, next) {
   try {
     const { id} = req.params;

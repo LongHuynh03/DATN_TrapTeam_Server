@@ -279,7 +279,7 @@ background: linear-gradient(0deg, rgba(222,226,230,1) 59%, rgba(255,255,255,1) 5
                                                                             <tr>
                                                                                 <td align="left"
                                                                                     class="esd-block-text es-m-txt-c">
-                                                                                    <span><b>Điểm đến:</b>
+                                                                                    <span><b>Điểm đi:</b>
                                                                                         ${bookingTour.tour_id.departure_location}
                                                                                     </span>
                                                                                 </td>
@@ -287,7 +287,7 @@ background: linear-gradient(0deg, rgba(222,226,230,1) 59%, rgba(255,255,255,1) 5
                                                                             <tr>
                                                                                 <td align="left"
                                                                                     class="esd-block-text es-m-txt-c">
-                                                                                    <span><b>Các địa điểm:</b>
+                                                                                    <span><b>Các địa điểm tham quan:</b>
                                                                                         ${listDiaDiem}
                                                                                     </span>
                                                                                 </td>
