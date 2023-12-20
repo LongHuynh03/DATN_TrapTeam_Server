@@ -137,7 +137,7 @@
                                                 <td>  <div class="button-bx mt-2 mt-xl-0">
                                        
                                         <button onclick="confirmDelete('{{this._id}}');" class="btn btn-primary ms-sm-3 ms-0">
-                                            Xoá
+                                            Ẩn
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -178,8 +178,8 @@
             console.log(result);
             if (result) {
                 swal({
-                    title: "Thành công",
-                    text: "Xoá thành công !!!",
+                    title: "Xóa thành công",
+                    text: "",
                     icon: "success",
                     buttons: true,
                 }).then((willDelete) => {
@@ -188,19 +188,18 @@
                     }
                 });
             } else {
-                alert("Xoá thất bại!");
+                alert("Xóa thất bại");
             }
         }
         catch (e) {
-            console.log("Xoá thất bại: " + e);
+            console.log("Delete failed: " + e);
         }
     }
 
     const confirmDelete = (id) => {
-        console.log("Xoá: " + id);
         swal({
-            title: "Bạn có chắc không?",
-            text: "Sau khi xoá, bạn sẽ không thể khôi phục bài viết này!",
+            title: "Xác nhận xóa",
+            text: "",
             icon: "warning",
             buttons: true,
             dangerMode: true,

@@ -100,7 +100,7 @@
 
     <div class="content-body">
         <!-- row -->
-          <form action="/cpanel/tours/add-tour" method="post">
+          <form action="/cpanel/tours/add-tour" method="post" name="formTour" onsubmit="return(validate());">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6 mb-3">
@@ -123,7 +123,7 @@
                             <div class="col-sm-6 border-0 pb-0">
                                 <span>Điểm khởi hành</span> <br>
                                 <select class="form-select" aria-label="" name="departure_start">
-                                    <option selected>Chọn địa điểm</option>
+                                    <option value="" selected>Chọn địa điểm</option>
                                     {{#each provinces}}
                                     <option value="{{this.name}}" >{{this.name}}</option>
                                     {{/each}}
@@ -132,7 +132,7 @@
                             <div class="col-sm-6 border-0 pb-0">
                                 <span>Điểm đến</span> <br>
                                 <select class="form-select" aria-label="" name="departure_end">
-                                    <option selected>Chọn địa điểm</option>
+                                    <option value="" selected>Chọn địa điểm</option>
                                     {{#each provinces}}
                                     <option value="{{this._id}}">{{this.name}}</option>
                                     {{/each}}
@@ -290,5 +290,52 @@
     };
 
     reader.readAsDataURL(file);
+  }
+</script>
+
+<script>
+  function validate(){
+    if (document.formTour.name_tour.value == ""){
+      alert("Thiếu thông tin chuyến đi")
+      return false;
+    }
+    if (document.formTour.price_tour.value == ""){
+      alert("Thiếu thông tin chuyến đi")
+      return false;
+    }
+    if (document.formTour.departure_start.value == ""){
+      alert("Thiếu thông tin chuyến đi")
+      return false;
+    }
+    if (document.formTour.departure_end.value == ""){
+      alert("Thiếu thông tin chuyến đi")
+      return false;
+    }
+    if (document.formTour.locations_tour.value == ""){
+      alert("Thiếu thông tin chuyến đi")
+      return false;
+    }
+    if (document.formTour.day_start.value == ""){
+      alert("Thiếu thông tin chuyến đi")
+      return false;
+    }
+    if (document.formTour.day_end.value == ""){
+      alert("Thiếu thông tin chuyến đi")
+      return false;
+    }
+    if (document.formTour.description_tour.value == ""){
+      alert("Thiếu thông tin chuyến đi")
+      return false;
+    }
+    if (document.formTour.dataArray.value == ""){
+      alert("Thiếu thông tin chuyến đi")
+      return false;
+    }
+    if (document.formTour.image.value == ""){
+      alert("Thiếu thông tin chuyến đi")
+      return false;
+    }
+
+    return (true);
   }
 </script>
