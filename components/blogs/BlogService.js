@@ -16,7 +16,7 @@ const getAllBlogsByUserId = async (user_id) => {
       // exists là kiểm tra xem có bài viết nào do user đăng hay chưa
       // trả về true nghĩa là user đã có bài viết và sẽ trả về mảng chứa các bài viết do user đó đăng
       // trả về false nghĩa là user chưa bài viết nên sẽ trả về mảng rỗng
-      return await blogModel.find({ user_id }).populate("user_id", "");
+      return await blogModel.find({ user_id }).populate("user_id", "").sort({ _id: -1 });
     }
     return [];
   } catch (error) {
